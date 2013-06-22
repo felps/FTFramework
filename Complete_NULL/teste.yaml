@@ -1,0 +1,39 @@
+---
+name : date_inicial
+duration : 60
+binary: Linux_i686
+inputfile: /home/aluno/FelipePontes/integrade/integrade/tools/asct/classes/date
+outputfile: /home/aluno/FelipePontes/output
+dependencies:
+---
+name : splitter
+duration : 60
+binary: Linux_i686
+inputfile: /home/aluno/FelipePontes/integrade/integrade/tools/asct/classes/fastaSplitter4Files
+outputfile: /home/aluno/FelipePontes/output
+dependencies:
+ - date_inicial
+---
+name : blast
+duration : 60
+binary: Linux_i686
+inputfile: /home/aluno/FelipePontes/integrade/integrade/tools/asct/classes/blast
+outputfile: /home/aluno/FelipePontes/output
+dependencies:
+ - splitter
+---
+name : unifier 
+duration : 60
+binary: Linux_i686
+inputfile: /home/aluno/FelipePontes/integrade/integrade/tools/asct/classes/fastaUnifier4Files
+outputfile: /home/aluno/FelipePontes/output
+dependencies:
+ - blast
+---
+name : date_final
+duration : 60
+binary: Linux_i686
+inputfile: /home/aluno/FelipePontes/integrade/integrade/tools/asct/classes/date
+outputfile: /home/aluno/FelipePontes/output
+dependencies:
+ - unifier

@@ -1,0 +1,8 @@
+This module tests the execution of the matrix BSP application on InteGrade.
+
+To run the test, you must configure the file scripts/host.lst in order to set the nodes where the LRMs should be launched.
+All the machines in the host.lst must share the same path do the integrade home (IG_HOME environment variable).
+
+The test suposes that the machines are configured with the user public keys to allow automatic logins.
+
+After that, execute the command ./runit (you must execute it inside the classes directory).

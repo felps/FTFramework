@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<project name="IntegradeClientJar" default="do" basedir=".">
+
+	<property environment="env" />
+    <property name="integrade.home" value="${env.IG_HOME}"/>
+    <property name="temp.dir" value="${basedir}/tempClientJar"/>
+	
+	<!-- Asct -->
+    <property name="asct.dir" value="${integrade.home}/tools/asct/classes"/>
+
+	<!-- Security -->
+	<property name="arsc.dir" value="${integrade.home}/shared/arsc/java/classes"/>
+    <property name="arsm.dir" value="${integrade.home}/clusterManagement/arsm/classes"/>
+    
+	<!-- Idl generated -->
+	<property name="idl.dir" value="${integrade.home}/clusterManagement/grm/classes/"/>
+
+
+  <!-- =================================================================== -->
+  <!-- Create the jar                                                      -->
+  <!-- =================================================================== -->
+
+  <target name="do" >
+  	<echo message="Creating Jar using classes of the following sources:"/>
+  	<echo message="== ASCT =="/>
+  	<echo message="${asct.dir}"/>
+  	<echo message="== SECURITY =="/>
+  	<echo message="${arsc.dir}"/> 
+  	<echo message="${arsm.dir}"/>
+  	<echo message="== IDL GENERATED =="/>
+  	<echo message="${idl.dir}"/>
+  	
+  	<jar destfile="integradeClientAPI.jar" >
+        <fileset dir="${asct.dir}" 
+        	includes="asct/**"
+        	excludes="**/*.java asct/ui/*"
+        />
+  	  
+        <fileset dir="${arsc.dir}" includes="arsc/** clusterManagement/**" excludes="**/*.java" />
+        <fileset dir="${arsm.dir}" includes="arsm/**" excludes="**/*.java" />
+        <fileset dir="${idl.dir}" 
+        	includes="clusterManagement/** dataTypes/** resourceProviders/** tools/**" 
+        	excludes="**/*.java" 
+        />
+  		
+  	</jar>
+  	
+  </target>
+
+</project>
+

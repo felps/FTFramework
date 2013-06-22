@@ -1,0 +1,9 @@
+package ftsm;
+
+import java.util.ArrayList;
+
+
+public class Ftsm {
+	//public ArrayList<Property[]> getLrmInformation(String constraints, String preferences, String[] propertiesSpecification) {
+		
+}

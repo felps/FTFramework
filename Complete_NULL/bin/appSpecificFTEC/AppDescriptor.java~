@@ -1,0 +1,92 @@
+package appSpecificFTEC;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import org.yaml.snakeyaml.Yaml;
+
+import defaultTypes.Task;
+import defaultTypes.Workflow;
+
+public class AppDescriptor {
+String			appType ;
+String			appName ;
+String 			applicationBasePath;
+String 			binaries;
+String 			appConstraints; 
+String 			appPreferences; 
+String 			appArgs;
+HashSet<String> inputFile; 
+HashSet<String> outputFile;
+String 		shouldForceDifferentMachines;
+
+	public AppDescriptor(String filename) {
+
+		InputStream input = null;
+		try {
+			input = new FileInputStream(new File(filename));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return;
+		}
+
+	    this.appType = readlineWithoutArgs(input);
+	    this.appName = readlineWithoutArgs(input);
+	    this.applicationBasePath = readlineWithoutArgs(input);
+	    this.binaries = readlineWithoutArgs(input);
+	    this.appConstraints = readlineWithoutArgs(input);
+	    this.appPreferences = readlineWithoutArgs(input);
+		this.appArgs = readlineWithoutArgs(input);
+	    String line = readline(input);
+	    while("inputFile".contentEquals(line.substring(0, "inputFile".length()-1 ) ) ){
+			this.inputFile.add(line.substring( "inputFile".length(), line.length()-1)) ;
+			line = readline(input);
+		}
+	    while("outputFile".contentEquals(line.substring(0, "outputFile".length()-1 ) ) ){
+			this.outputFile.add(line.substring( "outputFile".length(), line.length()-1)) ;;
+			line = readline(input);
+		}
+		this.shouldForceDifferentMachines = readlineWithoutArgs(input);
+	}
+
+	private String readline(InputStream input) {
+		String out = "";
+		
+		int nextChar;
+		try {
+			nextChar = input.read();
+		
+			while (nextChar != 10 && nextChar != 13){
+				out = out + (char) nextChar;
+				nextChar = input.read();
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return out;
+	}
+
+	private String readlineWithoutArgs(InputStream input) {
+
+		String line = readline(input);
+		
+		String [] words = line.split(" ");
+		
+		// Ignore the first word
+		// Concatenate the others back
+		String out = "";
+		for (int i = 1; i< words.length; i++){
+			out = out + " " + words[i];
+		}
+			
+		return out;
+	}
+}

@@ -1,0 +1,5 @@
+On bash, run the "run" script.
+
+In Eclipse, run project automaticTests as JUnit Test. Make sure that you have run
+$java -jar $IG_HOME/automaticTests/lib/selenium-server.jar
+before running portalTests 

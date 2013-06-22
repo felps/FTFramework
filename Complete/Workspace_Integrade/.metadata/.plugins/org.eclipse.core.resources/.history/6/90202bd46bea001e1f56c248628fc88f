@@ -1,0 +1,115 @@
+package clusterManagement;
+
+
+/**
+ *	Generated from IDL interface "CkpReposManager"
+ *	@author JacORB IDL compiler V 2.2.3, 10-Dec-2005
+ */
+
+public class _CkpReposManagerStub
+	extends org.omg.CORBA.portable.ObjectImpl
+	implements clusterManagement.CkpReposManager
+{
+	private String[] ids = {"IDL:clusterManagement/CkpReposManager:1.0"};
+	public String[] _ids()
+	{
+		return ids;
+	}
+
+	public final static java.lang.Class _opsClass = clusterManagement.CkpReposManagerOperations.class;
+	public void setCheckpointStored(java.lang.String executionId, java.lang.String checkpointKey, int checkpointNumber)
+	{
+		while(true)
+		{
+		if(! this._is_local())
+		{
+			org.omg.CORBA.portable.InputStream _is = null;
+			try
+			{
+				org.omg.CORBA.portable.OutputStream _os = _request( "setCheckpointStored", true);
+				_os.write_string(executionId);
+				_os.write_string(checkpointKey);
+				_os.write_long(checkpointNumber);
+				_is = _invoke(_os);
+				return;
+			}
+			catch( org.omg.CORBA.portable.RemarshalException _rx ){}
+			catch( org.omg.CORBA.portable.ApplicationException _ax )
+			{
+				String _id = _ax.getId();
+				throw new RuntimeException("Unexpected exception " + _id );
+			}
+			finally
+			{
+				this._releaseReply(_is);
+			}
+		}
+		else
+		{
+			org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke( "setCheckpointStored", _opsClass );
+			if( _so == null )
+				throw new org.omg.CORBA.UNKNOWN("local invocations not supported!");
+			CkpReposManagerOperations _localServant = (CkpReposManagerOperations)_so.servant;
+			try
+			{
+			_localServant.setCheckpointStored(executionId,checkpointKey,checkpointNumber);
+			}
+			finally
+			{
+				_servant_postinvoke(_so);
+			}
+			return;
+		}
+
+		}
+
+	}
+
+	public clusterManagement.CheckpointingInformation getCheckpointingInformation(java.lang.String executionId)
+	{
+		while(true)
+		{
+		if(! this._is_local())
+		{
+			org.omg.CORBA.portable.InputStream _is = null;
+			try
+			{
+				org.omg.CORBA.portable.OutputStream _os = _request( "getCheckpointingInformation", true);
+				_os.write_string(executionId);
+				_is = _invoke(_os);
+				clusterManagement.CheckpointingInformation _result = clusterManagement.CheckpointingInformationHelper.read(_is);
+				return _result;
+			}
+			catch( org.omg.CORBA.portable.RemarshalException _rx ){}
+			catch( org.omg.CORBA.portable.ApplicationException _ax )
+			{
+				String _id = _ax.getId();
+				throw new RuntimeException("Unexpected exception " + _id );
+			}
+			finally
+			{
+				this._releaseReply(_is);
+			}
+		}
+		else
+		{
+			org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke( "getCheckpointingInformation", _opsClass );
+			if( _so == null )
+				throw new org.omg.CORBA.UNKNOWN("local invocations not supported!");
+			CkpReposManagerOperations _localServant = (CkpReposManagerOperations)_so.servant;
+			clusterManagement.CheckpointingInformation _result;			try
+			{
+			_result = _localServant.getCheckpointingInformation(executionId);
+			}
+			finally
+			{
+				_servant_postinvoke(_so);
+			}
+			return _result;
+		}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,23 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of struct "NodeDynamicHistograms"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class NodeDynamicHistograms
+	implements org.omg.CORBA.portable.IDLEntity
+{
+	public NodeDynamicHistograms(){}
+	public dataTypes.Histogram freeRam;
+	public dataTypes.Histogram freeSwap;
+	public dataTypes.Histogram freeDiskSpace;
+	public dataTypes.Histogram cpuUsage;
+	public NodeDynamicHistograms(dataTypes.Histogram freeRam, dataTypes.Histogram freeSwap, dataTypes.Histogram freeDiskSpace, dataTypes.Histogram cpuUsage)
+	{
+		this.freeRam = freeRam;
+		this.freeSwap = freeSwap;
+		this.freeDiskSpace = freeDiskSpace;
+		this.cpuUsage = cpuUsage;
+	}
+}

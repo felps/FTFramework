@@ -1,0 +1,33 @@
+#!/bin/bash
+
+JUNIT_JAR="/usr/share/java/junit4.jar"
+
+TESTS="
+    asct.ui.ASCTControllerTest
+    asct.ui.ExecutionRequestDescriptorCompositeTest
+    grm.ComparableTaskTest
+    grm.TaskQueueTest
+#    portalTests.PortalActionsCaseTest
+"
+MYCLASSPATH="
+    $JUNIT_JAR
+    $IG_HOME/clusterManagement/grm/classes
+    $IG_HOME/tools/asct/classes
+    $IG_HOME/automaticTests/classes
+"
+#$IG_HOME/automaticTests/lib/selenium-java-client-driver.jar
+
+
+## END Configuration ##
+
+MYCLASSPATH=`echo $MYCLASSPATH | tr " " :`
+
+echo ">>>>>>>>>>>>>>>>>>>>" >> tests.log
+
+# beginning selenium server
+#java -jar $IG_HOME/automaticTests/lib/selenium-server.jar >> tests.log &
+
+java -cp $MYCLASSPATH org.junit.runner.JUnitCore $TESTS 2>> tests.log
+
+# ending selenium server
+#kill `ps aux | grep selenium-server.ja[r] | tr -s ' ' | cut -f2 -d' '`

@@ -1,0 +1,23 @@
+#!/bin/bash
+bspLib=/home/fabio/ic/integrade/libs/bspLib/
+libLuaPath=/home/fabio/ic/lua-5.1.1/lib/
+printHelp(){
+  echo "bspcc - compiles a c program that uses the InteGrade BSP library"
+  echo "usage: bspcc <compiler_parameters>"
+
+
+}
+
+if [ "${#}" -eq "0" ]; then
+  printHelp;
+fi
+
+
+gcc   -I${bspLib}/include \
+      -L${bspLib}/lib \
+      -L${libLuaPath} \
+      -Wl,-rpath,${bspLib}/lib \
+      -Wl,-rpath,${libLuauaPath} \
+      -lm -llua -lpthread -lbsp -ldl\
+      "$@" 
+

@@ -1,0 +1,613 @@
+#
+# An unexpected error has been detected by HotSpot Virtual Machine:
+#
+#  SIGSEGV (0xb) at pc=0xb7937873, pid=6359, tid=2858548128
+#
+# Java VM: Java HotSpot(TM) Client VM (1.5.0_01-b08 mixed mode)
+# Problematic frame:
+# V  [libjvm.so+0x271873]
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x080b5888):  VMThread [id=6360]
+
+siginfo:si_signo=11, si_errno=0, si_code=1, si_addr=0x00000068
+
+Registers:
+EAX=0x00000000, EBX=0xb79fc5a8, ECX=0x081dcc0c, EDX=0x08856754
+ESP=0xaa61ef60, EBP=0xaa61ef88, ESI=0x00000058, EDI=0xaee9f018
+EIP=0xb7937873, CR2=0x00000068, EFLAGS=0x00010292
+
+Top of Stack: (sp=0xaa61ef60)
+0xaa61ef60:   aee9f018 b79fc5a8 aa61ef88 b7937865
+0xaa61ef70:   44444444 405a0444 00000000 b79fc5a8
+0xaa61ef80:   0805c5f8 b79f2a60 aa61efc8 b7944432
+0xaa61ef90:   aa61f010 b79e0c9c 00000000 00000000
+0xaa61efa0:   0805b740 00000000 00000001 00000001
+0xaa61efb0:   b79a9e59 b79fc5a8 aa61f048 b79fc5a8
+0xaa61efc0:   a9b0c420 00000001 aa61f048 b79a8161
+0xaa61efd0:   b7f5eff4 aa61fba0 00000003 aa61f010 
+
+Instructions: (pc=0xb7937873)
+0xb7937863:   02 00 85 c0 74 14 83 ec 0c 8d 78 08 8b 40 08 57
+0xb7937873:   ff 50 68 83 c4 10 85 c0 75 16 46 56 db 04 24 dd 
+
+Stack: [0xaa59f000,0xaa620000),  sp=0xaa61ef60,  free space=511k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x271873]
+V  [libjvm.so+0x27e432]
+V  [libjvm.so+0x2e2161]
+V  [libjvm.so+0x2e1d80]
+V  [libjvm.so+0x255178]
+C  [libpthread.so.0+0x5504]
+
+VM_Operation (0xa9b0c420): generation collection for allocation, mode: safepoint, requested by thread 0x08895a18
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x080979d8 JavaThread "process reaper" daemon [_thread_in_native, id=6570]
+  0x08213510 JavaThread "process reaper" daemon [_thread_in_native, id=6544]
+  0x082121e8 JavaThread "Thread-50" daemon [_thread_blocked, id=6543]
+  0x082103f0 JavaThread "Thread-49" daemon [_thread_blocked, id=6542]
+  0x0820f160 JavaThread "RequestProcessor-5" daemon [_thread_blocked, id=6530]
+  0x0820e2a0 JavaThread "RequestProcessor-4" daemon [_thread_blocked, id=6529]
+  0x0821f4f8 JavaThread "RequestProcessor-3" daemon [_thread_blocked, id=6528]
+  0x0821e7f8 JavaThread "RequestProcessor-2" daemon [_thread_blocked, id=6527]
+  0x0821e370 JavaThread "RequestProcessor-1" daemon [_thread_blocked, id=6526]
+  0x0821c720 JavaThread "Thread-48" daemon [_thread_in_native, id=6525]
+  0x08319018 JavaThread "Thread-47" daemon [_thread_in_native, id=6509]
+  0xa53acbe0 JavaThread "Thread-45" daemon [_thread_in_native, id=6506]
+  0x08204258 JavaThread "RequestController-1" daemon [_thread_blocked, id=6504]
+  0x08287688 JavaThread "Thread-43" daemon [_thread_in_native, id=6503]
+  0xa9950ef8 JavaThread "Thread-42" daemon [_thread_blocked, id=6502]
+  0xa9951640 JavaThread "Thread-40" daemon [_thread_in_native, id=6500]
+  0x08188bb8 JavaThread "Timer-2" daemon [_thread_blocked, id=6499]
+  0x08143398 JavaThread "Timer-1" daemon [_thread_blocked, id=6498]
+  0x083b1c58 JavaThread "Store org.gridlab.gridsphere.portlet.PortletGroup.PortletRoleList Expiry Thread" daemon [_thread_blocked, id=6497]
+  0x083b1520 JavaThread "Store org.gridlab.gridsphere.portlet.PortletGroup.PortletRoleList Spool Thread" daemon [_thread_blocked, id=6496]
+  0x083b05e8 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletUserImpl.attributes Expiry Thread" daemon [_thread_blocked, id=6495]
+  0x083af6b0 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletUserImpl.attributes Spool Thread" daemon [_thread_blocked, id=6494]
+  0x083ae778 JavaThread "Store org.gridlab.gridsphere.portlet.jsrimpl.PersistencePreferenceAttribute Expiry Thread" daemon [_thread_blocked, id=6493]
+  0x083ad840 JavaThread "Store org.gridlab.gridsphere.portlet.jsrimpl.PersistencePreferenceAttribute Spool Thread" daemon [_thread_blocked, id=6492]
+  0x083ac908 JavaThread "Store org.gridlab.gridsphere.services.core.tracker.impl.TrackerInfo Expiry Thread" daemon [_thread_blocked, id=6491]
+  0x083ab9d0 JavaThread "Store org.gridlab.gridsphere.services.core.tracker.impl.TrackerInfo Spool Thread" daemon [_thread_blocked, id=6490]
+  0x083aaa98 JavaThread "Store org.gridlab.gridsphere.services.core.request.GenericRequest.attributes Expiry Thread" daemon [_thread_blocked, id=6489]
+  0x083a9b60 JavaThread "Store org.gridlab.gridsphere.services.core.request.GenericRequest.attributes Spool Thread" daemon [_thread_blocked, id=6488]
+  0x083a8c28 JavaThread "Store org.gridlab.gridsphere.services.core.portal.PortalConfigSettings.attributes Expiry Thread" daemon [_thread_blocked, id=6487]
+  0x083a7cf0 JavaThread "Store org.gridlab.gridsphere.services.core.portal.PortalConfigSettings.attributes Spool Thread" daemon [_thread_blocked, id=6486]
+  0x083a6db8 JavaThread "Store org.gridlab.gridsphere.portlet.PortletGroup Expiry Thread" daemon [_thread_blocked, id=6485]
+  0x083a5e80 JavaThread "Store org.gridlab.gridsphere.portlet.PortletGroup Spool Thread" daemon [_thread_blocked, id=6484]
+  0x083a4f48 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletData.Attributes Expiry Thread" daemon [_thread_blocked, id=6483]
+  0x083a4010 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletData.Attributes Spool Thread" daemon [_thread_blocked, id=6482]
+  0x083a30d8 JavaThread "Store org.gridlab.gridsphere.services.core.security.role.impl.UserRole Expiry Thread" daemon [_thread_blocked, id=6481]
+  0x083a21a0 JavaThread "Store org.gridlab.gridsphere.services.core.security.role.impl.UserRole Spool Thread" daemon [_thread_blocked, id=6480]
+  0x083a1268 JavaThread "Store org.gridlab.gridsphere.portlet.PortletRole Expiry Thread" daemon [_thread_blocked, id=6479]
+  0x083a0330 JavaThread "Store org.gridlab.gridsphere.portlet.PortletRole Spool Thread" daemon [_thread_blocked, id=6478]
+  0x0839f3f8 JavaThread "Store org.gridlab.gridsphere.services.core.security.auth.modules.impl.AuthModuleEntry.attributes Expiry Thread" daemon [_thread_blocked, id=6477]
+  0x0839e4a8 JavaThread "Store org.gridlab.gridsphere.services.core.security.auth.modules.impl.AuthModuleEntry.attributes Spool Thread" daemon [_thread_blocked, id=6476]
+  0x0839d710 JavaThread "Store org.gridlab.gridsphere.services.core.request.GenericRequest Expiry Thread" daemon [_thread_blocked, id=6475]
+  0x0839c660 JavaThread "Store org.gridlab.gridsphere.services.core.request.GenericRequest Spool Thread" daemon [_thread_blocked, id=6474]
+  0x0839b728 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletUserImpl Expiry Thread" daemon [_thread_blocked, id=6473]
+  0x0839a7f0 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletUserImpl Spool Thread" daemon [_thread_blocked, id=6472]
+  0x083998b8 JavaThread "Store org.gridlab.gridsphere.services.core.security.password.impl.PasswordImpl Expiry Thread" daemon [_thread_blocked, id=6471]
+  0x08399180 JavaThread "Store org.gridlab.gridsphere.services.core.security.password.impl.PasswordImpl Spool Thread" daemon [_thread_blocked, id=6470]
+  0x08398248 JavaThread "Store org.gridlab.gridsphere.portlet.jsrimpl.PersistencePreferenceAttribute.values Expiry Thread" daemon [_thread_blocked, id=6469]
+  0x08397310 JavaThread "Store org.gridlab.gridsphere.portlet.jsrimpl.PersistencePreferenceAttribute.values Spool Thread" daemon [_thread_blocked, id=6468]
+  0x083963d8 JavaThread "Store org.gridlab.gridsphere.portlet.jsrimpl.PortletPreferencesImpl Expiry Thread" daemon [_thread_blocked, id=6467]
+  0x083954a0 JavaThread "Store org.gridlab.gridsphere.portlet.jsrimpl.PortletPreferencesImpl Spool Thread" daemon [_thread_blocked, id=6466]
+  0x08394568 JavaThread "Store org.gridlab.gridsphere.services.core.messaging.MessagingID Expiry Thread" daemon [_thread_blocked, id=6465]
+  0x08393630 JavaThread "Store org.gridlab.gridsphere.services.core.messaging.MessagingID Spool Thread" daemon [_thread_blocked, id=6464]
+  0x083926f8 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletRoleInfo Expiry Thread" daemon [_thread_blocked, id=6463]
+  0x083917c0 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletRoleInfo Spool Thread" daemon [_thread_blocked, id=6462]
+  0x08390888 JavaThread "Store org.gridlab.gridsphere.services.core.portal.PortalConfigSettings.DefaultGroups Expiry Thread" daemon [_thread_blocked, id=6461]
+  0x0838f950 JavaThread "Store org.gridlab.gridsphere.services.core.portal.PortalConfigSettings.DefaultGroups Spool Thread" daemon [_thread_blocked, id=6460]
+  0x0838ea18 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletData Expiry Thread" daemon [_thread_blocked, id=6459]
+  0x0838dae0 JavaThread "Store org.gridlab.gridsphere.portlet.impl.SportletData Spool Thread" daemon [_thread_blocked, id=6458]
+  0x08374bc0 JavaThread "Store org.gridlab.gridsphere.services.core.tracker.impl.TrackerAction Expiry Thread" daemon [_thread_blocked, id=6457]
+  0x08373ca8 JavaThread "Store org.gridlab.gridsphere.services.core.tracker.impl.TrackerAction Spool Thread" daemon [_thread_blocked, id=6456]
+  0x08372d40 JavaThread "Store org.gridlab.gridsphere.services.core.security.group.impl.UserGroup Expiry Thread" daemon [_thread_blocked, id=6455]
+  0x08371e28 JavaThread "Store org.gridlab.gridsphere.services.core.security.group.impl.UserGroup Spool Thread" daemon [_thread_blocked, id=6454]
+  0x08370f20 JavaThread "Store org.gridlab.gridsphere.services.core.security.auth.modules.impl.AuthModuleEntry Expiry Thread" daemon [_thread_blocked, id=6453]
+  0x08107268 JavaThread "Store org.gridlab.gridsphere.services.core.security.auth.modules.impl.AuthModuleEntry Spool Thread" daemon [_thread_blocked, id=6452]
+  0x081063a0 JavaThread "Store org.gridlab.gridsphere.portlet.jsrimpl.PortletPreferencesImpl.attributes Expiry Thread" daemon [_thread_blocked, id=6451]
+  0x080f6648 JavaThread "Store org.gridlab.gridsphere.portlet.jsrimpl.PortletPreferencesImpl.attributes Spool Thread" daemon [_thread_blocked, id=6450]
+  0x080f4ae0 JavaThread "Store org.gridlab.gridsphere.services.core.portal.PortalConfigSettings Expiry Thread" daemon [_thread_blocked, id=6449]
+  0x08105cb0 JavaThread "Store org.gridlab.gridsphere.services.core.portal.PortalConfigSettings Spool Thread" daemon [_thread_blocked, id=6448]
+  0x08103990 JavaThread "Store org.gridlab.gridsphere.services.core.security.auth.modules.impl.descriptor.AuthModuleDefinition Expiry Thread" daemon [_thread_blocked, id=6447]
+  0x08107b80 JavaThread "Store org.gridlab.gridsphere.services.core.security.auth.modules.impl.descriptor.AuthModuleDefinition Spool Thread" daemon [_thread_blocked, id=6446]
+  0x08108bf8 JavaThread "Thread-37" daemon [_thread_blocked, id=6445]
+  0x080df4b8 JavaThread "CarefulRunnableQueue.TaskThread" daemon [_thread_blocked, id=6444]
+  0x080d9670 JavaThread "com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2" daemon [_thread_blocked, id=6443]
+  0x080dc340 JavaThread "com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1" daemon [_thread_blocked, id=6442]
+  0x080dcbe8 JavaThread "com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0" daemon [_thread_blocked, id=6441]
+  0x08297178 JavaThread "Timer-0" daemon [_thread_blocked, id=6440]
+  0xa9929100 JavaThread "TP-Monitor" daemon [_thread_blocked, id=6398]
+  0xa9927f20 JavaThread "TP-Processor4" daemon [_thread_in_native, id=6397]
+  0xa9927270 JavaThread "TP-Processor3" daemon [_thread_blocked, id=6396]
+  0xa9919898 JavaThread "TP-Processor2" daemon [_thread_blocked, id=6395]
+  0xa99282f8 JavaThread "TP-Processor1" daemon [_thread_blocked, id=6394]
+  0xa9916dc0 JavaThread "http-8080-Monitor" [_thread_blocked, id=6393]
+  0xa9916010 JavaThread "http-8080-Processor25" daemon [_thread_in_native, id=6392]
+  0xa9915260 JavaThread "http-8080-Processor24" daemon [_thread_blocked, id=6391]
+  0xa99144b0 JavaThread "http-8080-Processor23" daemon [_thread_blocked, id=6390]
+  0xa9913738 JavaThread "http-8080-Processor22" daemon [_thread_blocked, id=6389]
+  0xa9912988 JavaThread "http-8080-Processor21" daemon [_thread_blocked, id=6388]
+  0xa9911bd8 JavaThread "http-8080-Processor20" daemon [_thread_blocked, id=6387]
+  0xa9910e28 JavaThread "http-8080-Processor19" daemon [_thread_blocked, id=6386]
+  0xa9910078 JavaThread "http-8080-Processor18" daemon [_thread_blocked, id=6385]
+  0xa990f300 JavaThread "http-8080-Processor17" daemon [_thread_blocked, id=6384]
+  0xa990e550 JavaThread "http-8080-Processor16" daemon [_thread_blocked, id=6383]
+  0xa990d7a0 JavaThread "http-8080-Processor15" daemon [_thread_blocked, id=6382]
+  0xa990c9f0 JavaThread "http-8080-Processor14" daemon [_thread_blocked, id=6381]
+  0xa990bc40 JavaThread "http-8080-Processor13" daemon [_thread_blocked, id=6380]
+  0xa990aec8 JavaThread "http-8080-Processor12" daemon [_thread_blocked, id=6379]
+  0xa990a118 JavaThread "http-8080-Processor11" daemon [_thread_blocked, id=6378]
+  0xa9909368 JavaThread "http-8080-Processor10" daemon [_thread_blocked, id=6377]
+  0xa9906e40 JavaThread "http-8080-Processor9" daemon [_thread_blocked, id=6376]
+  0xa9906090 JavaThread "http-8080-Processor8" daemon [_thread_blocked, id=6375]
+  0xa9905318 JavaThread "http-8080-Processor7" daemon [_thread_blocked, id=6374]
+  0xa9904568 JavaThread "http-8080-Processor6" daemon [_thread_blocked, id=6373]
+  0xa9901480 JavaThread "http-8080-Processor5" daemon [_thread_blocked, id=6372]
+  0xa9902b90 JavaThread "http-8080-Processor4" daemon [_thread_blocked, id=6371]
+  0xa9901e40 JavaThread "http-8080-Processor3" daemon [_thread_blocked, id=6370]
+  0xa9903d08 JavaThread "http-8080-Processor2" daemon [_thread_blocked, id=6369]
+  0xa9903868 JavaThread "http-8080-Processor1" daemon [_thread_blocked, id=6368]
+  0x08895a18 JavaThread "ContainerBackgroundProcessor[StandardEngine[Catalina]]" daemon [_thread_blocked, id=6367]
+  0x080c6d20 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=6365]
+  0x080c5788 JavaThread "CompilerThread0" daemon [_thread_blocked, id=6364]
+  0x080c4870 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=6363]
+  0x080b9200 JavaThread "Finalizer" daemon [_thread_blocked, id=6362]
+  0x080b84f0 JavaThread "Reference Handler" daemon [_thread_blocked, id=6361]
+  0x0805c328 JavaThread "main" [_thread_in_native, id=6359]
+
+Other Threads:
+=>0x080b5888 VMThread [id=6360]
+  0x080c81f8 WatcherThread [id=6366]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0805b740/0x0805b768] Safepoint_lock - owner thread: 0x080b5888
+[0x0805b7c0/0x0805b7e8] Threads_lock - owner thread: 0x080b5888
+[0x0805bc10/0x0805bc28] Heap_lock - owner thread: 0x08895a18
+
+Heap
+ def new generation   total 1280K, used 1210K [0xaa6a0000, 0xaa800000, 0xaab80000)
+  eden space 1152K, 100% used [0xaa6a0000, 0xaa7c0000, 0xaa7c0000)
+  from space 128K,  45% used [0xaa7c0000, 0xaa7ce8f8, 0xaa7e0000)
+  to   space 128K,   0% used [0xaa7e0000, 0xaa7e0000, 0xaa800000)
+ tenured generation   total 16072K, used 10801K [0xaab80000, 0xabb32000, 0xae6a0000)
+   the space 16072K,  67% used [0xaab80000, 0xab60c540, 0xab60c600, 0xabb32000)
+ compacting perm gen  total 21760K, used 21585K [0xae6a0000, 0xafbe0000, 0xb26a0000)
+   the space 21760K,  99% used [0xae6a0000, 0xafbb4438, 0xafbb4600, 0xafbe0000)
+No shared spaces configured.
+
+Dynamic libraries:
+08048000-08056000 r-xp 00000000 fe:00 16695298   /usr/local/jdk1.5.0_01/bin/java
+08056000-08058000 rwxp 0000e000 fe:00 16695298   /usr/local/jdk1.5.0_01/bin/java
+08058000-088c9000 rwxp 08058000 00:00 0          [heap]
+a4126000-a4129000 ---p a4126000 00:00 0 
+a4129000-a41a7000 rwxp a4129000 00:00 0 
+a41a7000-a41aa000 ---p a41a7000 00:00 0 
+a41aa000-a4228000 rwxp a41aa000 00:00 0 
+a4228000-a422b000 ---p a4228000 00:00 0 
+a422b000-a42a9000 rwxp a422b000 00:00 0 
+a42a9000-a42ac000 ---p a42a9000 00:00 0 
+a42ac000-a432a000 rwxp a42ac000 00:00 0 
+a432a000-a432d000 ---p a432a000 00:00 0 
+a432d000-a43ab000 rwxp a432d000 00:00 0 
+a43ab000-a43ae000 ---p a43ab000 00:00 0 
+a43ae000-a442c000 rwxp a43ae000 00:00 0 
+a442c000-a442f000 ---p a442c000 00:00 0 
+a442f000-a44ad000 rwxp a442f000 00:00 0 
+a44ad000-a44b0000 ---p a44ad000 00:00 0 
+a44b0000-a452e000 rwxp a44b0000 00:00 0 
+a452e000-a4531000 ---p a452e000 00:00 0 
+a4531000-a45af000 rwxp a4531000 00:00 0 
+a45af000-a45b2000 ---p a45af000 00:00 0 
+a45b2000-a4630000 rwxp a45b2000 00:00 0 
+a4630000-a4633000 ---p a4630000 00:00 0 
+a4633000-a46b1000 rwxp a4633000 00:00 0 
+a46b1000-a46b4000 ---p a46b1000 00:00 0 
+a46b4000-a4732000 rwxp a46b4000 00:00 0 
+a4732000-a4735000 ---p a4732000 00:00 0 
+a4735000-a47b3000 rwxp a4735000 00:00 0 
+a47b3000-a47b6000 ---p a47b3000 00:00 0 
+a47b6000-a4834000 rwxp a47b6000 00:00 0 
+a4834000-a4837000 ---p a4834000 00:00 0 
+a4837000-a48b5000 rwxp a4837000 00:00 0 
+a48b5000-a48b8000 ---p a48b5000 00:00 0 
+a48b8000-a4936000 rwxp a48b8000 00:00 0 
+a4ea7000-a4f00000 r-xs 00000000 fe:00 16925069   /usr/local/apache-tomcat-5.5.23/webapps/integrade/WEB-INF/lib/integradeClientAPI.jar
+a4f00000-a4ffe000 rwxp a4f00000 00:00 0 
+a4ffe000-a5000000 ---p a4ffe000 00:00 0 
+a5000000-a508f000 rwxp a5000000 00:00 0 
+a508f000-a5100000 ---p a508f000 00:00 0 
+a5100000-a52fe000 rwxp a5100000 00:00 0 
+a52fe000-a5300000 ---p a52fe000 00:00 0 
+a5300000-a53fd000 rwxp a5300000 00:00 0 
+a53fd000-a5400000 ---p a53fd000 00:00 0 
+a543e000-a5441000 ---p a543e000 00:00 0 
+a5441000-a54bf000 rwxp a5441000 00:00 0 
+a54bf000-a54c2000 ---p a54bf000 00:00 0 
+a54c2000-a5540000 rwxp a54c2000 00:00 0 
+a5540000-a5543000 ---p a5540000 00:00 0 
+a5543000-a55c1000 rwxp a5543000 00:00 0 
+a55c1000-a55c4000 ---p a55c1000 00:00 0 
+a55c4000-a5642000 rwxp a55c4000 00:00 0 
+a5642000-a5645000 ---p a5642000 00:00 0 
+a5645000-a56c3000 rwxp a5645000 00:00 0 
+a56c3000-a56c6000 ---p a56c3000 00:00 0 
+a56c6000-a5744000 rwxp a56c6000 00:00 0 
+a5744000-a5747000 ---p a5744000 00:00 0 
+a5747000-a57c5000 rwxp a5747000 00:00 0 
+a57c5000-a57c8000 ---p a57c5000 00:00 0 
+a57c8000-a5846000 rwxp a57c8000 00:00 0 
+a5846000-a5849000 ---p a5846000 00:00 0 
+a5849000-a58c7000 rwxp a5849000 00:00 0 
+a58c7000-a58ca000 ---p a58c7000 00:00 0 
+a58ca000-a5948000 rwxp a58ca000 00:00 0 
+a5948000-a594b000 ---p a5948000 00:00 0 
+a594b000-a59c9000 rwxp a594b000 00:00 0 
+a59c9000-a59cc000 ---p a59c9000 00:00 0 
+a59cc000-a5a4a000 rwxp a59cc000 00:00 0 
+a5a4a000-a5a4d000 ---p a5a4a000 00:00 0 
+a5a4d000-a5acb000 rwxp a5a4d000 00:00 0 
+a5acb000-a5ace000 ---p a5acb000 00:00 0 
+a5ace000-a5b4c000 rwxp a5ace000 00:00 0 
+a5b4c000-a5b4f000 ---p a5b4c000 00:00 0 
+a5b4f000-a5bcd000 rwxp a5b4f000 00:00 0 
+a5bcd000-a5bd0000 ---p a5bcd000 00:00 0 
+a5bd0000-a5c4e000 rwxp a5bd0000 00:00 0 
+a5c4e000-a5c51000 ---p a5c4e000 00:00 0 
+a5c51000-a5ccf000 rwxp a5c51000 00:00 0 
+a5ccf000-a5cd2000 ---p a5ccf000 00:00 0 
+a5cd2000-a5d50000 rwxp a5cd2000 00:00 0 
+a5d50000-a5d53000 ---p a5d50000 00:00 0 
+a5d53000-a5dd1000 rwxp a5d53000 00:00 0 
+a5dd1000-a5dd4000 ---p a5dd1000 00:00 0 
+a5dd4000-a5e52000 rwxp a5dd4000 00:00 0 
+a5e52000-a5e55000 ---p a5e52000 00:00 0 
+a5e55000-a5ed3000 rwxp a5e55000 00:00 0 
+a5ed3000-a5ed6000 ---p a5ed3000 00:00 0 
+a5ed6000-a5f54000 rwxp a5ed6000 00:00 0 
+a5f54000-a5f57000 ---p a5f54000 00:00 0 
+a5f57000-a5fd5000 rwxp a5f57000 00:00 0 
+a5fd5000-a5fd8000 ---p a5fd5000 00:00 0 
+a5fd8000-a6056000 rwxp a5fd8000 00:00 0 
+a6056000-a6059000 ---p a6056000 00:00 0 
+a6059000-a60d7000 rwxp a6059000 00:00 0 
+a60d7000-a60da000 ---p a60d7000 00:00 0 
+a60da000-a6158000 rwxp a60da000 00:00 0 
+a6158000-a615b000 ---p a6158000 00:00 0 
+a615b000-a61d9000 rwxp a615b000 00:00 0 
+a61d9000-a61dc000 ---p a61d9000 00:00 0 
+a61dc000-a625a000 rwxp a61dc000 00:00 0 
+a625a000-a625d000 ---p a625a000 00:00 0 
+a625d000-a62db000 rwxp a625d000 00:00 0 
+a62db000-a62de000 ---p a62db000 00:00 0 
+a62de000-a635c000 rwxp a62de000 00:00 0 
+a635c000-a635f000 ---p a635c000 00:00 0 
+a635f000-a63dd000 rwxp a635f000 00:00 0 
+a63dd000-a63e0000 ---p a63dd000 00:00 0 
+a63e0000-a645e000 rwxp a63e0000 00:00 0 
+a645e000-a6461000 ---p a645e000 00:00 0 
+a6461000-a64df000 rwxp a6461000 00:00 0 
+a64df000-a64e2000 ---p a64df000 00:00 0 
+a64e2000-a6560000 rwxp a64e2000 00:00 0 
+a6560000-a6563000 ---p a6560000 00:00 0 
+a6563000-a65e1000 rwxp a6563000 00:00 0 
+a65e1000-a65e4000 ---p a65e1000 00:00 0 
+a65e4000-a6662000 rwxp a65e4000 00:00 0 
+a6662000-a6665000 ---p a6662000 00:00 0 
+a6665000-a66e3000 rwxp a6665000 00:00 0 
+a66e3000-a66e6000 ---p a66e3000 00:00 0 
+a66e6000-a6764000 rwxp a66e6000 00:00 0 
+a6764000-a6767000 ---p a6764000 00:00 0 
+a6767000-a67e5000 rwxp a6767000 00:00 0 
+a67e5000-a67e8000 ---p a67e5000 00:00 0 
+a67e8000-a6866000 rwxp a67e8000 00:00 0 
+a6866000-a6869000 ---p a6866000 00:00 0 
+a6869000-a68e7000 rwxp a6869000 00:00 0 
+a68e7000-a68ea000 ---p a68e7000 00:00 0 
+a68ea000-a6968000 rwxp a68ea000 00:00 0 
+a6968000-a696b000 ---p a6968000 00:00 0 
+a696b000-a69e9000 rwxp a696b000 00:00 0 
+a69e9000-a69ec000 ---p a69e9000 00:00 0 
+a69ec000-a6a6a000 rwxp a69ec000 00:00 0 
+a6a6a000-a6a6d000 ---p a6a6a000 00:00 0 
+a6a6d000-a6aeb000 rwxp a6a6d000 00:00 0 
+a6aeb000-a6aee000 ---p a6aeb000 00:00 0 
+a6aee000-a6b6c000 rwxp a6aee000 00:00 0 
+a6b6c000-a6b6f000 ---p a6b6c000 00:00 0 
+a6b6f000-a6bed000 rwxp a6b6f000 00:00 0 
+a6bed000-a6bf0000 ---p a6bed000 00:00 0 
+a6bf0000-a6c6e000 rwxp a6bf0000 00:00 0 
+a6c6e000-a6c71000 ---p a6c6e000 00:00 0 
+a6c71000-a6cef000 rwxp a6c71000 00:00 0 
+a6cef000-a6cf2000 ---p a6cef000 00:00 0 
+a6cf2000-a6d70000 rwxp a6cf2000 00:00 0 
+a6d70000-a6d73000 ---p a6d70000 00:00 0 
+a6d73000-a6df1000 rwxp a6d73000 00:00 0 
+a6df1000-a6df4000 ---p a6df1000 00:00 0 
+a6df4000-a6e72000 rwxp a6df4000 00:00 0 
+a6e72000-a6e75000 ---p a6e72000 00:00 0 
+a6e75000-a6ef3000 rwxp a6e75000 00:00 0 
+a6ef3000-a6ef6000 ---p a6ef3000 00:00 0 
+a6ef6000-a6f74000 rwxp a6ef6000 00:00 0 
+a6f74000-a6f77000 ---p a6f74000 00:00 0 
+a6f77000-a6ff5000 rwxp a6f77000 00:00 0 
+a6ff5000-a6ff8000 ---p a6ff5000 00:00 0 
+a6ff8000-a7076000 rwxp a6ff8000 00:00 0 
+a7076000-a7079000 ---p a7076000 00:00 0 
+a7079000-a70f7000 rwxp a7079000 00:00 0 
+a70f7000-a70fa000 ---p a70f7000 00:00 0 
+a70fa000-a7178000 rwxp a70fa000 00:00 0 
+a7178000-a717b000 ---p a7178000 00:00 0 
+a717b000-a71f9000 rwxp a717b000 00:00 0 
+a71f9000-a7208000 r-xp 00000000 fe:00 13287463   /lib/tls/i686/cmov/libresolv-2.4.so
+a7208000-a720a000 rwxp 0000f000 fe:00 13287463   /lib/tls/i686/cmov/libresolv-2.4.so
+a720a000-a720c000 rwxp a720a000 00:00 0 
+a720c000-a7210000 r-xp 00000000 fe:00 13287456   /lib/tls/i686/cmov/libnss_dns-2.4.so
+a7210000-a7212000 rwxp 00003000 fe:00 13287456   /lib/tls/i686/cmov/libnss_dns-2.4.so
+a77fe000-a7801000 ---p a77fe000 00:00 0 
+a7801000-a787f000 rwxp a7801000 00:00 0 
+a787f000-a7882000 ---p a787f000 00:00 0 
+a7882000-a7900000 rwxp a7882000 00:00 0 
+a7900000-a7903000 ---p a7900000 00:00 0 
+a7903000-a7981000 rwxp a7903000 00:00 0 
+a7981000-a7984000 ---p a7981000 00:00 0 
+a7984000-a7a02000 rwxp a7984000 00:00 0 
+a7a02000-a7a05000 ---p a7a02000 00:00 0 
+a7a05000-a7a83000 rwxp a7a05000 00:00 0 
+a7a83000-a7a86000 ---p a7a83000 00:00 0 
+a7a86000-a7b04000 rwxp a7a86000 00:00 0 
+a7b04000-a7b07000 ---p a7b04000 00:00 0 
+a7b07000-a7b85000 rwxp a7b07000 00:00 0 
+a7b85000-a7b88000 ---p a7b85000 00:00 0 
+a7b88000-a7c06000 rwxp a7b88000 00:00 0 
+a7c06000-a7c09000 ---p a7c06000 00:00 0 
+a7c09000-a7c87000 rwxp a7c09000 00:00 0 
+a7c87000-a7c8a000 ---p a7c87000 00:00 0 
+a7c8a000-a7d08000 rwxp a7c8a000 00:00 0 
+a7d08000-a7d0b000 ---p a7d08000 00:00 0 
+a7d0b000-a7d89000 rwxp a7d0b000 00:00 0 
+a7d89000-a7d8c000 ---p a7d89000 00:00 0 
+a7d8c000-a7e0a000 rwxp a7d8c000 00:00 0 
+a7e0a000-a7e0d000 ---p a7e0a000 00:00 0 
+a7e0d000-a7e8b000 rwxp a7e0d000 00:00 0 
+a7e8b000-a7e8e000 ---p a7e8b000 00:00 0 
+a7e8e000-a7f0c000 rwxp a7e8e000 00:00 0 
+a7f0c000-a7f0f000 ---p a7f0c000 00:00 0 
+a7f0f000-a7f8d000 rwxp a7f0f000 00:00 0 
+a7f8d000-a7f90000 ---p a7f8d000 00:00 0 
+a7f90000-a800e000 rwxp a7f90000 00:00 0 
+a800e000-a8011000 ---p a800e000 00:00 0 
+a8011000-a808f000 rwxp a8011000 00:00 0 
+a808f000-a8092000 ---p a808f000 00:00 0 
+a8092000-a8110000 rwxp a8092000 00:00 0 
+a8110000-a8113000 ---p a8110000 00:00 0 
+a8113000-a8191000 rwxp a8113000 00:00 0 
+a8191000-a8194000 ---p a8191000 00:00 0 
+a8194000-a8212000 rwxp a8194000 00:00 0 
+a8212000-a8215000 ---p a8212000 00:00 0 
+a8215000-a8293000 rwxp a8215000 00:00 0 
+a8293000-a8296000 ---p a8293000 00:00 0 
+a8296000-a8340000 rwxp a8296000 00:00 0 
+a8340000-a88b1000 r-xs 00000000 fe:00 16780712   /usr/local/apache-tomcat-5.5.23/shared/lib/jacorb.jar
+a88b1000-a8948000 r-xs 00000000 fe:00 16780679   /usr/local/apache-tomcat-5.5.23/shared/lib/gridsphere-portal-2.2.jar
+a8948000-a894b000 r-xs 00000000 fe:00 16780697   /usr/local/apache-tomcat-5.5.23/shared/lib/jta.jar
+a894b000-a895a000 r-xs 00000000 fe:00 16780711   /usr/local/apache-tomcat-5.5.23/shared/lib/commons-beanutils-1.3.jar
+a895a000-a8960000 r-xs 00000000 fe:00 16780691   /usr/local/apache-tomcat-5.5.23/shared/lib/jaimbot-lib-1.4.jar
+a8960000-a89a1000 r-xs 00000000 fe:00 16780680   /usr/local/apache-tomcat-5.5.23/shared/lib/hsqldb-1.7.1.jar
+a89a1000-a89f7000 r-xs 00000000 fe:00 16780672   /usr/local/apache-tomcat-5.5.23/shared/lib/c3p0-0.8.4.5.jar
+a89f7000-a8b30000 r-xs 00000000 fe:00 16780707   /usr/local/apache-tomcat-5.5.23/shared/lib/castor-0.9.7-xml.jar
+a8b30000-a8b38000 r-xs 00000000 fe:00 16780708   /usr/local/apache-tomcat-5.5.23/shared/lib/jakarta-regexp-1.2.jar
+a8b38000-a8b46000 r-xs 00000000 fe:00 16780682   /usr/local/apache-tomcat-5.5.23/shared/lib/activation.jar
+a8b46000-a8b7e000 r-xs 00000000 fe:00 16780705   /usr/local/apache-tomcat-5.5.23/shared/lib/cactus-framework-20030401.jar
+a8b7e000-a8ba3000 r-xs 00000000 fe:00 16780676   /usr/local/apache-tomcat-5.5.23/shared/lib/jdom-1.0.jar
+a8ba3000-a8bb0000 r-xs 00000000 fe:00 16780699   /usr/local/apache-tomcat-5.5.23/shared/lib/ehcache-0.9.jar
+a8bb0000-a8bc6000 r-xs 00000000 fe:00 16780709   /usr/local/apache-tomcat-5.5.23/shared/lib/gridsphere-provider-2.2.jar
+a8bc6000-a8c1d000 r-xs 00000000 fe:00 16780695   /usr/local/apache-tomcat-5.5.23/shared/lib/log4j-1.2.8.jar
+a8c1d000-a8c21000 r-xs 00000000 fe:00 16780681   /usr/local/apache-tomcat-5.5.23/shared/lib/portals-bridges-common-0.4-SNAPSHOT.jar
+a8c21000-a8c6c000 r-xs 00000000 fe:00 16780675   /usr/local/apache-tomcat-5.5.23/shared/lib/XMLChartDataset.jar
+a8c6c000-a8cc1000 r-xs 00000000 fe:00 16780685   /usr/local/apache-tomcat-5.5.23/shared/lib/mail.jar
+a8cc1000-a8cd2000 r-xs 00000000 fe:00 16780693   /usr/local/apache-tomcat-5.5.23/shared/lib/portlet-api-2.2.jar
+a8cd2000-a8cd7000 r-xs 00000000 fe:00 16780692   /usr/local/apache-tomcat-5.5.23/shared/lib/gridsphere-service-framework-2.2.jar
+a8cd7000-a8d4e000 r-xs 00000000 fe:00 16780689   /usr/local/apache-tomcat-5.5.23/shared/lib/dom4j-1.4.jar
+a8d4e000-a8d52000 r-xs 00000000 fe:00 16780704   /usr/local/apache-tomcat-5.5.23/shared/lib/odmg-3.0.jar
+a8d52000-a8d9e000 r-xs 00000000 fe:00 16780690   /usr/local/apache-tomcat-5.5.23/shared/lib/cglib-full-2.0.2.jar
+a8d9e000-a8da5000 r-xs 00000000 fe:00 16780703   /usr/local/apache-tomcat-5.5.23/shared/lib/log4j-sandbox-0.3alpha.jar
+a8da5000-a8dac000 r-xs 00000000 fe:00 16780706   /usr/local/apache-tomcat-5.5.23/shared/lib/cactus-integration-ant-20030401.jar
+a8dac000-a8dca000 r-xs 00000000 fe:00 16780686   /usr/local/apache-tomcat-5.5.23/shared/lib/junit-3.8.1.jar
+a8dca000-a8f89000 r-xs 00000000 fe:00 16780694   /usr/local/apache-tomcat-5.5.23/shared/lib/spring-1.2.3.jar
+a8f89000-a904d000 r-xs 00000000 fe:00 16780684   /usr/local/apache-tomcat-5.5.23/shared/lib/poi-2.5.1-final-20040804.jar
+a904d000-a9128000 r-xs 00000000 fe:00 16780687   /usr/local/apache-tomcat-5.5.23/shared/lib/jfreechart-0.9.18.jar
+a9128000-a9134000 r-xs 00000000 fe:00 16780673   /usr/local/apache-tomcat-5.5.23/shared/lib/commons-io-1.0.jar
+a9134000-a913b000 r-xs 00000000 fe:00 16780683   /usr/local/apache-tomcat-5.5.23/shared/lib/aspectjrt.jar
+a913b000-a9143000 r-xs 00000000 fe:00 16780701   /usr/local/apache-tomcat-5.5.23/shared/lib/commons-fileupload-1.1.jar
+a9143000-a916e000 r-xs 00000000 fe:00 16780688   /usr/local/apache-tomcat-5.5.23/shared/lib/commons-collections-2.1.1.jar
+a916e000-a9172000 r-xs 00000000 fe:00 16780702   /usr/local/apache-tomcat-5.5.23/shared/lib/ant-contrib-0.3.jar
+a9172000-a91cf000 r-xs 00000000 fe:00 16780696   /usr/local/apache-tomcat-5.5.23/shared/lib/jcommon-0.9.3.jar
+a91cf000-a91d9000 r-xs 00000000 fe:00 16780678   /usr/local/apache-tomcat-5.5.23/shared/lib/commons-logging-1.0.4.jar
+a91d9000-a92c6000 r-xs 00000000 fe:00 16780698   /usr/local/apache-tomcat-5.5.23/shared/lib/hibernate2.jar
+a92c6000-a92d5000 r-xs 00000000 fe:00 16780677   /usr/local/apache-tomcat-5.5.23/shared/lib/portlet-jsr-api-2.2.jar
+a92d5000-a92dd000 r-xs 00000000 fe:00 16780700   /usr/local/apache-tomcat-5.5.23/shared/lib/tmf.jar
+a92dd000-a9314000 r-xs 00000000 fe:00 16780674   /usr/local/apache-tomcat-5.5.23/shared/lib/commons-httpclient-2.0.1.jar
+a9314000-a932b000 r-xs 00000000 fe:00 16780710   /usr/local/apache-tomcat-5.5.23/shared/lib/jakarta-oro.jar
+a932b000-a9428000 r-xs 00000000 fe:00 16780671   /usr/local/apache-tomcat-5.5.23/shared/lib/ant.jar
+a9477000-a947a000 ---p a9477000 00:00 0 
+a947a000-a94f8000 rwxp a947a000 00:00 0 
+a94f8000-a94fb000 ---p a94f8000 00:00 0 
+a94fb000-a9579000 rwxp a94fb000 00:00 0 
+a9579000-a957c000 ---p a9579000 00:00 0 
+a957c000-a95fa000 rwxp a957c000 00:00 0 
+a95fa000-a95fd000 ---p a95fa000 00:00 0 
+a95fd000-a967b000 rwxp a95fd000 00:00 0 
+a967b000-a967e000 ---p a967b000 00:00 0 
+a967e000-a96fc000 rwxp a967e000 00:00 0 
+a96fc000-a96ff000 ---p a96fc000 00:00 0 
+a96ff000-a977d000 rwxp a96ff000 00:00 0 
+a977d000-a9780000 ---p a977d000 00:00 0 
+a9780000-a97fe000 rwxp a9780000 00:00 0 
+a97fe000-a9801000 ---p a97fe000 00:00 0 
+a9801000-a987f000 rwxp a9801000 00:00 0 
+a987f000-a9882000 ---p a987f000 00:00 0 
+a9882000-a99fd000 rwxp a9882000 00:00 0 
+a99fd000-a9a00000 ---p a99fd000 00:00 0 
+a9a0c000-a9a0f000 ---p a9a0c000 00:00 0 
+a9a0f000-a9a8d000 rwxp a9a0f000 00:00 0 
+a9a8d000-a9a90000 ---p a9a8d000 00:00 0 
+a9a90000-a9b0e000 rwxp a9a90000 00:00 0 
+a9b0e000-a9b22000 r-xp 00000000 fe:00 16597083   /usr/local/jdk1.5.0_01/jre/lib/i386/libnet.so
+a9b22000-a9b23000 rwxp 00013000 fe:00 16597083   /usr/local/jdk1.5.0_01/jre/lib/i386/libnet.so
+a9b23000-a9b62000 r-xs 00000000 fe:00 16763863   /usr/local/apache-tomcat-5.5.23/server/lib/tomcat-util.jar
+a9b62000-a9b6a000 r-xs 00000000 fe:00 16763862   /usr/local/apache-tomcat-5.5.23/server/lib/tomcat-jkstatus-ant.jar
+a9b6a000-a9b80000 r-xs 00000000 fe:00 16763861   /usr/local/apache-tomcat-5.5.23/server/lib/tomcat-http.jar
+a9b80000-a9b85000 r-xs 00000000 fe:00 16763860   /usr/local/apache-tomcat-5.5.23/server/lib/tomcat-coyote.jar
+a9b85000-a9b8c000 r-xs 00000000 fe:00 16763859   /usr/local/apache-tomcat-5.5.23/server/lib/tomcat-apr.jar
+a9b8c000-a9bb1000 r-xs 00000000 fe:00 16763858   /usr/local/apache-tomcat-5.5.23/server/lib/tomcat-ajp.jar
+a9bb1000-a9bb7000 r-xs 00000000 fe:00 16763857   /usr/local/apache-tomcat-5.5.23/server/lib/servlets-webdav.jar
+a9bb7000-a9bbc000 r-xs 00000000 fe:00 16763854   /usr/local/apache-tomcat-5.5.23/server/lib/servlets-default.jar
+a9bbc000-a9bd7000 r-xs 00000000 fe:00 16763852   /usr/local/apache-tomcat-5.5.23/server/lib/commons-modeler-2.0.jar
+a9bd7000-a9c77000 r-xs 00000000 fe:00 16763851   /usr/local/apache-tomcat-5.5.23/server/lib/catalina.jar
+a9c77000-a9c87000 r-xs 00000000 fe:00 16763850   /usr/local/apache-tomcat-5.5.23/server/lib/catalina-storeconfig.jar
+a9c87000-a9ca4000 r-xs 00000000 fe:00 16763849   /usr/local/apache-tomcat-5.5.23/server/lib/catalina-optional.jar
+a9ca4000-a9cd9000 r-xs 00000000 fe:00 16763848   /usr/local/apache-tomcat-5.5.23/server/lib/catalina-cluster.jar
+a9cd9000-a9ce0000 r-xs 00000000 fe:00 16763847   /usr/local/apache-tomcat-5.5.23/server/lib/catalina-ant.jar
+a9ce0000-a9ce6000 r-xs 00000000 fe:00 16763681   /usr/local/apache-tomcat-5.5.23/server/lib/catalina-ant-jmx.jar
+a9ce6000-a9d40000 r-xs 00000000 fe:00 16715024   /usr/local/apache-tomcat-5.5.23/common/lib/log4j.jar
+a9d40000-a9d4d000 r-xs 00000000 fe:00 16715023   /usr/local/apache-tomcat-5.5.23/common/lib/commons-logging.jar
+a9d4d000-a9e78000 r-xs 00000000 fe:00 16715021   /usr/local/apache-tomcat-5.5.23/common/lib/xercesImpl.jar
+a9e78000-a9ea8000 r-xs 00000000 fe:00 16715022   /usr/local/apache-tomcat-5.5.23/common/lib/xml-apis.jar
+a9ea8000-a9eec000 r-xs 00000000 fe:00 16715020   /usr/local/apache-tomcat-5.5.23/common/lib/serializer.jar
+a9eec000-a9f01000 r-xs 00000000 fe:00 16715019   /usr/local/apache-tomcat-5.5.23/common/lib/resolver.jar
+a9f01000-a9f1a000 r-xs 00000000 fe:00 16715018   /usr/local/apache-tomcat-5.5.23/common/lib/servlet-api.jar
+a9f1a000-a9f26000 r-xs 00000000 fe:00 16715017   /usr/local/apache-tomcat-5.5.23/common/lib/naming-resources.jar
+a9f26000-a9f2e000 r-xs 00000000 fe:00 16715016   /usr/local/apache-tomcat-5.5.23/common/lib/naming-factory.jar
+a9f2e000-a9f56000 r-xs 00000000 fe:00 16715015   /usr/local/apache-tomcat-5.5.23/common/lib/naming-factory-dbcp.jar
+a9f56000-a9f63000 r-xs 00000000 fe:00 16715014   /usr/local/apache-tomcat-5.5.23/common/lib/jsp-api.jar
+a9f63000-a9f76000 r-xs 00000000 fe:00 16715013   /usr/local/apache-tomcat-5.5.23/common/lib/jasper-runtime.jar
+a9f76000-a9fda000 r-xs 00000000 fe:00 16715012   /usr/local/apache-tomcat-5.5.23/common/lib/jasper-compiler.jar
+a9fda000-aa103000 r-xs 00000000 fe:00 16715011   /usr/local/apache-tomcat-5.5.23/common/lib/jasper-compiler-jdt.jar
+aa103000-aa11f000 r-xs 00000000 fe:00 16715010   /usr/local/apache-tomcat-5.5.23/common/lib/commons-el.jar
+aa11f000-aa128000 r-xs 00000000 fe:00 16715008   /usr/local/apache-tomcat-5.5.23/common/i18n/tomcat-i18n-ja.jar
+aa128000-aa130000 r-xs 00000000 fe:00 16715007   /usr/local/apache-tomcat-5.5.23/common/i18n/tomcat-i18n-fr.jar
+aa130000-aa139000 r-xs 00000000 fe:00 16715006   /usr/local/apache-tomcat-5.5.23/common/i18n/tomcat-i18n-es.jar
+aa139000-aa143000 r-xs 00000000 fe:00 16715005   /usr/local/apache-tomcat-5.5.23/common/i18n/tomcat-i18n-en.jar
+aa143000-aa14a000 r-xs 00000000 fe:00 16714966   /usr/local/apache-tomcat-5.5.23/bin/commons-logging-api.jar
+aa14a000-aa20e000 r-xs 00000000 fe:00 16647938   /usr/local/jdk1.5.0_01/jre/lib/ext/localedata.jar
+aa20e000-aa239000 r-xs 00000000 fe:00 16647936   /usr/local/jdk1.5.0_01/jre/lib/ext/sunpkcs11.jar
+aa239000-aa25f000 r-xs 00000000 fe:00 16647935   /usr/local/jdk1.5.0_01/jre/lib/ext/sunjce_provider.jar
+aa25f000-aa260000 ---p aa25f000 00:00 0 
+aa260000-aa2e0000 rwxp aa260000 00:00 0 
+aa2e0000-aa2e3000 ---p aa2e0000 00:00 0 
+aa2e3000-aa361000 rwxp aa2e3000 00:00 0 
+aa361000-aa364000 ---p aa361000 00:00 0 
+aa364000-aa3e2000 rwxp aa364000 00:00 0 
+aa3e2000-aa3e5000 ---p aa3e2000 00:00 0 
+aa3e5000-aa463000 rwxp aa3e5000 00:00 0 
+aa463000-aa46a000 r-xs 00000000 fe:00 16483216   /usr/lib/gconv/gconv-modules.cache
+aa46a000-aa49d000 r-xp 00000000 fe:00 16516621   /usr/lib/locale/pt_BR.utf8/LC_CTYPE
+aa49d000-aa4a0000 ---p aa49d000 00:00 0 
+aa4a0000-aa51e000 rwxp aa4a0000 00:00 0 
+aa51e000-aa521000 ---p aa51e000 00:00 0 
+aa521000-aa59f000 rwxp aa521000 00:00 0 
+aa59f000-aa5a0000 ---p aa59f000 00:00 0 
+aa5a0000-aa62b000 rwxp aa5a0000 00:00 0 
+aa62b000-aa641000 rwxp aa62b000 00:00 0 
+aa641000-aa649000 rwxp aa641000 00:00 0 
+aa649000-aa65f000 rwxp aa649000 00:00 0 
+aa65f000-aa660000 rwxp aa65f000 00:00 0 
+aa660000-aa661000 rwxp aa660000 00:00 0 
+aa661000-aa66a000 rwxp aa661000 00:00 0 
+aa66a000-aa67f000 rwxp aa66a000 00:00 0 
+aa67f000-aa68a000 rwxp aa67f000 00:00 0 
+aa68a000-aa69f000 rwxp aa68a000 00:00 0 
+aa69f000-aa800000 rwxp aa69f000 00:00 0 
+aa800000-aab80000 rwxp aa800000 00:00 0 
+aab80000-abb32000 rwxp aab80000 00:00 0 
+abb32000-ae6a0000 rwxp abb32000 00:00 0 
+ae6a0000-afbe0000 rwxp ae6a0000 00:00 0 
+afbe0000-b26a0000 rwxp afbe0000 00:00 0 
+b26a0000-b26a2000 r-xs 00000000 fe:00 16763855   /usr/local/apache-tomcat-5.5.23/server/lib/servlets-invoker.jar
+b26a2000-b26a6000 r-xs 00000000 fe:00 16714976   /usr/local/apache-tomcat-5.5.23/bin/tomcat-juli.jar
+b26a6000-b26b8000 rwxp b26a6000 00:00 0 
+b26b8000-b2726000 rwxp b26b8000 00:00 0 
+b2726000-b2b86000 rwxp b2726000 00:00 0 
+b2b86000-b4726000 rwxp b2b86000 00:00 0 
+b4726000-b4f61000 r-xs 00000000 fe:00 16597143   /usr/local/jdk1.5.0_01/jre/lib/charsets.jar
+b4f61000-b4f75000 r-xs 00000000 fe:00 16597110   /usr/local/jdk1.5.0_01/jre/lib/jce.jar
+b4f75000-b4ffc000 r-xs 00000000 fe:00 16597141   /usr/local/jdk1.5.0_01/jre/lib/jsse.jar
+b4ffc000-b5064000 rwxp b4ffc000 00:00 0 
+b5064000-b7625000 r-xs 00000000 fe:00 16597145   /usr/local/jdk1.5.0_01/jre/lib/rt.jar
+b7625000-b7638000 r-xp 00000000 fe:00 16597080   /usr/local/jdk1.5.0_01/jre/lib/i386/libzip.so
+b7638000-b763a000 rwxp 00012000 fe:00 16597080   /usr/local/jdk1.5.0_01/jre/lib/i386/libzip.so
+b763a000-b765b000 r-xp 00000000 fe:00 16597078   /usr/local/jdk1.5.0_01/jre/lib/i386/libjava.so
+b765b000-b765d000 rwxp 00020000 fe:00 16597078   /usr/local/jdk1.5.0_01/jre/lib/i386/libjava.so
+b765d000-b7668000 r-xp 00000000 fe:00 16597077   /usr/local/jdk1.5.0_01/jre/lib/i386/libverify.so
+b7668000-b7669000 rwxp 0000b000 fe:00 16597077   /usr/local/jdk1.5.0_01/jre/lib/i386/libverify.so
+b7669000-b7671000 rwxs 00000000 fe:00 18268553   /tmp/hsperfdata_integrade/6359
+b7671000-b767a000 r-xp 00000000 fe:00 13287457   /lib/tls/i686/cmov/libnss_files-2.4.so
+b767a000-b767c000 rwxp 00008000 fe:00 13287457   /lib/tls/i686/cmov/libnss_files-2.4.so
+b767c000-b768e000 r-xp 00000000 fe:00 13287454   /lib/tls/i686/cmov/libnsl-2.4.so
+b768e000-b7690000 rwxp 00011000 fe:00 13287454   /lib/tls/i686/cmov/libnsl-2.4.so
+b7690000-b7692000 rwxp b7690000 00:00 0 
+b7693000-b7699000 r-xs 00000000 fe:00 16714962   /usr/local/apache-tomcat-5.5.23/bin/bootstrap.jar
+b7699000-b769f000 r-xp 00000000 fe:00 16597069   /usr/local/jdk1.5.0_01/jre/lib/i386/native_threads/libhpi.so
+b769f000-b76a0000 rwxp 00006000 fe:00 16597069   /usr/local/jdk1.5.0_01/jre/lib/i386/native_threads/libhpi.so
+b76a0000-b76c4000 r-xp 00000000 fe:00 13287452   /lib/tls/i686/cmov/libm-2.4.so
+b76c4000-b76c6000 rwxp 00023000 fe:00 13287452   /lib/tls/i686/cmov/libm-2.4.so
+b76c6000-b79e2000 r-xp 00000000 fe:00 16617508   /usr/local/jdk1.5.0_01/jre/lib/i386/client/libjvm.so
+b79e2000-b79ff000 rwxp 0031c000 fe:00 16617508   /usr/local/jdk1.5.0_01/jre/lib/i386/client/libjvm.so
+b79ff000-b7e16000 rwxp b79ff000 00:00 0 
+b7e16000-b7f43000 r-xp 00000000 fe:00 13287448   /lib/tls/i686/cmov/libc-2.4.so
+b7f43000-b7f45000 r-xp 0012c000 fe:00 13287448   /lib/tls/i686/cmov/libc-2.4.so
+b7f45000-b7f47000 rwxp 0012e000 fe:00 13287448   /lib/tls/i686/cmov/libc-2.4.so
+b7f47000-b7f4b000 rwxp b7f47000 00:00 0 
+b7f4b000-b7f4d000 r-xp 00000000 fe:00 13287451   /lib/tls/i686/cmov/libdl-2.4.so
+b7f4d000-b7f4f000 rwxp 00001000 fe:00 13287451   /lib/tls/i686/cmov/libdl-2.4.so
+b7f4f000-b7f5e000 r-xp 00000000 fe:00 13287462   /lib/tls/i686/cmov/libpthread-2.4.so
+b7f5e000-b7f60000 rwxp 0000f000 fe:00 13287462   /lib/tls/i686/cmov/libpthread-2.4.so
+b7f60000-b7f62000 rwxp b7f60000 00:00 0 
+b7f62000-b7f63000 r-xp b7f62000 00:00 0 
+b7f63000-b7f66000 r-xs 00000000 fe:00 16714965   /usr/local/apache-tomcat-5.5.23/bin/commons-daemon.jar
+b7f66000-b7f68000 r-xs 00000000 fe:00 16647937   /usr/local/jdk1.5.0_01/jre/lib/ext/dnsns.jar
+b7f68000-b7f69000 ---p b7f68000 00:00 0 
+b7f69000-b7f6b000 rwxp b7f69000 00:00 0 
+b7f6b000-b7f84000 r-xp 00000000 fe:00 13287780   /lib/ld-2.4.so
+b7f84000-b7f86000 rwxp 00018000 fe:00 13287780   /lib/ld-2.4.so
+bf780000-bf783000 ---p bf780000 00:00 0 
+bf783000-bf980000 rwxp bf783000 00:00 0          [stack]
+ffffe000-fffff000 ---p 00000000 00:00 0          [vdso]
+
+VM Arguments:
+jvm_args: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.util.logging.config.file=/usr/local/apache-tomcat-5.5.23/conf/logging.properties -Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB -Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton -Dlof4j.configuration=file:/tmp/teste/apache-tomcat-5.5.23/common/classes/log4j.properties -Djava.endorsed.dirs=/usr/local/apache-tomcat-5.5.23/common/endorsed -Dcatalina.base=/usr/local/apache-tomcat-5.5.23 -Dcatalina.home=/usr/local/apache-tomcat-5.5.23 -Djava.io.tmpdir=/usr/local/apache-tomcat-5.5.23/temp
+java_command: org.apache.catalina.startup.Bootstrap start
+
+Environment Variables:
+JAVA_HOME=/usr/local/jdk/
+CLASSPATH=:/usr/local/apache-tomcat-5.5.23/bin/bootstrap.jar:/usr/local/apache-tomcat-5.5.23/bin/commons-logging-api.jar
+PATH=/usr/local/JacORB//bin:/usr/local/jdk//bin:/usr/local/ant//bin:/home/integrade/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/mpi/bin/
+LD_LIBRARY_PATH=/usr/local/jdk1.5.0_01/jre/lib/i386/client:/usr/local/jdk1.5.0_01/jre/lib/i386:/usr/local/jdk1.5.0_01/jre/../lib/i386:/usr/local/integrade//libs/mpiLib/lib:/usr/local/lua//lib
+SHELL=/bin/bash
+
+
+---------------  S Y S T E M  ---------------
+
+OS:testing/unstable
+
+uname:Linux 2.6.17-11-generic #2 SMP Fri May 18 23:39:08 UTC 2007 i686
+libc:glibc 2.4 NPTL 2.4 
+rlimit: STACK 8192k, CORE 0k, NPROC infinity, NOFILE 1024, AS infinity
+load average:1.12 1.10 1.00
+
+CPU:total 2 family 15, cmov, cx8, fxsr, mmx, sse, sse2, ht
+
+Memory: 4k page, physical 1034148k(46012k free), swap 3028212k(2559648k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.5.0_01-b08) for linux-x86, built on Dec  6 2004 20:41:12 by java_re with gcc 3.2.1-7a (J2SE release)
+

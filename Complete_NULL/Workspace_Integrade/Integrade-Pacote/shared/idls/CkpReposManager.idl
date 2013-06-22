@@ -1,0 +1,18 @@
+module clusterManagement {
+
+    struct CheckpointingInformation {
+        sequence<string> checkpointKey;
+        sequence<long> checkpointNumber;
+    };
+
+    ///
+    /// Interface CkpReposManager
+    ///
+    interface CkpReposManager{
+
+      void setCheckpointStored( in string executionId, in string checkpointKey, in long checkpointNumber );
+
+      CheckpointingInformation getCheckpointingInformation( in string executionId );
+
+    }; // Interface CkpReposManager
+};

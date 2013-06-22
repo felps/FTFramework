@@ -1,0 +1,15 @@
+package clusterManagement;
+
+/**
+ *	Generated from IDL interface "CkpReposManager"
+ *	@author JacORB IDL compiler V 2.2.3, 10-Dec-2005
+ */
+
+
+public interface CkpReposManagerOperations
+{
+	/* constants */
+	/* operations  */
+	void setCheckpointStored(java.lang.String executionId, java.lang.String checkpointKey, int checkpointNumber);
+	clusterManagement.CheckpointingInformation getCheckpointingInformation(java.lang.String executionId);
+}

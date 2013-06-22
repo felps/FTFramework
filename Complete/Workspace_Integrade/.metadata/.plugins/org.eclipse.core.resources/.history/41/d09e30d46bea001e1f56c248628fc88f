@@ -1,0 +1,32 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of alias "MpiConnectInformationSequence"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class MpiConnectInformationSequenceHolder
+	implements org.omg.CORBA.portable.Streamable
+{
+	public dataTypes.MpiConnectInformation[] value;
+
+	public MpiConnectInformationSequenceHolder ()
+	{
+	}
+	public MpiConnectInformationSequenceHolder (final dataTypes.MpiConnectInformation[] initial)
+	{
+		value = initial;
+	}
+	public org.omg.CORBA.TypeCode _type ()
+	{
+		return MpiConnectInformationSequenceHelper.type ();
+	}
+	public void _read (final org.omg.CORBA.portable.InputStream in)
+	{
+		value = MpiConnectInformationSequenceHelper.read (in);
+	}
+	public void _write (final org.omg.CORBA.portable.OutputStream out)
+	{
+		MpiConnectInformationSequenceHelper.write (out,value);
+	}
+}

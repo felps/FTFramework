@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<project name="gridproxy" default="jar" basedir=".">
+
+    <property environment="env"/>
+    <property name="src.dir" value="${basedir}"/>
+    <property name="classes.dir" value="${basedir}/classes"/>
+    <property name="doc.dir" value="${basedir}/doc"/>
+    <property name="javadoc.dir" value="${doc.dir}/javadoc"/>
+
+
+  <!-- =================================================================== -->
+  <!-- Creates Directories                                                 -->
+  <!-- =================================================================== -->
+
+  <target name="prepare" >
+    <mkdir dir="${classes.dir}"/>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- Create masct.lnk script                                          -->
+  <!-- =================================================================== -->
+
+  <target name="makeRunit" depends="prepare">
+    <echo file="${basedir}/masct.lnk"
+          message="255#&quot;\J9\PPRO11\bin\j9.exe&quot; &quot;-jcl:ppro11&quot; &quot;-cp&quot; &quot;.\proxy-framework-1.5.jar;.\messages.jar;.\communication-protocol-1.1.jar;.\masct.jar&quot; &quot;masct.Main&quot;"/>	
+  </target>
+
+
+
+  <!-- =================================================================== -->
+  <!-- Compile Java files                                                  -->
+  <!-- =================================================================== -->
+
+  <target name="compile" depends="makeRunit">
+  <echo message="Sources: ${src.dir}"/>
+  <echo message="Dest   : ${classes.dir}"/>
+  <javac srcdir="${src.dir}"
+          destdir="${classes.dir}"
+          debug="on"
+          deprecation="off"
+          optimize="off"
+          includes="**"
+		  target="1.4"	
+		  source="1.4"	
+          classpath="${basedir}:${basedir}/dependencies/communication-protocol-1.1.jar:${basedir}/dependencies/proxy-framework-1.5.jar:${basedir}/dependencies/messages.jar"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Generate Jar files                                                  -->
+  <!-- =================================================================== -->
+
+  <target name="jar" depends="compile"
+     description="Creating a masct.jar file">
+        <jar destfile="${basedir}/masct.jar"
+			 basedir="${classes.dir}">
+        </jar>
+    </target>
+
+
+  <!-- =================================================================== -->
+  <!-- Cleanup                                                             -->
+  <!-- =================================================================== -->
+
+  <target name="clean" >
+    <!-- Deletes all .class -->
+    <delete dir="${classes.dir}"/>
+    <delete file="${basedir}/masct.jar"/>
+    <delete file="${basedir}/masct.lnk"/>
+  </target>
+
+</project>
+

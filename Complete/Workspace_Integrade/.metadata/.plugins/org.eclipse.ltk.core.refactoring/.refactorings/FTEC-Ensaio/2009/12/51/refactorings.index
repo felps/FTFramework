@@ -1,0 +1,8 @@
+1260790534798	Delete element
+1260794150689	Rename type 'Ftec'
+1260794185293	Rename type 'ftecTest'
+1260794218302	Move compilation unit
+1260964872223	Rename type 'FTM'
+1260964945552	Encapsulate field 'chosenFTECbinaryLocation'
+1260965141798	Rename type 'FTEC'
+1260974800697	Encapsulate field 'configFileLocation'

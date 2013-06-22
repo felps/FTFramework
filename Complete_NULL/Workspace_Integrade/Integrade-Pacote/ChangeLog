@@ -1,0 +1,69 @@
+InteGrade (Version 0.5) - Tue Jun 23 2009 
+
+* Local Usage Pattern Analyzer (LUPA)
+
+* Integrade now can be used on Eclipse IDE.
+	(Instructions on how to setup are located on the README file, located on the eclipse directory)
+
+* Fixed BUG #32 - Compilation Bug on Ubuntu 8.04
+	(http://ccsl.ime.usp.br/integrade/trac/ticket/32)
+
+* Fixed BUG #33 - Execution descriptor is not loaded on parametric mode.
+	(http://ccsl.ime.usp.br/integrade/trac/ticket/33)
+
+* And some minor bug fixes
+
+---------------------------------------------------------------------
+
+InteGrade (Version 0.4) - Wed Oct 10 12:06:08 BRST 2007
+
+* Support for MPI
+
+* Initial integration of OppStore with InteGrade
+
+* Execution Manager data is now persistent
+
+* Refactored several method and variable names
+
+* Many bug corrections
+
+---------------------------------------------------------------------
+
+InteGrade (Version 0.3) - Mon Jul 31 16:09:33 BRST 2006
+
+* Splited the asctGui module into asct and gui modules
+
+* Preliminary support for multiple clusters
+
+* Support for checkpoint storage in remote repositories (CRM, ckpRepos)
+
+* Refactoring in several modules
+
+----------------------------------------------------------------------
+
+InteGrade (Version 0.2) - Mon Nov 21 16:59:33 BRST 2005
+
+* Name server (NFS is not required anymore)
+
+* Security in Application Repository
+
+* Improvements in asctGui
+
+* Some bugs fixed and documentation updated
+
+* Simplifications in installation procedures
+
+----------------------------------------------------------------------
+
+InteGrade (Version 0.1) - Fri Feb  4 14:52:38 BRST 2005
+
+* This is the first InteGrade release!
+
+* Support for BSMP communication in BSPlib.
+
+* Documentation Updated.
+
+* Improvements in InteGrade's BSPlib
+
+-----------------------------------------------------------------------
+

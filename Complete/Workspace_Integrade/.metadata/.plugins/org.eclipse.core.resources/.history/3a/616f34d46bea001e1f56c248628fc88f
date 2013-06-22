@@ -1,0 +1,19 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of struct "Task"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class Task
+	implements org.omg.CORBA.portable.IDLEntity
+{
+	public Task(){}
+	public dataTypes.ApplicationExecutionInformation applicationExecutionInformation;
+	public dataTypes.ProcessExecutionInformation[] processExecutionInformation;
+	public Task(dataTypes.ApplicationExecutionInformation applicationExecutionInformation, dataTypes.ProcessExecutionInformation[] processExecutionInformation)
+	{
+		this.applicationExecutionInformation = applicationExecutionInformation;
+		this.processExecutionInformation = processExecutionInformation;
+	}
+}

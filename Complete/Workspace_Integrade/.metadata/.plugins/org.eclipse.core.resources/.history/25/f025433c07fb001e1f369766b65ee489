@@ -1,0 +1,95 @@
+package wfm;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import defaultTypes.*;
+import ftm.Ftm;
+
+public class wfm {
+	
+	private static List<Workflow> runningWorkflows = new ArrayList<Workflow>();
+	
+	public static void submitWorkflow(Workflow workflow) {
+		runningWorkflows.add(workflow);
+	}
+	
+	public static void endWorkflow(Workflow workflow){
+		runningWorkflows.remove(workflow);
+	}
+	
+	public static void endWorkflow(String name){
+		List<Workflow> list = runningWorkflows;
+		for(int i=0; i<list.size(); i++){
+			if (list.get(i).getName().equalsIgnoreCase(name) && list.get(i).isComplete()){
+				list.remove(list.get(i));
+				return;
+			}
+		}
+	}
+	
+	public static void killWorkflow(String name){
+		List<Workflow> list = runningWorkflows;
+		for(int i=0; i<list.size(); i++){
+			if (list.get(i).getName().equalsIgnoreCase(name)){
+				list.remove(list.get(i));
+				return;
+			}
+		}
+	}
+	
+	public static Workflow getWorkflow(String name){
+		List<Workflow> list = runningWorkflows;
+		Workflow originalWorkflow = null;
+		
+		for(int i=0; i<list.size(); i++){
+			originalWorkflow = (Workflow)list.get(i);
+			if (originalWorkflow.getName().equalsIgnoreCase(name)){
+				return originalWorkflow;
+			}
+		}
+		return null;
+	}
+	
+	public static Set<Task> getReadyTasks(String name){
+		Workflow workflow = null;
+		List<Workflow> list = runningWorkflows;
+		
+		for(int i=0; i<list.size(); i++){
+			if ((list.get(i).getName().equalsIgnoreCase(name))){
+				return workflow.getReadyTasks();
+			}
+		}
+		return null;	
+	}
+	
+	public static void executeTask(String workflowName, String taskName){
+		List<Workflow> list = runningWorkflows;
+		
+		for(int i=0; i<list.size(); i++){
+			for (int j = 0; j < array.length; j++) {
+				List<Task> tasks = list.get(i).getAllTasks();
+			}
+				list.get(i).getTask(taskName).setComplete();
+			
+		}		
+	}
+	
+	public static void evaluateWorkflow(String name) throws InterruptedException{
+		Workflow workflow = getWorkflow(name);
+		Set<Task> readyTasks = workflow.getReadyTasks();
+		
+		Iterator<Task> iter = readyTasks.iterator();
+		
+		for(;iter.hasNext();){
+			submitTask(iter.next());
+		}
+		
+	}
+	
+	private static void submitTask(Task task) throws InterruptedException {
+		Ftm.submitTask(task);
+	}
+	
+}

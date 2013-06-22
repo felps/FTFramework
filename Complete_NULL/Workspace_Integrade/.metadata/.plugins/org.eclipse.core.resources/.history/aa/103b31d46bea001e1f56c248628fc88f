@@ -1,0 +1,50 @@
+package dataTypes;
+
+
+/**
+ *	Generated from IDL definition of struct "NodeStaticHistograms"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class NodeStaticHistogramsHelper
+{
+	private static org.omg.CORBA.TypeCode _type = null;
+	public static org.omg.CORBA.TypeCode type ()
+	{
+		if (_type == null)
+		{
+			_type = org.omg.CORBA.ORB.init().create_struct_tc(dataTypes.NodeStaticHistogramsHelper.id(),"NodeStaticHistograms",new org.omg.CORBA.StructMember[]{new org.omg.CORBA.StructMember("processorMhz", dataTypes.HistogramHelper.type(), null),new org.omg.CORBA.StructMember("totalRam", dataTypes.HistogramHelper.type(), null),new org.omg.CORBA.StructMember("totalSwap", dataTypes.HistogramHelper.type(), null)});
+		}
+		return _type;
+	}
+
+	public static void insert (final org.omg.CORBA.Any any, final dataTypes.NodeStaticHistograms s)
+	{
+		any.type(type());
+		write( any.create_output_stream(),s);
+	}
+
+	public static dataTypes.NodeStaticHistograms extract (final org.omg.CORBA.Any any)
+	{
+		return read(any.create_input_stream());
+	}
+
+	public static String id()
+	{
+		return "IDL:dataTypes/NodeStaticHistograms:1.0";
+	}
+	public static dataTypes.NodeStaticHistograms read (final org.omg.CORBA.portable.InputStream in)
+	{
+		dataTypes.NodeStaticHistograms result = new dataTypes.NodeStaticHistograms();
+		result.processorMhz=dataTypes.HistogramHelper.read(in);
+		result.totalRam=dataTypes.HistogramHelper.read(in);
+		result.totalSwap=dataTypes.HistogramHelper.read(in);
+		return result;
+	}
+	public static void write (final org.omg.CORBA.portable.OutputStream out, final dataTypes.NodeStaticHistograms s)
+	{
+		dataTypes.HistogramHelper.write(out,s.processorMhz);
+		dataTypes.HistogramHelper.write(out,s.totalRam);
+		dataTypes.HistogramHelper.write(out,s.totalSwap);
+	}
+}

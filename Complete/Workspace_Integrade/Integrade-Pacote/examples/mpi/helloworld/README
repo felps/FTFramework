@@ -1,0 +1,8 @@
+Compile:
+========
+To compile use the mpicc command from the modified (to work with InteGrade) mpich version.
+Just run: mpicc -o hellow hellow.c
+
+Run:
+====
+To run, just submit through AsctGui without arguments.

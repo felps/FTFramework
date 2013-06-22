@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_01"/>
+	<classpathentry exported="true" kind="lib" path="/auto/home/grad/lundberg/gridsphere-2.2.3/build/lib/coreportlets-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/auto/home/grad/lundberg/gridsphere-2.2.3/build/lib/gridsphere-portal-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/auto/home/grad/lundberg/gridsphere-2.2.3/build/lib/gridsphere-provider-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/auto/home/grad/lundberg/gridsphere-2.2.3/build/lib/gridsphere-service-framework-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/auto/home/grad/lundberg/gridsphere-2.2.3/build/lib/gridsphere-ui-tags-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/auto/home/grad/lundberg/gridsphere-2.2.3/build/lib/portlet-api-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/auto/home/grad/lundberg/gridsphere-2.2.3/build/lib/portlet-jsr-api-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/auto/home/grad/lundberg/gridsphere-2.2.3/projects/integrade/lib/asct.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

@@ -1,0 +1,32 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of exception "WrongHistogramTypeException"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class WrongHistogramTypeExceptionHolder
+	implements org.omg.CORBA.portable.Streamable
+{
+	public dataTypes.WrongHistogramTypeException value;
+
+	public WrongHistogramTypeExceptionHolder ()
+	{
+	}
+	public WrongHistogramTypeExceptionHolder(final dataTypes.WrongHistogramTypeException initial)
+	{
+		value = initial;
+	}
+	public org.omg.CORBA.TypeCode _type ()
+	{
+		return dataTypes.WrongHistogramTypeExceptionHelper.type ();
+	}
+	public void _read(final org.omg.CORBA.portable.InputStream _in)
+	{
+		value = dataTypes.WrongHistogramTypeExceptionHelper.read(_in);
+	}
+	public void _write(final org.omg.CORBA.portable.OutputStream _out)
+	{
+		dataTypes.WrongHistogramTypeExceptionHelper.write(_out, value);
+	}
+}

@@ -1,0 +1,65 @@
+---
+name : 0
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/kdialog0
+outputfile:
+dependencies:
+---
+name : 1
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/kdialog1
+outputfile:
+dependencies:
+ - 0
+---
+name : 2
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/kdialog2
+outputfile:
+dependencies:
+ - 1
+---
+name : 3
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/kdialog3
+outputfile:
+dependencies:
+ - 1
+---
+name : 4
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/kdialog4
+outputfile:
+dependencies:
+ - 0
+---
+name : 5
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/kdialog5
+outputfile: 
+dependencies:
+ - 4
+---
+name : 6
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/kdialog6
+outputfile:
+dependencies:
+ - 2
+ - 3
+---
+name : 7
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/kdialog7
+outputfile:
+dependencies:
+ - 5
+ - 6

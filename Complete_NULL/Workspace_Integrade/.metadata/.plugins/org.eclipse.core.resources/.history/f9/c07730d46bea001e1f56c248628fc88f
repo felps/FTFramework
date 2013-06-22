@@ -1,0 +1,32 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of struct "MpiConnectInformation"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class MpiConnectInformationHolder
+	implements org.omg.CORBA.portable.Streamable
+{
+	public dataTypes.MpiConnectInformation value;
+
+	public MpiConnectInformationHolder ()
+	{
+	}
+	public MpiConnectInformationHolder(final dataTypes.MpiConnectInformation initial)
+	{
+		value = initial;
+	}
+	public org.omg.CORBA.TypeCode _type ()
+	{
+		return dataTypes.MpiConnectInformationHelper.type ();
+	}
+	public void _read(final org.omg.CORBA.portable.InputStream _in)
+	{
+		value = dataTypes.MpiConnectInformationHelper.read(_in);
+	}
+	public void _write(final org.omg.CORBA.portable.OutputStream _out)
+	{
+		dataTypes.MpiConnectInformationHelper.write(_out, value);
+	}
+}

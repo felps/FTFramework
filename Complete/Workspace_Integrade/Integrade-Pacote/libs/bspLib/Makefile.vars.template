@@ -1,0 +1,2 @@
+LUAINCDIR=/home/fabio/ic/lua-5.1.1/include/
+LUALIBDIR=/home/fabio/ic/lua-5.1.1/lib/

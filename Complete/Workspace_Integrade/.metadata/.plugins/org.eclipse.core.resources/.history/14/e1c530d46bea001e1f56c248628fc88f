@@ -1,0 +1,32 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of struct "NodeDynamicHistograms"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class NodeDynamicHistogramsHolder
+	implements org.omg.CORBA.portable.Streamable
+{
+	public dataTypes.NodeDynamicHistograms value;
+
+	public NodeDynamicHistogramsHolder ()
+	{
+	}
+	public NodeDynamicHistogramsHolder(final dataTypes.NodeDynamicHistograms initial)
+	{
+		value = initial;
+	}
+	public org.omg.CORBA.TypeCode _type ()
+	{
+		return dataTypes.NodeDynamicHistogramsHelper.type ();
+	}
+	public void _read(final org.omg.CORBA.portable.InputStream _in)
+	{
+		value = dataTypes.NodeDynamicHistogramsHelper.read(_in);
+	}
+	public void _write(final org.omg.CORBA.portable.OutputStream _out)
+	{
+		dataTypes.NodeDynamicHistogramsHelper.write(_out, value);
+	}
+}

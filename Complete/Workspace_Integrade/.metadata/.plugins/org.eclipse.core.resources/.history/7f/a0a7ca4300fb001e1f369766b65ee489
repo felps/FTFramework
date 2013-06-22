@@ -1,0 +1,57 @@
+package ftec;
+
+import java.io.IOException;
+
+public class RetryFTEC extends Ftec implements Runnable {
+
+	private Boolean complete;
+	private final int defaultErrorCode = 0;
+	
+	public RetryFTEC(String name, String FTECLocation,
+			String appBinaryLocation, String inputFileLocation,
+			String configFileLocation) {
+		super(name, FTECLocation, appBinaryLocation, inputFileLocation,
+				configFileLocation);
+		this.complete = false;
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run() {
+		
+		this.startExecution();
+		this.waitCompletion();
+		this.endExecution();
+		
+	}
+
+	private void startExecution(){
+		try {
+			this.setRunningApp(Runtime.getRuntime().exec(this.getAppBinaryLocation() + " " + this.getInputFileLocation() ));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void waitCompletion(){
+		try {
+			this.getRunningApp().waitFor();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void endExecution() {
+		if(this.getRunningApp().exitValue() == this.defaultErrorCode) {
+			System.out.println("Aplicativo terminou com erro. Tentando novamente...");
+		}
+		else {
+			System.out.println("Aplicativo terminou com sucesso.");
+			this.complete = true;
+		}
+		
+		this.notifyAll();
+	}
+}

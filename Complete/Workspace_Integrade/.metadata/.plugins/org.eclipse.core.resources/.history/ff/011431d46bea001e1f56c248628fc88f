@@ -1,0 +1,21 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of struct "NodeStaticHistograms"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class NodeStaticHistograms
+	implements org.omg.CORBA.portable.IDLEntity
+{
+	public NodeStaticHistograms(){}
+	public dataTypes.Histogram processorMhz;
+	public dataTypes.Histogram totalRam;
+	public dataTypes.Histogram totalSwap;
+	public NodeStaticHistograms(dataTypes.Histogram processorMhz, dataTypes.Histogram totalRam, dataTypes.Histogram totalSwap)
+	{
+		this.processorMhz = processorMhz;
+		this.totalRam = totalRam;
+		this.totalSwap = totalSwap;
+	}
+}

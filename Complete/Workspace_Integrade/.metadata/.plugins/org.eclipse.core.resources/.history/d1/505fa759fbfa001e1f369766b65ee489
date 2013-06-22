@@ -1,0 +1,8 @@
+package ftsm;
+
+
+
+public class Ftsm {
+	public ArrayList<Property[]> getLrmInformation(String constraints, String preferences, String[] propertiesSpecification) {
+		
+}

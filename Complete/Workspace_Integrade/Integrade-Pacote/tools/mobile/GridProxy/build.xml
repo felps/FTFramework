@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<project name="gridproxy" default="compile" basedir=".">
+
+    <property environment="env"/>
+    <property name="jacorb.home" value="${env.JACORB_HOME}"/>
+    <property name="integrade.home" value="${env.IG_HOME}"/>
+    <property name="src.dir" value="${basedir}"/>
+    <property name="classes.dir" value="${basedir}/classes"/>
+    <property name="doc.dir" value="${basedir}/doc"/>
+    <property name="javadoc.dir" value="${doc.dir}/javadoc"/>
+
+
+  <!-- =================================================================== -->
+  <!-- Creates Directories                                                 -->
+  <!-- =================================================================== -->
+
+  <target name="prepare" >
+    <mkdir dir="${classes.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Create runit helper script                                          -->
+  <!-- =================================================================== -->
+
+  <target name="makeRunit" depends="prepare">
+    <echo file="${classes.dir}/runit"
+          message="#!/bin/bash ${line.separator}"/>
+
+    <echo file="${classes.dir}/runit" append="true" 
+          message="####################################################################################### ${line.separator}"/>
+
+    <echo file="${classes.dir}/runit" append="true" 
+          message="${line.separator}"/>
+
+    <echo file="${classes.dir}/runit" append="true" 
+          message="${line.separator}"/>
+
+    <echo file="${classes.dir}/runit" append="true" 
+          message="rm -r db/ 2> /dev/null ${line.separator}"/>
+
+    <echo file="${classes.dir}/runit" append="true" 
+          message="rm -r output/ 2> /dev/null ${line.separator}"/>
+
+    <echo file="${classes.dir}/runit" append="true" 
+          message="${line.separator}"/>
+
+    <echo file="${classes.dir}/runit" append="true" 
+          message="${line.separator}"/>
+
+    <echo file="${classes.dir}/runit" append="true" 
+          message="jaco -cp .:${integrade.home}/tools/asct/classes:${basedir}/dependencies/communication-protocol-1.1.jar:${basedir}/dependencies/h2.jar:${basedir}/dependencies/proxy-framework-1.5.jar:${basedir}/dependencies/messages.jar gridproxy.GridProxy"/>
+	
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Compile Java files                                                  -->
+  <!-- =================================================================== -->
+
+  <target name="compile" depends="makeRunit">
+  <echo message="Sources: ${src.dir}"/>
+  <echo message="Dest   : ${classes.dir}"/>
+  <javac srcdir="${src.dir}"
+          destdir="${classes.dir}"
+          debug="on"
+          deprecation="off"
+          optimize="off"
+          includes="**"
+          classpath="${basedir}:${integrade.home}/tools/asct/classes:${basedir}/dependencies/communication-protocol-1.1.jar:${basedir}/dependencies/h2.jar:${basedir}/dependencies/proxy-framework-1.5.jar:${basedir}/dependencies/messages.jar"/>
+  <chmod file="${classes.dir}/runit" perm="755"/>
+  <copy  file="${basedir}/asct.conf" todir="${basedir}/classes"/>
+  <copy  file="${basedir}/gridproxy.properties" todir="${basedir}/classes"/>
+  <copy  file="${basedir}/jacorb.properties" todir="${basedir}/classes"/>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- Cleanup                                                             -->
+  <!-- =================================================================== -->
+
+  <target name="clean" >
+    <!-- Deletes all .class -->
+    <delete dir="${classes.dir}"/>
+  </target>
+
+</project>
+

@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package ftec;
+
+/**
+ * @author felps
+ *
+ */
+public class RetryFtec {
+
+	/**
+	 * 
+	 */
+	public RetryFtec() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

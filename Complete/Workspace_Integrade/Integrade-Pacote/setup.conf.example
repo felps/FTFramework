@@ -1,0 +1,15 @@
+GRMMachineName=localhost
+useGRMParent=false
+parentGRMHostName=
+inteGradeHome=your_branch_here/integrade
+antHome=/usr/local/integrade/deps/ant/ant-built
+jacorbHome=/usr/local/integrade/deps/jacorb/jacorb-built
+javaHome=
+luaPath=/usr/local/integrade/deps/lua/lua-built
+catalinaHome=/usr/local/integrade/deps/tomcat/tomcat-built
+traderPath=your_branch_here/integrade/trader
+ServersRunInThisMachine=true
+secureAppRepos=false
+kerberosDomain=
+kerberosConfigPath=
+generateKeytabs=

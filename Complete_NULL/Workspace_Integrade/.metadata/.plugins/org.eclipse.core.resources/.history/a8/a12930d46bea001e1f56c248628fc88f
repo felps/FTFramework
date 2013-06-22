@@ -1,0 +1,19 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of struct "MpiConnectInformation"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class MpiConnectInformation
+	implements org.omg.CORBA.portable.IDLEntity
+{
+	public MpiConnectInformation(){}
+	public java.lang.String kvs = "";
+	public java.lang.String processId = "";
+	public MpiConnectInformation(java.lang.String kvs, java.lang.String processId)
+	{
+		this.kvs = kvs;
+		this.processId = processId;
+	}
+}

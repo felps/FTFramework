@@ -1,0 +1,24 @@
+#Wed Dec 16 15:39:02 BRST 2009
+sourceHoverBackgroundColor=245,245,181
+content_assist_proposals_foreground=26,26,26
+spelling_locale_initialized=true
+smart_semicolon=true
+smart_opening_brace=true
+org.eclipse.jdt.ui.text.templates_migrated=true
+useAnnotationsPrefPage=true
+eclipse.preferences.version=1
+org.eclipse.jface.textfont=1|Monospace|10.0|0|GTK|1|;
+tabWidthPropagated=true
+org.eclipse.jdt.ui.editor.tab.width=
+fontPropagated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.javadoclocations.migrated=true
+proposalOrderMigrated=true
+breadcrumb.org.eclipse.jdt.ui.JavaPerspective=true
+content_assist_proposals_background=255,255,255
+org.eclipse.jdt.ui.formatterprofiles.version=11
+content_assist_number_of_computers=13
+useQuickDiffPrefPage=true
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="felps.homeip.net.tutorial.Person"><rhs name\="felps.homeip.net.tutorial.Person"/></lhs><lhs name\="wsct.Dependency"><rhs name\="wsct.Dependency"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.HashSet"/><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.HashSet"/><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Set"><rhs name\="java.util.HashSet"/></lhs><lhs name\="wsct.Workflow"><rhs name\="wsct.Workflow"/></lhs><lhs name\="wsct.Task"><rhs name\="wsct.Task"/></lhs><lhs name\="wfm.Workflow"><rhs name\="wfm.Workflow"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Map"><rhs name\="java.util.HashMap"/></lhs><lhs name\="ftec.Ftec"><rhs name\="ftec.Ftec"/></lhs><lhs name\="java.lang.Runnable"><rhs name\="java.lang.Thread"/></lhs><lhs name\="java.lang.Thread"><rhs name\="java.lang.Thread"/></lhs><lhs name\="java.lang.Number"><rhs name\="java.lang.Long"/></lhs></history>
+org.eclipse.jdt.ui.text.code_templates_migrated=true

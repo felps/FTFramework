@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<project name="grm" default="all" basedir=".">
+
+    <property environment="env"/>
+    <property name="jacorb.home" value="${env.JACORB_HOME}"/>
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="classes.dir" value="${basedir}/classes"/>
+    <property name="doc.dir" value="${basedir}/doc"/>
+    <property name="javadoc.dir" value="${doc.dir}/javadoc"/>
+    <property name="freepastry.jar" value="${basedir}/../../libs/pastry/FreePastry-2.0b.jar"/>
+    <property name="log4j.jar" value="${basedir}/../../libs/log4j/log4j-1.2.13.jar"/>
+
+  <!-- =================================================================== -->
+  <!-- Creates Directories                                                 -->
+  <!-- =================================================================== -->
+
+  <target name="prepare" >
+    <mkdir dir="${classes.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Create runit helper script                                          -->
+  <!-- =================================================================== -->
+
+  <target name="makeRunit" depends="prepare">
+    <echo file="${classes.dir}/runit"
+          message="java -ea -Djacorb.home=${jacorb.home} -Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB -Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton -classpath .:${jacorb.home}/lib/jacorb.jar:${jacorb.home}/lib/logkit-1.2.jar:${jacorb.home}/lib/avalon-framework-4.1.5.jar:${freepastry.jar}:${log4j.jar} br.usp.ime.oppstore.cdrm.CdrmLauncher ai-linear ${basedir}/log4j.properties"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Compiles ResourceManagement.idl                                     -->
+  <!-- =================================================================== -->
+
+  <target name="idl">
+    <exec dir="${src.dir}" executable="${jacorb.home}/bin/idl">
+      <arg line="../../../shared/idls/Cdrm.idl"/>
+    </exec>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Compile IDL generated classes                                       -->
+  <!-- =================================================================== -->
+  <target name="all" depends="prepare, makeRunit, idl, compile">
+  </target> 
+
+  <!-- =================================================================== -->
+  <!-- Compile IDL generated classes                                       -->
+  <!-- =================================================================== -->
+  <target name="compile">
+  <echo message="Sources: ${src.dir}"/>
+  <echo message="Dest   : ${classes.dir}"/>
+  <javac srcdir="${src.dir}"
+          destdir="${classes.dir}"
+          debug="on"
+          deprecation="on"
+          optimize="off"
+          includes="**/*.java"
+          classpath="${basedir}:${jacorb.home}/lib/jacorb.jar::${freepastry.jar}:${log4j.jar}"/>
+  <copy file="jacorb.properties" todir="${classes.dir}"/>
+  <copy file="log4j.properties" todir="${classes.dir}"/>
+  <copy file="cdrm.properties" todir="${classes.dir}"/>
+  <mkdir dir="logs"/>
+  <chmod file="${classes.dir}/runit" perm="755"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Cleanup                                                             -->
+  <!-- =================================================================== -->
+
+  <target name="clean" depends="cleanIdls">
+    <!-- Deletes all .class -->
+    <delete dir="${classes.dir}"/>
+    <delete dir="${doc.dir}"/>
+    <delete dir="logs"/>
+  </target>
+
+  <!--Deletes IDL generated source files -->
+  <target name="cleanIdls">
+    <delete includeEmptyDirs="true" dir="${src.dir}/br/usp/ime/oppstore/corba/"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Prepare to generate documentation                                   -->
+  <!-- =================================================================== -->
+
+  <target name="preparedoc" depends="idl">
+    <mkdir dir="${doc.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Generates Javadoc                                                   -->
+  <!-- =================================================================== -->
+
+  <target name="javadoc" depends="preparedoc">
+    <mkdir dir="${javadoc.dir}"/>
+    <javadoc destdir="./doc/javadoc"
+              classpath=".:types:interfaces:${jacorb.home}/lib/jacorb.jar">
+      <fileset dir="${src.dir}"
+                includes="**/*.java"/>
+    </javadoc>
+  </target>
+
+</project>
+

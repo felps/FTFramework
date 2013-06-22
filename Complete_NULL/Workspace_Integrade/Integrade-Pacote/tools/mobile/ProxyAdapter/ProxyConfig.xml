@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ProxyConf>
+
+<State> <!-- Desconexão Temporária -->
+     <Expression>
+          <![CDATA[ OnLine = false AND DeltaT < 2000 ]]>
+     </Expression>
+     <Action class="moca.core.proxy.actions.listeners.DefaultCacheListener">
+         <Parameter name="cacheClassName">moca.core.proxy.cache.FIFOCacher
+         </Parameter>
+     </Action>
+ </State>
+ 
+<State> <!-- Desconexão Permanente -->
+     <Expression>
+          <![CDATA[ OnLine = false AND DeltaT > 259200000 ]]>
+     </Expression>
+     <Action class="moca.core.proxy.actions.listeners.DefaultCacheListener">
+         <Parameter name="cacheClassName">moca.core.proxy.cache.NoCache
+         </Parameter>
+     </Action>
+</State>
+
+<State>
+	<Expression> <![CDATA[ EnergyLevel < 55 ]]> </Expression>
+	<Rule priority="1">
+		<Filter> 
+			<!-- tipo de dados da mensagem -->
+			<StartWith>
+				<FieldValue>
+					<Literal>datatype</Literal>
+				</FieldValue>
+				<Literal>image/</Literal>
+			</StartWith>
+		</Filter>
+		<Action class="moca.core.proxy.actions.adapters.ConvertToJPEGAdapter">
+		<Parameter name="compressionQuality">0.6</Parameter>
+        </Action>
+	</Rule>
+</State>
+
+
+<State>
+	<Expression><![CDATA[ ALL_DEVICES ]]></Expression>
+	<Rule priority="1">
+		<Filter> 
+			<!-- tipo de dados da mensagem -->
+			<StartWith>
+				<FieldValue>
+					<Literal>datatype</Literal>
+				</FieldValue>
+				<Literal>image/</Literal>
+			</StartWith>
+		</Filter>
+      <Action class="moca.core.proxy.actions.adapters.CropCenterAdapter">
+           <Parameter name="width">220</Parameter>
+            <Parameter name="height">220</Parameter> 
+        </Action>
+	</Rule>
+</State>
+
+</ProxyConf>
+	

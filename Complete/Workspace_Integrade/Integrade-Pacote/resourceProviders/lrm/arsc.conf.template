@@ -1,0 +1,9 @@
+securityIdlPath ../../shared/idls/Arsm.idl
+cosNamingIdlPath ../../shared/idls/CosNaming.idl
+serverNameRef corbaloc::dhcppc1:47039/NameService
+orbPath /home/fabio/ic/lua-5.1.1/?
+principal bauru/ARSC@LCPD.IME.USP.BR
+keytab lrm.keytab
+isWrap true
+secureAppRepos true
+

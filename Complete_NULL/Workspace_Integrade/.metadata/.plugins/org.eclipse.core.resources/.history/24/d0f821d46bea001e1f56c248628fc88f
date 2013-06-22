@@ -1,0 +1,64 @@
+package clusterManagement;
+
+
+/**
+ *	Generated from IDL definition of struct "CheckpointingInformation"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class CheckpointingInformationHelper
+{
+	private static org.omg.CORBA.TypeCode _type = null;
+	public static org.omg.CORBA.TypeCode type ()
+	{
+		if (_type == null)
+		{
+			_type = org.omg.CORBA.ORB.init().create_struct_tc(clusterManagement.CheckpointingInformationHelper.id(),"CheckpointingInformation",new org.omg.CORBA.StructMember[]{new org.omg.CORBA.StructMember("checkpointKey", org.omg.CORBA.ORB.init().create_sequence_tc(0, org.omg.CORBA.ORB.init().create_string_tc(0)), null),new org.omg.CORBA.StructMember("checkpointNumber", org.omg.CORBA.ORB.init().create_sequence_tc(0, org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(3))), null)});
+		}
+		return _type;
+	}
+
+	public static void insert (final org.omg.CORBA.Any any, final clusterManagement.CheckpointingInformation s)
+	{
+		any.type(type());
+		write( any.create_output_stream(),s);
+	}
+
+	public static clusterManagement.CheckpointingInformation extract (final org.omg.CORBA.Any any)
+	{
+		return read(any.create_input_stream());
+	}
+
+	public static String id()
+	{
+		return "IDL:clusterManagement/CheckpointingInformation:1.0";
+	}
+	public static clusterManagement.CheckpointingInformation read (final org.omg.CORBA.portable.InputStream in)
+	{
+		clusterManagement.CheckpointingInformation result = new clusterManagement.CheckpointingInformation();
+		int _lresult_checkpointKey0 = in.read_long();
+		result.checkpointKey = new java.lang.String[_lresult_checkpointKey0];
+		for (int i=0;i<result.checkpointKey.length;i++)
+		{
+			result.checkpointKey[i]=in.read_string();
+		}
+
+		int _lresult_checkpointNumber1 = in.read_long();
+		result.checkpointNumber = new int[_lresult_checkpointNumber1];
+	in.read_long_array(result.checkpointNumber,0,_lresult_checkpointNumber1);
+		return result;
+	}
+	public static void write (final org.omg.CORBA.portable.OutputStream out, final clusterManagement.CheckpointingInformation s)
+	{
+		
+		out.write_long(s.checkpointKey.length);
+		for (int i=0; i<s.checkpointKey.length;i++)
+		{
+			out.write_string(s.checkpointKey[i]);
+		}
+
+		
+		out.write_long(s.checkpointNumber.length);
+		out.write_long_array(s.checkpointNumber,0,s.checkpointNumber.length);
+	}
+}

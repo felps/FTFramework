@@ -1,0 +1,74 @@
+module br { 
+module usp {
+module ime {
+module oppstore {
+module corba {
+
+  typedef sequence<octet> key; ///< A key, represented as a binary stream
+
+  typedef sequence<key> keySequence;
+
+  typedef sequence<long> longSequence;
+
+  typedef sequence<string> stringSequence;
+
+
+  interface AccessBroker {
+
+    void uploadFragments ( in long requestId, in stringSequence adrAddresses );
+    
+    void setFileStorageRequestCompleted ( in long requestId );
+
+    void setFileStorageRequestFailed ( in long requestId );
+    
+    void downloadFragments ( in long requestId, in stringSequence adrAddresses, in keySequence fragmentKeyList, 
+			     in long fileSize, in longSequence fragmentSizeList, in long nNeededFragments);
+
+    void removeFragments ( in long requestId, in stringSequence adrAddresses, in keySequence fragmentKeyList );
+
+    void renewFragmentLeases ( in long requestId, in stringSequence adrAddresses, in keySequence fragmentKeyList, in long timeout ); 
+	   
+    void setFileRetrievalRequestFailed ( in long requestId );
+    
+  }; // interface AccessBroker
+
+  interface CdrmRequests {
+
+    void setFragmentStorageFinished( in long requestNumber, in longSequence notStoredFragmentList,
+				     in keySequence fragmentHashList, in key finalFileKey );
+
+    long requestFileStorage(in key fileKey, in keySequence fragmentKeyList, 
+			    in long fileSize, in longSequence fragmentSizeList, in long neededFragments, 
+			    in string accessBrokerIor, in long timeoutMinutes, in boolean storeGlobal);
+
+    long requestFileRetrieval(in key fileKey, in string accessBrokerIor);
+
+    long requestFileRemoval(in key fileKey, in string accessBrokerIor);
+  
+    long requestFileLeaseRenewal(in key fileKey, in string accessBrokerIor, in long timeout);
+
+  }; // interface CdrmRequest
+
+
+  interface AdrManager {
+
+    long registerAdr( in string address, in long freeStorageSpace, in double meanUptime, in double meanIdleness );
+
+    void adrStatusChanged( in long adrId, in long freeStorageSpaceChange, in double meanUptimeChange, 
+			   in double meanIdlenessChange );
+
+    void setFragmentStored ( in long adrId, in key fragmentKey, in long fragmentSize, in long timeoutMinutes);
+
+    void setFragmentRemoved ( in long adrId, in key fragmentKey, in long fragmentSize);
+
+    void setFragmentLeaseRenewed ( in long adrId, in key fragmentKey, in long timeoutMinutes);
+
+    long adrKeepAlive ( in long adrId );
+
+    keySequence getFragmentRemovalList(in long adrId);
+
+  }; // interface AdrManager
+
+
+}; }; }; }; };
+

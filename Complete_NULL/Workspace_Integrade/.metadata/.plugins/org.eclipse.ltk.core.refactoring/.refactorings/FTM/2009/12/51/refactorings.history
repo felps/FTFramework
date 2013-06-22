@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;FtecExecution&apos; in &apos;ftm.Ftm.newTask(...)&apos; to &apos;ftecExecution&apos;&#x0A;- Original project: &apos;FTM&apos;&#x0A;- Original element: &apos;ftm.Ftm.newTask(Task).FtecExecution&apos;&#x0A;- Renamed element: &apos;FtecExecution&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;FtecExecution&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;ftm{Ftm.java[Ftm~newTask~QTask;@FtecExecution!660!699!667!679!QThread;" name="ftecExecution" references="true" stamp="1260972932769" version="1.0"/>
+</session>

@@ -1,0 +1,20 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of exception "WrongHistogramTypeException"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class WrongHistogramTypeException
+	extends org.omg.CORBA.UserException
+{
+	public WrongHistogramTypeException()
+	{
+		super(dataTypes.WrongHistogramTypeExceptionHelper.id());
+	}
+
+	public WrongHistogramTypeException(String value)
+	{
+		super(value);
+	}
+}

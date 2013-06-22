@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+    version="1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">
+    <portlet>
+        <description xml:lang="en">A browser to integrade's safe application repository</description>
+        <description xml:lang="de"></description>
+        <portlet-name>RepositoryBrowserPortlet</portlet-name>
+        <display-name xml:lang="en">Repository Browser Portlet</display-name>
+        <portlet-class>org.integrade.portlets.RepositoryBrowser</portlet-class>
+        <expiration-cache>60</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Repository Browser</title>
+            <short-title>Repository</short-title>
+            <keywords>repository, browser</keywords>
+        </portlet-info>
+    </portlet>
+    <portlet>
+        <description xml:lang="en">Submits a job to the grid</description>
+        <portlet-name>JobSubmissionPortlet</portlet-name>
+        <display-name xml:lang="en">Job Submission Portlet</display-name>
+        <portlet-class>org.integrade.portlets.JobSubmission</portlet-class>
+        <expiration-cache>60</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+        <supported-locale>en</supported-locale>
+        <portlet-info>
+            <title>Job Submission</title>
+            <short-title>Job Submission</short-title>
+            <keywords>job, submission</keywords>
+        </portlet-info>
+    </portlet>
+    <custom-portlet-mode>
+        <description xml:lang="en">Pre-defined custom portlet mode CONFIGURE</description>
+        <portlet-mode>config</portlet-mode>
+    </custom-portlet-mode>
+    <user-attribute>
+        <description xml:lang="en">User Name</description>
+        <name>user.name</name>
+    </user-attribute>
+    <user-attribute>
+        <description xml:lang="en">User Id</description>
+        <name>user.id</name>
+    </user-attribute>
+    <user-attribute>
+        <description xml:lang="en">User Full Name</description>
+        <name>user.name.full</name>
+    </user-attribute>
+    <user-attribute>
+        <description xml:lang="en">User E-Mail</description>
+        <name>user.email</name>
+    </user-attribute>
+    <user-attribute>
+        <description xml:lang="en">Company Organization</description>
+        <name>user.organization</name>
+    </user-attribute>
+    <user-attribute>
+        <description xml:lang="en">Last Login Time</description>
+        <name>user.lastlogintime</name>
+    </user-attribute>
+    <user-attribute>
+        <description xml:lang="en">Timezone</description>
+        <name>user.timezone</name>
+    </user-attribute>
+    <user-attribute>
+        <description xml:lang="en">Preferred Locale</description>
+        <name>user.locale</name>
+    </user-attribute>
+    <user-attribute>
+        <description xml:lang="en">Preferred Theme</description>
+        <name>user.theme</name>
+    </user-attribute>
+</portlet-app>

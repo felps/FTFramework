@@ -1,0 +1,65 @@
+---
+name : 0
+duration : 60
+binary:
+inputfile:
+outputfile:
+dependencies:
+---
+name : 1
+duration : 60
+binary:
+inputfile:
+outputfile:
+dependencies:
+ - 0
+---
+name : 2
+duration : 60
+binary:
+inputfile:
+outputfile:
+dependencies:
+ - 1
+---
+name : 3
+duration : 60
+binary:
+inputfile:
+outputfile:
+dependencies:
+ - 1
+---
+name : 4
+duration : 60
+binary:
+inputfile:
+outputfile:
+dependencies:
+ - 0
+---
+name : 5
+duration : 60
+binary:
+inputfile:
+outputfile:
+dependencies:
+ - 4
+---
+name : 6
+duration : 60
+binary:
+inputfile:
+outputfile:
+dependencies:
+ - 2
+ - 3
+---
+name : 7
+duration : 60
+binary:
+inputfile:
+outputfile:
+dependencies:
+ - 5
+ - 6

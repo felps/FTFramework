@@ -1,0 +1,82 @@
+package ftec;
+
+import java.io.IOException;
+
+public class Ftec implements Runnable{
+
+	//----------------------------------//
+	//VARIABLES							//
+	//----------------------------------//
+	private String name = "";
+	private String chosenFTECbinaryLocation  = "";
+	private String configFileLocation = "";
+	private String appBinaryLocation = "";
+	private String inputFileLocation = "";
+	private Process runningApp;
+	//private String faultToleranceTechnique = "";
+	
+
+	//----------------------------------//
+	//CONSTRUCTOR						//
+	//----------------------------------//
+	
+	public Ftec(String name, String FTECLocation, String appBinaryLocation, String inputFileLocation String configFileLocation){
+		this.name = name;
+		this.chosenFTECbinaryLocation = FTECLocation;
+		this.appBinaryLocation = appBinaryLocation;
+		this.inputFileLocation = inputFileLocation;
+		
+		this.configFileLocation = configFileLocation;
+	}
+	
+	//----------------------------------//
+	//GETTERS AND SETTERS				//
+	//----------------------------------//
+	public String getName() {
+		return name;
+	}
+
+	public String getChosenFTECbinaryLocation() {
+		return chosenFTECbinaryLocation;
+	}
+	
+	@Override
+	public void run() {
+		this.startExecution();
+		this.waitCompletion();
+		this.endExecution();
+		
+	}
+	
+	private void startExecution(){
+		try {
+			runningApp = Runtime.getRuntime().exec(this.appBinaryLocation + " " + this.configFileLocation );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void waitCompletion(){
+		try {
+			runningApp.waitFor();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void endExecution() {
+		System.out.println("Aplicativo terminou com " + runningApp.exitValue());
+		this.notifyAll();
+	}
+
+	public void setConfigFileLocation(String configFileLocation) {
+		this.configFileLocation = configFileLocation;
+	}
+
+	public String getConfigFileLocation() {
+		return configFileLocation;
+	}
+	
+}

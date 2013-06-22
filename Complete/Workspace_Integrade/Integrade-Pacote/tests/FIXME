@@ -1,0 +1,1 @@
+Change integrationTests to a better name, like igTestFramework. This change is not so easy because will break eclipse projects.

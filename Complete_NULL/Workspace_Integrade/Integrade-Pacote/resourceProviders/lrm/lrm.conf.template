@@ -1,0 +1,11 @@
+sampleInterval 30
+keepAliveInterval 100
+threshold 1
+appReposIdlPath ../../shared/idls/ApplicationRepository.idl
+cosNamingIdlPath ../../shared/idls/CosNaming.idl
+serverNameRef corbaloc::dhcppc1:47039/NameService
+resourceManagementIdlPath ../../shared/idls/ResourceManagement.idl
+enableLupa 1
+orbPath /home/fabio/ic/lua-5.1.1/?
+secureAppRepos false
+

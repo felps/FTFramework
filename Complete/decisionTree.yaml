@@ -1,0 +1,74 @@
+---
+nodeId: 1
+parentNode: 
+parentNodeAnswered: 
+nodeQuantity: 6
+nodeVariable: processorMhz 
+nodeValue: 1000
+nodeComparison: more
+FtecChoice:
+FtecConfigFile: 
+---
+nodeId: 2
+parentNode: 1
+parentNodeAnswered: yes
+nodeQuantity: 6
+nodeVariable: totalRam 
+nodeValue: 1000
+nodeComparison: more
+FtecChoice:
+FtecConfigFile: 
+---
+nodeId: 3
+parentNode: 1
+parentNodeAnswered: no
+nodeQuantity: 3
+nodeVariable: processorName 
+nodeValue: i686
+nodeComparison: is
+FtecChoice:
+FtecConfigFile: 
+---
+nodeId: 4
+parentNode: 2
+parentNodeAnswered: Yes
+nodeQuantity: 1
+nodeVariable: 
+nodeValue: 
+nodeComparison: 
+FtecChoice: Retry
+FtecConfigFile: 1times
+---
+nodeId: 5
+parentNode: 2
+parentNodeAnswered: No
+nodeQuantity: 1
+nodeVariable: 
+nodeValue: 
+nodeComparison: 
+FtecChoice: Retry
+FtecConfigFile: 2times
+---
+nodeId: 6
+parentNode: 3
+parentNodeAnswered: no
+nodeQuantity: 1
+nodeVariable: 
+nodeValue: 
+nodeComparison: 
+FtecChoice: Retry
+FtecConfigFile: 3times
+---
+nodeId: 7
+parentNode: 3
+parentNodeAnswered: yes
+nodeQuantity: 1
+nodeVariable: 
+nodeValue: 
+nodeComparison: 
+FtecChoice: Retry
+FtecConfigFile: 4times
+
+
+
+ 

@@ -1,0 +1,8 @@
+module clusterManagement {
+
+	interface GangliaIntegrator{
+
+		void registerLrm(in string lrmIor);
+		void lrmKeepAlive(in string lrmIor);
+	};
+};

@@ -1,0 +1,48 @@
+package dataTypes;
+
+
+/**
+ *	Generated from IDL definition of struct "Task"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class TaskHelper
+{
+	private static org.omg.CORBA.TypeCode _type = null;
+	public static org.omg.CORBA.TypeCode type ()
+	{
+		if (_type == null)
+		{
+			_type = org.omg.CORBA.ORB.init().create_struct_tc(dataTypes.TaskHelper.id(),"Task",new org.omg.CORBA.StructMember[]{new org.omg.CORBA.StructMember("applicationExecutionInformation", dataTypes.ApplicationExecutionInformationHelper.type(), null),new org.omg.CORBA.StructMember("processExecutionInformation", dataTypes.ProcessExecutionInformationSequenceHelper.type(), null)});
+		}
+		return _type;
+	}
+
+	public static void insert (final org.omg.CORBA.Any any, final dataTypes.Task s)
+	{
+		any.type(type());
+		write( any.create_output_stream(),s);
+	}
+
+	public static dataTypes.Task extract (final org.omg.CORBA.Any any)
+	{
+		return read(any.create_input_stream());
+	}
+
+	public static String id()
+	{
+		return "IDL:dataTypes/Task:1.0";
+	}
+	public static dataTypes.Task read (final org.omg.CORBA.portable.InputStream in)
+	{
+		dataTypes.Task result = new dataTypes.Task();
+		result.applicationExecutionInformation=dataTypes.ApplicationExecutionInformationHelper.read(in);
+		result.processExecutionInformation = dataTypes.ProcessExecutionInformationSequenceHelper.read(in);
+		return result;
+	}
+	public static void write (final org.omg.CORBA.portable.OutputStream out, final dataTypes.Task s)
+	{
+		dataTypes.ApplicationExecutionInformationHelper.write(out,s.applicationExecutionInformation);
+		dataTypes.ProcessExecutionInformationSequenceHelper.write(out,s.processExecutionInformation);
+	}
+}

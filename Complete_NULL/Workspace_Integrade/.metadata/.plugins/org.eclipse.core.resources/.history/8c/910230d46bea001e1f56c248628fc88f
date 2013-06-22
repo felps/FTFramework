@@ -1,0 +1,64 @@
+package dataTypes;
+
+
+/**
+ *	Generated from IDL definition of struct "Histogram"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class HistogramHelper
+{
+	private static org.omg.CORBA.TypeCode _type = null;
+	public static org.omg.CORBA.TypeCode type ()
+	{
+		if (_type == null)
+		{
+			_type = org.omg.CORBA.ORB.init().create_struct_tc(dataTypes.HistogramHelper.id(),"Histogram",new org.omg.CORBA.StructMember[]{new org.omg.CORBA.StructMember("intervalQuantities", org.omg.CORBA.ORB.init().create_sequence_tc(0, org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(3))), null),new org.omg.CORBA.StructMember("intervalBoundaries", org.omg.CORBA.ORB.init().create_sequence_tc(0, org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(7))), null),new org.omg.CORBA.StructMember("average", org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(7)), null),new org.omg.CORBA.StructMember("standardDeviation", org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(7)), null),new org.omg.CORBA.StructMember("numberOfElements", org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(3)), null),new org.omg.CORBA.StructMember("type", org.omg.CORBA.ORB.init().create_string_tc(0), null)});
+		}
+		return _type;
+	}
+
+	public static void insert (final org.omg.CORBA.Any any, final dataTypes.Histogram s)
+	{
+		any.type(type());
+		write( any.create_output_stream(),s);
+	}
+
+	public static dataTypes.Histogram extract (final org.omg.CORBA.Any any)
+	{
+		return read(any.create_input_stream());
+	}
+
+	public static String id()
+	{
+		return "IDL:dataTypes/Histogram:1.0";
+	}
+	public static dataTypes.Histogram read (final org.omg.CORBA.portable.InputStream in)
+	{
+		dataTypes.Histogram result = new dataTypes.Histogram();
+		int _lresult_intervalQuantities4 = in.read_long();
+		result.intervalQuantities = new int[_lresult_intervalQuantities4];
+	in.read_long_array(result.intervalQuantities,0,_lresult_intervalQuantities4);
+		int _lresult_intervalBoundaries5 = in.read_long();
+		result.intervalBoundaries = new double[_lresult_intervalBoundaries5];
+	in.read_double_array(result.intervalBoundaries,0,_lresult_intervalBoundaries5);
+		result.average=in.read_double();
+		result.standardDeviation=in.read_double();
+		result.numberOfElements=in.read_long();
+		result.type=in.read_string();
+		return result;
+	}
+	public static void write (final org.omg.CORBA.portable.OutputStream out, final dataTypes.Histogram s)
+	{
+		
+		out.write_long(s.intervalQuantities.length);
+		out.write_long_array(s.intervalQuantities,0,s.intervalQuantities.length);
+		
+		out.write_long(s.intervalBoundaries.length);
+		out.write_double_array(s.intervalBoundaries,0,s.intervalBoundaries.length);
+		out.write_double(s.average);
+		out.write_double(s.standardDeviation);
+		out.write_long(s.numberOfElements);
+		out.write_string(s.type);
+	}
+}

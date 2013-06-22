@@ -1,0 +1,27 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of struct "Histogram"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class Histogram
+	implements org.omg.CORBA.portable.IDLEntity
+{
+	public Histogram(){}
+	public int[] intervalQuantities;
+	public double[] intervalBoundaries;
+	public double average;
+	public double standardDeviation;
+	public int numberOfElements;
+	public java.lang.String type = "";
+	public Histogram(int[] intervalQuantities, double[] intervalBoundaries, double average, double standardDeviation, int numberOfElements, java.lang.String type)
+	{
+		this.intervalQuantities = intervalQuantities;
+		this.intervalBoundaries = intervalBoundaries;
+		this.average = average;
+		this.standardDeviation = standardDeviation;
+		this.numberOfElements = numberOfElements;
+		this.type = type;
+	}
+}

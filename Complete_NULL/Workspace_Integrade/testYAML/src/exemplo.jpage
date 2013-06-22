@@ -1,0 +1,9 @@
+task:
+	- name : tarefa1
+	- duration : 60
+	- dependencies: null
+task:
+	- name : tarefa2
+	- duration : 30
+	- dependencies :
+		- tarefa1

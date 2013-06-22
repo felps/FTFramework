@@ -1,0 +1,9 @@
+package ftec;
+
+public class RetryFtec {
+
+	public RetryFtec() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

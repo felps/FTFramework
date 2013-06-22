@@ -1,0 +1,6 @@
+
+Person p = new Person();
+
+p.setName("Felipe");
+
+p.toString()

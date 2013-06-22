@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<xs:element name="ProxyConf" maxOccurs="unbounded">
+ <xs:complexType>
+  <xs:sequence>
+   
+   <xs:element name="State" minOccurs="0" maxOccurs="unbounded">
+    <xs:complexType>  
+     <xs:sequence>
+    
+      <xs:element name="Expression" type="xs:string"/>
+    
+      <xs:element name="Action" maxOccurs="unbounded">
+       <xs:complexType>
+        <xs:sequence>
+         <xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+        </xs:sequence>
+       </xs:complexType>
+       <xs:attribute name="class" use="required" type="xs:string"/>
+      </xs:element> <!-- action -->
+      
+      <xs:element name="Rule" minOccurs="0" maxOccurs="unbounded">
+       <xs:complexType>
+        <xs:sequence>
+	 
+		 <xs:element name="Filter"/>
+         
+         <xs:element name="Action" maxOccurs="unbounded">
+          <xs:complexType>
+           <xs:sequence>
+            <xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+           </xs:sequence>
+          </xs:complexType>
+          <xs:attribute name="class" use="required" type="xs:string"/>
+         </xs:element>
+	
+		</xs:sequence>
+       </xs:complexType>
+       <xs:attribute name="priority" use="required" type="xs:integer"/>
+      </xs:element>  <!-- Rule -->
+      
+     </xs:sequence>     
+    </xs:complexType>
+   </xs:element> <!-- State -->
+  
+  </xs:sequence> <!-- ProxyConf -->
+ </xs:complexType>
+</xs:element>
+</xs:schema>

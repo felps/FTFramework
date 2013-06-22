@@ -1,0 +1,67 @@
+---
+nodeId: 1
+parentNode: 
+parentNodeAnswered: 
+nodeVariable: cpu 
+nodeValue: 50
+nodeComparison: less
+FtecChoice:
+FtecConfigFile: 
+---
+nodeId: 2
+parentNode: 1
+parentNodeAnswered: yes
+nodeVariable: ram 
+nodeValue: 1024
+nodeComparison: more
+FtecChoice:
+FtecConfigFile: 
+---
+nodeId: 3
+parentNode: 1
+parentNodeAnswered: no
+nodeVariable: uptime 
+nodeValue: 120
+nodeComparison: more
+FtecChoice:
+FtecConfigFile: 
+---
+nodeId: 4
+parentNode: 2
+parentNodeAnswered: Yes
+nodeVariable: 
+nodeValue: 
+nodeComparison: 
+FtecChoice: Retry
+FtecConfigFile: 1times
+---
+nodeId: 5
+parentNode: 2
+parentNodeAnswered: No
+nodeVariable: 
+nodeValue: 
+nodeComparison: 
+FtecChoice: Retry
+FtecConfigFile: 2times
+---
+nodeId: 6
+parentNode: 3
+parentNodeAnswered: no
+nodeVariable: 
+nodeValue: 
+nodeComparison: 
+FtecChoice: Retry
+FtecConfigFile: 3times
+---
+nodeId: 7
+parentNode: 3
+parentNodeAnswered: yes
+nodeVariable: 
+nodeValue: 
+nodeComparison: 
+FtecChoice: Retry
+FtecConfigFile: 4times
+
+
+
+ 

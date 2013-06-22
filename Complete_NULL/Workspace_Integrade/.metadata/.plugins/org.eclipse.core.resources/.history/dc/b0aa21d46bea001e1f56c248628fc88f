@@ -1,0 +1,19 @@
+package clusterManagement;
+
+/**
+ *	Generated from IDL definition of struct "CheckpointingInformation"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class CheckpointingInformation
+	implements org.omg.CORBA.portable.IDLEntity
+{
+	public CheckpointingInformation(){}
+	public java.lang.String[] checkpointKey;
+	public int[] checkpointNumber;
+	public CheckpointingInformation(java.lang.String[] checkpointKey, int[] checkpointNumber)
+	{
+		this.checkpointKey = checkpointKey;
+		this.checkpointNumber = checkpointNumber;
+	}
+}

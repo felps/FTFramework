@@ -1,0 +1,32 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of struct "Task"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class TaskHolder
+	implements org.omg.CORBA.portable.Streamable
+{
+	public dataTypes.Task value;
+
+	public TaskHolder ()
+	{
+	}
+	public TaskHolder(final dataTypes.Task initial)
+	{
+		value = initial;
+	}
+	public org.omg.CORBA.TypeCode _type ()
+	{
+		return dataTypes.TaskHelper.type ();
+	}
+	public void _read(final org.omg.CORBA.portable.InputStream _in)
+	{
+		value = dataTypes.TaskHelper.read(_in);
+	}
+	public void _write(final org.omg.CORBA.portable.OutputStream _out)
+	{
+		dataTypes.TaskHelper.write(_out, value);
+	}
+}

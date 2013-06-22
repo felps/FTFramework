@@ -1,0 +1,44 @@
+package ftm;
+
+import ftec.*;
+import java.util.*;
+import defaultTypes.*;
+
+public class Ftm {
+	private static List<Ftec> runningFtecs;
+	private static List<Task> readyTasks;
+	private static Map<String, Long> FtecRelation;
+	
+	public Ftm() {
+		runningFtecs = new ArrayList<Ftec>();
+		readyTasks = new ArrayList<Task>();
+		FtecRelation = new HashMap<String, Long>();
+	}
+	
+	public static void newTask(Task task) throws InterruptedException {
+		readyTasks.add(task);
+		
+		//Define FTEC to be used with FTSM
+		//TODO: Implement FTSM
+		// When implemented call will be:
+		// Ftec ftec = ftsm(task);
+		
+		//STUB for ftsm;
+		Ftec ftec = new RetryFTEC("retry", "/home/felps/Dropbox/Desenvolvimento/Workspace_Integrade/FTEC-Ensaio/src/ftec/retryFtec.java", task.getBinaryLocation(), task.getInputFile(), "");
+		
+		//Create a thread to FTEC
+		Thread ftecExecution = new Thread(ftec);
+		
+		//Store its id
+		Long id = new Long(ftecExecution.getId());
+		FtecRelation.put(task.getName(), id);
+		
+		//Start the thread
+		ftecExecution.start();
+		
+		Thread.sleep(0);
+
+	}
+	
+	
+}

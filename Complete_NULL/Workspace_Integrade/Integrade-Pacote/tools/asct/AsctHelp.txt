@@ -1,0 +1,63 @@
+The Application Submission and Control Tool (ASCT) allows InteGrade users to submit grid applications for execution. You can specify execution prerequisites, such as hardware and software platforms, resource requirements such as minimum memory requirements, and
+preferences, like rather executing on a faster CPU than on a slower one.
+
+## USING CONSTRAINTS ##
+
+To use the Constraints field, you must use the TCL language. The usage is basically like this:
+
+> PROPERTY OPERATOR VALUE
+
+where:
+
+PROPERTY is some resource or other property. The most common are:
+
+- cpuUsage
+- freeRam
+- freeSwap
+- totalRam
+- totalSwap
+
+
+OPERATOR is one of: > , >= , < , <= , == , !=
+
+and VALUE is just some numeric constant.
+
+There's an additional property that may be used, specific for LUPA: hours. This property specifies for how long the other resources should stay available for a node to be considered eligible. For example, the constraint:
+
+cpuUsage < 70 and freeRam > 32000 and hours >= 5
+
+searches for nodes that will have at least 30% of CPU and at least 32MB of memory available for at least 5 hours. Notice that, in the current implementation, the OPERATOR, for LUPA, doesn't matter, since it always searches for AT LEAST those resources availables for AT LEAST that number of hours. Another current limitation is that LUPA only works with two resources: cpuUsage and freeRam. But that doesn't mean that other resources, like freeSwap for example, can't be used with the 'hours' constraint: LUPA would just ignore it.
+
+Finally, you can combine several constraints with the logical operators 'and', 'or' and 'not' operators. Before some examples, we must alert that the logical operators won't be taken in consideration by LUPA, as it only understands the 'and' operator. For example, these two constraints would have, for LUPA, the same meaning:
+
+> (cpuUsage < 80 or freeRam > 32000) and hours == 3
+
+> (cpuUsage < 80 and freeRam > 32000) and hours == 3
+
+Hopefully these limitations will be fixed soon. 
+
+Here are some examples of the general use of the Constraints field in Asct:
+
+1) cpuUsage < 80 and freeRam > 32000
+2) cpuUsage < 40 and not (totalRam < 500000)
+3) freeRam > 64000 or cpuUsage < 65
+4) (freeRam + freeSwap) > 200000
+
+## USING PREFERENCES ##
+
+To set preferences for the applications, you may also use a TCL expression. There's basically three ways to set preferences:
+
+ - min EXPR, where EXPR must evaluate to a numeric value
+ - max EXPR, where EXPR must evaluate to a numeric value
+ - with BOOL_EXPR, where BOOL_EXPR must be a boolean expression.
+
+Examples:
+
+> min cpuUsage
+> max (freeRam + freeSwap)
+> with (cpuUsage < 50)
+
+Notice that, unlike constraints, this expressions may not be attended. Actually, they will be used to sort the machines that attended the constraints expressions, in a way that machines that respect the preferences will be returned first.
+
+Some more information on TCL language: 
+http://www.dre.vanderbilt.edu/~schmidt/DOC_ROOT/TAO/docs/releasenotes/trader.html#Constraints
