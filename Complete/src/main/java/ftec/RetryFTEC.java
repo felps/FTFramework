@@ -5,6 +5,9 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import logging.MyLogger;
 
@@ -118,8 +121,11 @@ public class RetryFTEC extends Ftec implements Runnable , Serializable{
 		//Create a thread to FTEC
 		Thread ftecExecution = new Thread(ftec);
 		ftecExecution.setName("Executor Tarefa: " + task.getName() + " ID: " + ftecExecution.getName() + "\"");
+		String time;
 		
-		System.out.println("Retry FTEC > startThread");
+		time = getTime();
+    	
+		System.out.println( time +": Retry FTEC > startThread");
 		System.out.println(ftec.submitedTask.toString());
 		System.out.println(ftec.submitedTask.getName());
 		System.out.println(ftec.submitedTask.getWorkflow());
@@ -137,6 +143,15 @@ public class RetryFTEC extends Ftec implements Runnable , Serializable{
 		ftecExecution.start();
 		
 		return ftec.threadId;
+	}
+
+	private String getTime() {
+		String time;
+		Calendar cal = Calendar.getInstance();
+    	cal.getTime();
+    	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    	time = sdf.format(cal.getTime());
+		return time;
 	}
 	
 	/*@Override
@@ -167,7 +182,10 @@ public class RetryFTEC extends Ftec implements Runnable , Serializable{
 	}
 	*/
 	protected void endExecution(Process runningApp) {
-		super.endExecution(runningApp);
+		String time = getTime();
+    	
+		System.out.println( time + " Retry FTEC > Completed!");
+		
 		if (runningApp.exitValue() == 0)
 			this.complete = true;
 	}

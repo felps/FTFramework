@@ -1,15 +1,15 @@
 ---
 name : 0
-duration : 60
+duration : 10
 binary: Linux_i686
-inputfile: /home/felps/integrade/integrade/configFiles/kdialog0
+inputfile: /home/felps/integrade/integrade/configFiles/wave.asct
 outputfile:
 dependencies:
 ---
 name : 1
 duration : 60
 binary: Linux_i686
-inputfile: /home/felps/integrade/integrade/configFiles/kdialog1
+inputfile: /home/felps/integrade/integrade/configFiles/gaussian.asct
 outputfile:
 dependencies:
  - 0
@@ -17,7 +17,7 @@ dependencies:
 name : 2
 duration : 60
 binary: Linux_i686
-inputfile: /home/felps/integrade/integrade/configFiles/kdialog2
+inputfile: /home/felps/integrade/integrade/configFiles/fft1.asct
 outputfile:
 dependencies:
  - 1
@@ -25,41 +25,66 @@ dependencies:
 name : 3
 duration : 60
 binary: Linux_i686
-inputfile: /home/felps/integrade/integrade/configFiles/kdialog3
+inputfile: /home/felps/integrade/integrade/configFiles/oneside1.asct
 outputfile:
 dependencies:
- - 1
+ - 2
 ---
 name : 4
 duration : 60
 binary: Linux_i686
-inputfile: /home/felps/integrade/integrade/configFiles/kdialog4
+inputfile: /home/felps/integrade/integrade/configFiles/wave1.asct
 outputfile:
 dependencies:
- - 0
 ---
 name : 5
 duration : 60
 binary: Linux_i686
-inputfile: /home/felps/integrade/integrade/configFiles/kdialog5
+inputfile: /home/felps/integrade/integrade/configFiles/SqMag1.asct
 outputfile: 
 dependencies:
- - 4
+ - 3
 ---
 name : 6
 duration : 60
 binary: Linux_i686
-inputfile: /home/felps/integrade/integrade/configFiles/kdialog6
+inputfile: /home/felps/integrade/integrade/configFiles/SampleRate.asct
 outputfile:
 dependencies:
- - 2
- - 3
+ - 4
 ---
 name : 7
 duration : 60
 binary: Linux_i686
-inputfile: /home/felps/integrade/integrade/configFiles/kdialog7
+inputfile: /home/felps/integrade/integrade/configFiles/WindowFnc.asct
+outputfile:
+dependencies:
+ - 4
+ - 2
+---
+name : 8
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/SumOfSquares.asct
+outputfile:
+dependencies:
+ - 7
+---
+name : 9
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/multiplier.asct
+outputfile:
+dependencies:
+ - 6
+ - 8
+---
+name : 10
+duration : 60
+binary: Linux_i686
+inputfile: /home/felps/integrade/integrade/configFiles/divider.asct
 outputfile:
 dependencies:
  - 5
- - 6
+ - 9
+

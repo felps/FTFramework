@@ -1,28 +1,28 @@
 ---
 name : getSwissProtId
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
 outputfile:
 dependencies:
 ---
 name : getGoIds
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/getGoIds.asct
 outputfile:
 dependencies:
 ---
 name : createVizSession
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/createVizSession.asct
 outputfile:
 dependencies:
 ---
 name : addTermToViz
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
 outputfile:
 dependencies:
@@ -31,7 +31,7 @@ dependencies:
 ---
 name : getSwissProtRecord
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
 outputfile:
 dependencies:
@@ -39,7 +39,7 @@ dependencies:
 ---
 name : getDotFromViz
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
 outputfile: 
 dependencies:
@@ -48,7 +48,7 @@ dependencies:
 ---
 name : destroyVizSession
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
 outputfile:
 dependencies:

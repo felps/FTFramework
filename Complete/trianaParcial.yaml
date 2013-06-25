@@ -1,14 +1,14 @@
 ---
 name : 0
 duration : 10
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/wave.asct
 outputfile:
 dependencies:
 ---
 name : 1
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/gaussian.asct
 outputfile:
 dependencies:
@@ -16,7 +16,7 @@ dependencies:
 ---
 name : 2
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/fft1.asct
 outputfile:
 dependencies:
@@ -24,7 +24,7 @@ dependencies:
 ---
 name : 3
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/oneside1.asct
 outputfile:
 dependencies:
@@ -32,14 +32,14 @@ dependencies:
 ---
 name : 4
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/wave1.asct
 outputfile:
 dependencies:
 ---
 name : 5
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/SqMag1.asct
 outputfile: 
 dependencies:
@@ -47,7 +47,7 @@ dependencies:
 ---
 name : 6
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/SampleRate.asct
 outputfile:
 dependencies:
@@ -55,7 +55,7 @@ dependencies:
 ---
 name : 7
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/WindowFnc.asct
 outputfile:
 dependencies:
@@ -64,7 +64,7 @@ dependencies:
 ---
 name : 8
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/SumOfSquares.asct
 outputfile:
 dependencies:
@@ -72,7 +72,7 @@ dependencies:
 ---
 name : 9
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/multiplier.asct
 outputfile:
 dependencies:
@@ -81,7 +81,7 @@ dependencies:
 ---
 name : 10
 duration : 60
-binary: Linux_i686
+binary: Linux_x86_64
 inputfile: /home/felps/integrade/integrade/configFiles/divider.asct
 outputfile:
 dependencies:
