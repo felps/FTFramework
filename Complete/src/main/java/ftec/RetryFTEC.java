@@ -6,7 +6,13 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
+import logging.MyLogger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import wfm.WorkflowControl;
+import wsct.Wsct;
 
 import defaultTypes.*;
 
@@ -101,6 +107,7 @@ public class RetryFTEC extends Ftec implements Runnable , Serializable{
 			ftec = new RetryFTEC();
 		} catch (RemoteException e) {
 			System.out.println("Erro: RetryFTEC > startFtecThread");
+			MyLogger.getLogger().info("Erro: RetryFTEC > startFtecThread");
 			e.printStackTrace();
 			return -1L;
 		}
@@ -116,6 +123,11 @@ public class RetryFTEC extends Ftec implements Runnable , Serializable{
 		System.out.println(ftec.submitedTask.toString());
 		System.out.println(ftec.submitedTask.getName());
 		System.out.println(ftec.submitedTask.getWorkflow());
+		
+		MyLogger.getLogger().info("Retry FTEC > startThread");
+		MyLogger.getLogger().info(ftec.submitedTask.toString());
+		MyLogger.getLogger().info(ftec.submitedTask.getName());
+		MyLogger.getLogger().info(ftec.submitedTask.getWorkflow());
 		
 		//Store its id
 		ftec.threadId = ftecExecution.getId();
@@ -168,9 +180,12 @@ public class RetryFTEC extends Ftec implements Runnable , Serializable{
 			wfm.executeTask(this.submitedTask.getWorkflow(), this.submitedTask.getName());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
+			MyLogger.getLogger().error("Erro de RMI: FTEC > WFM");
 			System.out.println("Erro de RMI: FTEC > WFM");
+			
 			e.printStackTrace();
 		} catch (InterruptedException e) {
+			MyLogger.getLogger().error("Retry ftec > reportFinishedToWfm");
 			System.out.println("Retry ftec > reportFinishedToWfm");
 			e.printStackTrace();
 		}

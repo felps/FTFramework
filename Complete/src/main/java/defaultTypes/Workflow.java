@@ -50,7 +50,7 @@ public class Workflow implements Serializable{
 	
 	public Task getTask(String name) {
 		Task task;
-		
+
 		Iterator<Task> iter = this.tasks.iterator();
 		
 		for (; iter.hasNext();){

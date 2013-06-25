@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map; 
 import java.util.Set;
 
+import logging.MyLogger;
+
 import org.yaml.snakeyaml.Yaml;
 
 import wfm.WorkflowControl;
@@ -49,8 +51,10 @@ public class Wsct {
 				//wfm.helloWorld();
 				wfm.submitWorkflow(workflow);
 				System.out.println("Workflow submetido com sucesso!");
+				MyLogger.getLogger().info("Workflow submetido com sucesso!");
 			} else {
 				System.out.println("WSCT: Erro de RMI");
+				MyLogger.getLogger().error("WSCT: Erro de RMI");
 			}
 		}
 	}
@@ -84,6 +88,8 @@ public class Wsct {
 			}
 			
 			System.out.println("ID: "+ task.toString() + "\nName: " + task.getName() + "\n Binary: " + task.getBinaryLocation() + "\n Input: " + task.getAppDescriptionFile() + "\n Output: " + task.getOutputFile() + "\n Dependencies: " + task.getDependsOn().toString() +"\n\n" );
+			MyLogger.getLogger().info("ID: "+ task.toString() + "\nName: " + task.getName() + "\n Binary: " + task.getBinaryLocation() + "\n Input: " + task.getAppDescriptionFile() + "\n Output: " + task.getOutputFile() + "\n Dependencies: " + task.getDependsOn().toString() +"\n\n" );
+			
 			workflow.setTasks(task);
 		}
 		return workflow;

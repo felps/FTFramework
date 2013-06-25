@@ -11,3 +11,4 @@ Export-Package: defaultTypes,
  ftsm,
  wfm,
  wsct
+Require-Bundle: org.junit
