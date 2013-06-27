@@ -5,11 +5,9 @@ import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import logging.MyLogger;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
+
+import wsct.Wsct;
 
 public class Experiments {
 //
@@ -30,8 +28,8 @@ public class Experiments {
 	
 	@Test
 	public void tavernaBio() throws FileNotFoundException, RemoteException, MalformedURLException, NotBoundException {
-//		String[] args = {"", "./tavernaBio.yaml"};
-//		Wsct.main(args);
+		String[] args = {"", "./tavernaBio.yaml"};
+		Wsct.main(args);
 
 	}
 }
