@@ -33,7 +33,7 @@ public class Wsct {
 		while(!file_exists){
 			
 			//System.console().readLine("Entre com o nome do arquivo", file);
-			file = "/home/aluno/FelipePontes/Desenvolvimento/Complete/teste.yaml";
+			file = "/home/felps/Dropbox/Desenvolvimento/Workspace_Integrade/Complete/teste.yaml";
 			file_exists = true; 
 			
 			input = new FileInputStream(new File(file));
@@ -43,7 +43,7 @@ public class Wsct {
 			System.out.println(workflow.toString());
 			WorkflowControl wfm = getRemoteObject();
 			if (wfm != null) {
-				//wfm.helloWorld();
+				wfm.helloWorld();
 				wfm.submitWorkflow(workflow);
 				System.out.println("Workflow submetido com sucesso!");
 			} else {
@@ -60,7 +60,7 @@ public class Wsct {
 		workflow.setName(name);
 		
 		for (Object data : yaml.loadAll(input)) {
-		    //System.out.println(data);
+		    System.out.println(data);
 		    Map m = (Map) data;
 		    
 			Task task = new Task();

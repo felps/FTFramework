@@ -15,16 +15,16 @@ import defaultTypes.*;
 
 //import java.io.IOException;
 
-public class NullFTEC extends Ftec implements Runnable , Serializable{
+public class NullFTEC extends Ftec implements Runnable, Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private Boolean complete;
-	//private final int defaultErrorCode = 0;
-	//private String taskName;
-	//private String workflowName;
+	// private final int defaultErrorCode = 0;
+	// private String taskName;
+	// private String workflowName;
 	private String appBinaryLocation;
 	private String inputFileLocation;
 	private String configFile;
@@ -32,8 +32,7 @@ public class NullFTEC extends Ftec implements Runnable , Serializable{
 	private Long threadId;
 	@SuppressWarnings("unused")
 	private String threadName;
-	
-	
+
 	public NullFTEC() throws RemoteException {
 		super();
 		this.complete = false;
@@ -73,24 +72,25 @@ public class NullFTEC extends Ftec implements Runnable , Serializable{
 	public String getFtecType() {
 		return "NULL";
 	}
-	
+
 	@Override
 	public void run() {
 		Process runningInstance = null;
 
-		System.out.printf("Aplicativo %s submetido as:", this.getTask().getName());
-       	printSysDate();
-       	
-       	runningInstance = this.startExecution(	this.submitedTask.getBinaryLocation(), 
-				this.submitedTask.getAppDescriptionFile(), 
-				this.getTask().getOutputFile()
-			 );
+		System.out.printf("Aplicativo %s submetido às: %s\n", this.getTask()
+				.getName(), getTime());
+
+		runningInstance = this.startExecution(this.submitedTask
+				.getBinaryLocation(),
+				this.submitedTask.getAppDescriptionFile(), this.getTask()
+						.getOutputFile());
 
 		this.waitCompletion(runningInstance);
 		this.endExecution(runningInstance);
-		
+
 		try {
-			reportFinishedFtec(this.uid, this.submitedTask.getName(), this.submitedTask.getWorkflow());
+			reportFinishedFtec(this.uid, this.submitedTask.getName(),
+					this.submitedTask.getWorkflow());
 		} catch (RemoteException e) {
 			System.out.println("Erro 1: run do NULL ftec");
 			e.printStackTrace();
@@ -100,9 +100,8 @@ public class NullFTEC extends Ftec implements Runnable , Serializable{
 			e.printStackTrace();
 		}
 
-
-		System.out.printf("Aplicativo %s concluido as:", this.getTask().getName());
-       	printSysDate();
+		System.out.printf("Aplicativo %s concluido as %s\n", this.getTask()
+				.getName(), getTime());
 	}
 
 	@Override
@@ -116,41 +115,43 @@ public class NullFTEC extends Ftec implements Runnable , Serializable{
 			e.printStackTrace();
 			return -1L;
 		}
-		
+
 		ftec.setUid(uid);
 		ftec.submitedTask = task;
-		
-		//Create a thread to FTEC
+
+		// Create a thread to FTEC
 		Thread ftecExecution = new Thread(ftec);
-		ftecExecution.setName("Executor Tarefa: " + task.getName() + " ID: " + ftecExecution.getName() + "\"");
-		
-		System.out.println("Null FTEC > startThread");
-		System.out.println(ftec.submitedTask.toString());
-		System.out.println(ftec.submitedTask.getName());
-		System.out.println(ftec.submitedTask.getWorkflow());
-		
-		//Store its id
+		ftecExecution.setName("Executor Tarefa: " + task.getName() + " ID: "
+				+ ftecExecution.getName() + "\"");
+
+		System.out.println(getTime() + ": Null FTEC > startThread \n"
+				+ ftec.submitedTask.toString() + '\n'
+				+ ftec.submitedTask.getName() + '\n'
+				+ ftec.submitedTask.getWorkflow());
+
+		// Store its id
 		ftec.threadId = ftecExecution.getId();
 		ftec.threadName = ftecExecution.getName();
-		
-		//Start the thread
+
+		// Start the thread
 		ftecExecution.start();
-		
+
 		return ftec.threadId;
 	}
-	
+
 	protected void endExecution(Process runningApp) {
 		super.endExecution(runningApp);
 		if (runningApp.exitValue() == 0)
 			this.complete = true;
 	}
-	
+
 	@Override
 	protected synchronized void reportFinishedFtecToWFM() {
 		WorkflowControl wfm = getWorkflowControl();
-		
+
 		try {
-			wfm.executeTask(this.submitedTask.getWorkflow(), this.submitedTask.getName());
+			wfm.executeTask(this.submitedTask.getWorkflow(),
+					this.submitedTask.getName());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Erro de RMI: FTEC > WFM");
@@ -160,41 +161,29 @@ public class NullFTEC extends Ftec implements Runnable , Serializable{
 			e.printStackTrace();
 		}
 	}
-	
+
 	private WorkflowControl getWorkflowControl() {
 		WorkflowControl c = null;
-		try { 
-        	c = (WorkflowControl)
-                           Naming.lookup(
-                 "rmi://localhost/WFMService");
-        } 
-        catch (MalformedURLException murle) { 
-            System.out.println(); 
-            System.out.println(
-              "MalformedURLException"); 
-            System.out.println(murle); 
-        } 
-        catch (RemoteException re) { 
-            System.out.println(); 
-            System.out.println(
-                        "RemoteException"); 
-            System.out.println(re); 
-        } 
-        catch (NotBoundException nbe) { 
-            System.out.println(); 
-            System.out.println(
-                       "NotBoundException"); 
-            System.out.println(nbe); 
-        } 
-        catch (
-            java.lang.ArithmeticException
-                                      ae) { 
-            System.out.println(); 
-            System.out.println(
-             "java.lang.ArithmeticException"); 
-            System.out.println(ae); 
-        }
-        return c;
+		try {
+			c = (WorkflowControl) Naming.lookup("rmi://localhost/WFMService");
+		} catch (MalformedURLException murle) {
+			System.out.println();
+			System.out.println("MalformedURLException");
+			System.out.println(murle);
+		} catch (RemoteException re) {
+			System.out.println();
+			System.out.println("RemoteException");
+			System.out.println(re);
+		} catch (NotBoundException nbe) {
+			System.out.println();
+			System.out.println("NotBoundException");
+			System.out.println(nbe);
+		} catch (java.lang.ArithmeticException ae) {
+			System.out.println();
+			System.out.println("java.lang.ArithmeticException");
+			System.out.println(ae);
+		}
+		return c;
 
 	}
 }

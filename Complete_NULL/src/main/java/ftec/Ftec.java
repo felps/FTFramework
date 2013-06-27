@@ -11,6 +11,8 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import defaultTypes.*;
 import ftm.TaskSubmission;
@@ -27,7 +29,7 @@ public abstract class Ftec
 	public int uid;
 	public Task submitedTask;
 	private static final long serialVersionUID = 1L;
-	public String IGHOME = "/home/aluno/FelipePontes/integrade/integrade";
+	public String IGHOME = "/home/felps/integrade/integrade";
 	
 	//DEBUG
 	public static int timesRan = 1;
@@ -164,7 +166,7 @@ public abstract class Ftec
 
 	protected void endExecution(Process runningApp) {
 		
-		System.out.println("Aplicativo terminou com " + runningApp.exitValue());
+		System.out.println("FTEC : Aplicativo terminou às " + getTime() + " com " + runningApp.exitValue());
 		
 		try {
 			this.reportFinishedFtec(this.getFtecId(), this.getTask().getName(), this.getTask().getName());
@@ -290,7 +292,10 @@ public abstract class Ftec
 	    // read the output from the command
 	    try {
 		
-	   		while ((s = stdInput.readLine()) != null) {
+	    	while ((s = stdInput.readLine()) != null) {
+				System.out.println(s);
+			}
+	    	while ((s = stdError.readLine()) != null) {
 				System.out.println(s);
 			}
 	   	
@@ -304,16 +309,16 @@ public abstract class Ftec
 	}
 	
 	protected void printSysDate() {
+		System.out.println(getTime());
 
-		Process runningApp = null;
-		try {
-			runningApp = Runtime.getRuntime().exec("date");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Erro na criação do Processo!");
-			e.printStackTrace();
-			return;
-		}
-		printExecutionOutput(runningApp);
 	}
+
+	protected String getTime() {
+
+		String time;
+		Calendar cal = Calendar.getInstance();
+    	cal.getTime();
+    	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    	time = sdf.format(cal.getTime());
+		return time;	}
 }
