@@ -1,4 +1,105 @@
 Registry not created. Perhaps previously created.
+WFM: Acordei
+{name=getSwissProtId, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtId.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@1f6e3ecd
+Name: getSwissProtId
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
+ Output: null
+ Dependencies: []
+
+
+{name=getGoIds, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getGoIds.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@393a037e
+Name: getGoIds
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getGoIds.asct
+ Output: null
+ Dependencies: []
+
+
+{name=createVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/createVizSession.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@19565a99
+Name: createVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/createVizSession.asct
+ Output: null
+ Dependencies: []
+
+
+{name=addTermToViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/addTermToViz.asct, outputfile=null, dependencies=[getGoIds, createVizSession]}
+ID: defaultTypes.Task@d697ff2
+Name: addTermToViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@19565a99, defaultTypes.Task@393a037e]
+
+
+{name=getSwissProtRecord, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct, outputfile=null, dependencies=[getSwissProtId]}
+ID: defaultTypes.Task@5fae6db3
+Name: getSwissProtRecord
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@1f6e3ecd]
+
+
+{name=getDotFromViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getDotFromViz.asct, outputfile=null, dependencies=[createVizSession, addTermToViz]}
+ID: defaultTypes.Task@66f795be
+Name: getDotFromViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@19565a99, defaultTypes.Task@d697ff2]
+
+
+{name=destroyVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/destroyVizSession.asct, outputfile=null, dependencies=[createVizSession, getDotFromViz]}
+ID: defaultTypes.Task@19870711
+Name: destroyVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@19565a99, defaultTypes.Task@66f795be]
+
+
+Workflow submitted at 10:58:35: defaultTypes.Workflow@6fe0fa2e
+Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+Registry not created. Perhaps previously created.
 Registry not created. Perhaps previously created.
 WFM: Acordei
 {name=getSwissProtId, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtId.asct, outputfile=null, dependencies=null}
@@ -64,23 +165,23 @@ Name: destroyVizSession
  Dependencies: [defaultTypes.Task@19565a99, defaultTypes.Task@66f795be]
 
 
-Workflow submitted at 10:43:22: defaultTypes.Workflow@6fe0fa2e
+Workflow submitted at 10:59:10: defaultTypes.Workflow@6fe0fa2e
 Workflow submetido com sucesso!
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: false
 Tarefa:    createVizSession
    Status: false
-Tarefa:    getGoIds
+Tarefa:    addTermToViz
    Status: false
 Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getDotFromViz
    Status: false
 -----------------------------------
 LoadManyDocuments
@@ -146,20 +247,564 @@ Yes, there are!
 FTEC Escolhido: Retry
 ConfigFile: 1times
 FTM > submitTask
-defaultTypes.Task@7534b191
+defaultTypes.Task@42e57c4c
 createVizSession
-10:43:30: Retry FTEC > startThread
+FTEC > reqFtecThread
+defaultTypes.Task@42e57c4c
+createVizSession
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@7b2f2476
+getSwissProtId
+FTEC > reqFtecThread
+defaultTypes.Task@7b2f2476
+getSwissProtId
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@100f35bd
+getGoIds
+FTEC > reqFtecThread
+defaultTypes.Task@100f35bd
+getGoIds
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@1639f9e3
+getSwissProtRecord
+FTEC > reqFtecThread
+defaultTypes.Task@1639f9e3
+getSwissProtRecord
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@10d42d49
+addTermToViz
+FTEC > reqFtecThread
+defaultTypes.Task@10d42d49
+addTermToViz
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+-----------------------------------
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+{name=getSwissProtId, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtId.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@1f6e3ecd
+Name: getSwissProtId
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
+ Output: null
+ Dependencies: []
+
+
+{name=getGoIds, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getGoIds.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@14142f7e
+Name: getGoIds
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getGoIds.asct
+ Output: null
+ Dependencies: []
+
+
+{name=createVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/createVizSession.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@4c6c3e
+Name: createVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/createVizSession.asct
+ Output: null
+ Dependencies: []
+
+
+{name=addTermToViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/addTermToViz.asct, outputfile=null, dependencies=[getGoIds, createVizSession]}
+ID: defaultTypes.Task@32ce6965
+Name: addTermToViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@4c6c3e, defaultTypes.Task@14142f7e]
+
+
+{name=getSwissProtRecord, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct, outputfile=null, dependencies=[getSwissProtId]}
+ID: defaultTypes.Task@5a25adb1
+Name: getSwissProtRecord
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@1f6e3ecd]
+
+
+{name=getDotFromViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getDotFromViz.asct, outputfile=null, dependencies=[createVizSession, addTermToViz]}
+ID: defaultTypes.Task@32417348
+Name: getDotFromViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@4c6c3e, defaultTypes.Task@32ce6965]
+
+
+{name=destroyVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/destroyVizSession.asct, outputfile=null, dependencies=[createVizSession, getDotFromViz]}
+ID: defaultTypes.Task@433245d6
+Name: destroyVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@4c6c3e, defaultTypes.Task@32417348]
+
+
+Workflow submitted at 11:00:46: defaultTypes.Workflow@19870711
+Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@684383e3
+createVizSession
+11:00:55: Retry FTEC > startThread
 defaultTypes.Task@e7cdd92
 createVizSession
 workflow1
 Esta é a 1-ésima vez que dah um startExecution
 FTEC > reqFtecThread
-defaultTypes.Task@7534b191
+defaultTypes.Task@684383e3
 createVizSession
 /home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
-Stdout: Initializing asctText
 LoadManyDocuments
 {nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+Stdout: Initializing asctText
 {nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
   nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
 
@@ -221,19 +866,19 @@ Yes, there are!
 FTEC Escolhido: Retry
 ConfigFile: 1times
 FTM > submitTask
-defaultTypes.Task@3f9de0ec
-getGoIds
-10:43:31: Retry FTEC > startThread
+defaultTypes.Task@7b2f2476
+getSwissProtId
+11:00:56: Retry FTEC > startThread
 defaultTypes.Task@ce0d675
-getGoIds
+getSwissProtId
 workflow1
 Esta é a 2-ésima vez que dah um startExecution
 FTEC > reqFtecThread
-defaultTypes.Task@3f9de0ec
-getGoIds
-/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
-Stdout: Initializing asctText
+defaultTypes.Task@7b2f2476
+getSwissProtId
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
 LoadManyDocuments
+Stdout: Initializing asctText
 {nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
 {nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
   nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
@@ -296,17 +941,17 @@ Yes, there are!
 FTEC Escolhido: Retry
 ConfigFile: 1times
 FTM > submitTask
-defaultTypes.Task@71971d92
-getSwissProtId
-10:43:31: Retry FTEC > startThread
+defaultTypes.Task@100f35bd
+getGoIds
+11:00:56: Retry FTEC > startThread
 defaultTypes.Task@5bd70cde
-getSwissProtId
+getGoIds
 workflow1
 FTEC > reqFtecThread
-defaultTypes.Task@71971d92
-getSwissProtId
+defaultTypes.Task@100f35bd
+getGoIds
 Esta é a 3-ésima vez que dah um startExecution
-/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
 Stdout: Initializing asctText
 Stdout: [OrbHolder] initStubs ok:
 Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
@@ -314,10 +959,10 @@ Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E
 Stdout: [OrbHolder] initStubs ok:
 Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
 Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
 Stdout: [OrbHolder] initStubs ok:
 Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
 Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
-Stdout: Create /
 Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
 Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
 Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
@@ -373,118 +1018,118 @@ Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM
 Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: false
 Tarefa:    createVizSession
    Status: false
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
    Status: false
 Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getGoIds
    Status: false
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: false
 Tarefa:    createVizSession
    Status: false
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
    Status: false
 Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getGoIds
    Status: false
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: false
 Tarefa:    createVizSession
    Status: false
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
    Status: false
 Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getGoIds
    Status: false
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: false
 Tarefa:    createVizSession
    Status: false
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
    Status: false
 Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getGoIds
    Status: false
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: false
 Tarefa:    createVizSession
    Status: false
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
    Status: false
 Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getGoIds
    Status: false
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: false
 Tarefa:    createVizSession
    Status: false
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
    Status: false
 Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getGoIds
    Status: false
 -----------------------------------
 Stdout: Exec Finished!!!
 Stdout: Requesting results from 1 nodes
 Stdout: Requesting results from 1 nodes
-Stdout: The results of your application were copied to /home/felps/output_text/66
+Stdout: The results of your application were copied to /home/felps/output_text/92
 Stdout: Exec Finished!!!
 Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/93
 Stdout: Exec Finished!!!
 Stdout: Requesting results from 1 nodes
 Stdout: Requesting results from 1 nodes
-Stdout: The results of your application were copied to /home/felps/output_text/67
-Stdout: Requesting results from 1 nodes
-Stdout: The results of your application were copied to /home/felps/output_text/68
+Stdout: The results of your application were copied to /home/felps/output_text/94
 STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
 STDERR: 	at java.io.FileInputStream.open(Native Method)
 STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
@@ -493,7 +1138,7 @@ STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFa
 STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
 STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
 STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
-10:44:32 Retry FTEC > Completed!
+11:01:57 Retry FTEC > Completed!
 STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
 STDERR: 	at java.io.FileInputStream.open(Native Method)
 STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
@@ -502,8 +1147,7 @@ STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFa
 STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
 STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
 STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
-STDERR: ./temp: linha 2: 86_64: comando não encontrado
-10:44:32 Retry FTEC > Completed!
+11:01:57 Retry FTEC > Completed!
 LoadManyDocuments
 {nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
 {nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
@@ -517,6 +1161,15 @@ Created root node 1
 
 2 true totalRam more 1000
 Added node 2 onto "yes" branch of node 1
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+11:01:57 Retry FTEC > Completed!
 {nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
 {nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
   nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
@@ -567,263 +1220,18 @@ Yes, there are!
 FTEC Escolhido: Retry
 ConfigFile: 1times
 FTM > submitTask
-defaultTypes.Task@7074a393
-addTermToViz
-10:44:32: Retry FTEC > startThread
-defaultTypes.Task@744caec9
-addTermToViz
+defaultTypes.Task@1639f9e3
+getSwissProtRecord
+11:01:57: Retry FTEC > startThread
+defaultTypes.Task@43fe9a26
+getSwissProtRecord
 workflow1
 Esta é a 4-ésima vez que dah um startExecution
 FTEC > reqFtecThread
-defaultTypes.Task@7074a393
-addTermToViz
-/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
-Stdout: Initializing asctText
-STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
-STDERR: 	at java.io.FileInputStream.open(Native Method)
-STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
-STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
-STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
-STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
-STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
-10:44:32 Retry FTEC > Completed!
-LoadManyDocuments
-{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
-{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
-  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
-
-1 null processorMhz more 1000
-Created root node 1
-{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
-{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
-  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
-
-2 true totalRam more 1000
-Added node 2 onto "yes" branch of node 1
-{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
-{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
-  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
-
-3 false processorName is i686
-Added node 3 onto "no" branch of node 1
-{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
-{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
-  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
-
-4 true null null null
-Added node 4 onto "yes" branch of node 2
-{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
-{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
-  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
-
-5 false null null null
-Added node 5 onto "no" branch of node 2
-{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
-{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
-  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
-
-6 false null null null
-Added node 6 onto "no" branch of node 3
-{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
-{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
-  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
-
-7 true null null null
-Added node 7 onto "yes" branch of node 3
-
-OUTPUT DECISION TREE
-====================
-[1] nodeID = 1, question/answer = null
-[1.1] nodeID = 2, question/answer = null
-[1.1.1] nodeID = 4, question/answer = Retry
-[1.1.2] nodeID = 5, question/answer = Retry
-[1.2] nodeID = 3, question/answer = null
-[1.2.1] nodeID = 7, question/answer = Retry
-[1.2.2] nodeID = 6, question/answer = Retry
-
-QUERY DECISION TREE
-===================
-null
-Yes, there are!
-null
-Yes, there are!
-FTEC Escolhido: Retry
-ConfigFile: 1times
-FTM > submitTask
-defaultTypes.Task@1b29e211
+defaultTypes.Task@1639f9e3
 getSwissProtRecord
-10:44:32: Retry FTEC > startThread
-defaultTypes.Task@2a098e64
-getSwissProtRecord
-workflow1
-FTEC > reqFtecThread
-defaultTypes.Task@1b29e211
-getSwissProtRecord
-Esta é a 5-ésima vez que dah um startExecution
 /home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
 Stdout: Initializing asctText
-Stdout: [OrbHolder] initStubs ok:
-Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
-Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
-Stdout: [OrbHolder] initStubs ok:
-Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
-Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
-Stdout: Create /
-Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
-Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
-Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
-Stdout: bin ID Linux_x86_64
-Stdout: =====>>>
-Stdout: app name sleep
-Stdout: base path /
-Stdout: apparg 60
-Stdout: input 0
-Stdout: outpu 0
-Stdout: numOfTask 1
-Stdout: numOfparamCopies 0
-Stdout: forceDiff false
-Stdout: appCons 
-Stdout: appPref 
-Stdout: <<<=======
-Stdout: Create /
-Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
-Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
-Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
-Stdout: bin ID Linux_x86_64
-Stdout: =====>>>
-Stdout: app name sleep
-Stdout: base path /
-Stdout: apparg 60
-Stdout: input 0
-Stdout: outpu 0
-Stdout: numOfTask 1
-Stdout: numOfparamCopies 0
-Stdout: forceDiff false
-Stdout: appCons 
-Stdout: appPref 
-Stdout: <<<=======
-Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
-Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
-WFM: Acordei
-workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
-Tarefa:    getSwissProtRecord
-   Status: false
-Tarefa:    createVizSession
-   Status: true
-Tarefa:    getGoIds
-   Status: true
-Tarefa:    getSwissProtId
-   Status: true
------------------------------------
-WFM: Acordei
-workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
-Tarefa:    getSwissProtRecord
-   Status: false
-Tarefa:    createVizSession
-   Status: true
-Tarefa:    getGoIds
-   Status: true
-Tarefa:    getSwissProtId
-   Status: true
------------------------------------
-WFM: Acordei
-workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
-Tarefa:    getSwissProtRecord
-   Status: false
-Tarefa:    createVizSession
-   Status: true
-Tarefa:    getGoIds
-   Status: true
-Tarefa:    getSwissProtId
-   Status: true
------------------------------------
-WFM: Acordei
-workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
-Tarefa:    getSwissProtRecord
-   Status: false
-Tarefa:    createVizSession
-   Status: true
-Tarefa:    getGoIds
-   Status: true
-Tarefa:    getSwissProtId
-   Status: true
------------------------------------
-WFM: Acordei
-workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
-Tarefa:    getSwissProtRecord
-   Status: false
-Tarefa:    createVizSession
-   Status: true
-Tarefa:    getGoIds
-   Status: true
-Tarefa:    getSwissProtId
-   Status: true
------------------------------------
-WFM: Acordei
-workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: false
-Tarefa:    destroyVizSession
-   Status: false
-Tarefa:    getSwissProtRecord
-   Status: false
-Tarefa:    createVizSession
-   Status: true
-Tarefa:    getGoIds
-   Status: true
-Tarefa:    getSwissProtId
-   Status: true
------------------------------------
-Stdout: Exec Finished!!!
-Stdout: Requesting results from 1 nodes
-Stdout: Requesting results from 1 nodes
-Stdout: The results of your application were copied to /home/felps/output_text/69
-Stdout: Exec Finished!!!
-Stdout: Requesting results from 1 nodes
-Stdout: Requesting results from 1 nodes
-Stdout: The results of your application were copied to /home/felps/output_text/70
-STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
-STDERR: 	at java.io.FileInputStream.open(Native Method)
-STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
-STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
-STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
-STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
-STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
-10:45:33 Retry FTEC > Completed!
 LoadManyDocuments
 {nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
 {nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
@@ -887,27 +1295,263 @@ Yes, there are!
 FTEC Escolhido: Retry
 ConfigFile: 1times
 FTM > submitTask
-defaultTypes.Task@52636e13
+defaultTypes.Task@10d42d49
+addTermToViz
+11:01:57: Retry FTEC > startThread
+defaultTypes.Task@2a098e64
+addTermToViz
+workflow1
+Esta é a 5-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+defaultTypes.Task@10d42d49
+addTermToViz
+Stdout: Initializing asctText
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+-----------------------------------
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/95
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/96
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+11:02:58 Retry FTEC > Completed!
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260){nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+
+1 null processorMhz more 1000
+Created root node 1
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+11:02:58 Retry FTEC > Completed!
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@1f2cdb01
 getDotFromViz
-10:45:33: Retry FTEC > startThread
-defaultTypes.Task@728aedb8
+11:02:58: Retry FTEC > startThread
+defaultTypes.Task@3691e124
 getDotFromViz
 workflow1
 Esta é a 6-ésima vez que dah um startExecution
 FTEC > reqFtecThread
-defaultTypes.Task@52636e13
+defaultTypes.Task@1f2cdb01
 getDotFromViz
 /home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
 Stdout: Initializing asctText
-STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
-STDERR: 	at java.io.FileInputStream.open(Native Method)
-STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
-STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
-STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
-STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
-STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
-10:45:33 Retry FTEC > Completed!
 Stdout: [OrbHolder] initStubs ok:
 Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
 Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
@@ -931,110 +1575,110 @@ Stdout: <<<=======
 Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
    Status: true
+Tarefa:    getDotFromViz
+   Status: false
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
    Status: true
+Tarefa:    getDotFromViz
+   Status: false
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
    Status: true
+Tarefa:    getDotFromViz
+   Status: false
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
    Status: true
+Tarefa:    getDotFromViz
+   Status: false
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
    Status: true
+Tarefa:    getDotFromViz
+   Status: false
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: false
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
    Status: true
+Tarefa:    getDotFromViz
+   Status: false
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 Stdout: Exec Finished!!!
 Stdout: Requesting results from 1 nodes
 Stdout: Requesting results from 1 nodes
-Stdout: The results of your application were copied to /home/felps/output_text/71
+Stdout: The results of your application were copied to /home/felps/output_text/97
 STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
 STDERR: 	at java.io.FileInputStream.open(Native Method)
 STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
@@ -1043,7 +1687,7 @@ STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFa
 STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
 STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
 STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
-10:46:34 Retry FTEC > Completed!
+11:03:59 Retry FTEC > Completed!
 LoadManyDocuments
 {nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
 {nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
@@ -1107,17 +1751,17 @@ Yes, there are!
 FTEC Escolhido: Retry
 ConfigFile: 1times
 FTM > submitTask
-defaultTypes.Task@5d07939f
+defaultTypes.Task@549cd641
 destroyVizSession
-10:46:34: Retry FTEC > startThread
-defaultTypes.Task@1282b104
+11:03:59: Retry FTEC > startThread
+defaultTypes.Task@420ea16e
 destroyVizSession
 workflow1
 Esta é a 7-ésima vez que dah um startExecution
-/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
 FTEC > reqFtecThread
-defaultTypes.Task@5d07939f
+defaultTypes.Task@549cd641
 destroyVizSession
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
 Stdout: Initializing asctText
 Stdout: [OrbHolder] initStubs ok:
 Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
@@ -1142,110 +1786,110 @@ Stdout: <<<=======
 Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: true
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getDotFromViz
    Status: true
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: true
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getDotFromViz
    Status: true
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: true
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getDotFromViz
    Status: true
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: true
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getDotFromViz
    Status: true
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: true
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getDotFromViz
    Status: true
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 WFM: Acordei
 workflow1
-Tarefa:    getDotFromViz
-   Status: true
-Tarefa:    addTermToViz
-   Status: true
-Tarefa:    destroyVizSession
-   Status: false
 Tarefa:    getSwissProtRecord
    Status: true
 Tarefa:    createVizSession
    Status: true
-Tarefa:    getGoIds
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getDotFromViz
    Status: true
 Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getGoIds
    Status: true
 -----------------------------------
 Stdout: Exec Finished!!!
 Stdout: Requesting results from 1 nodes
 Stdout: Requesting results from 1 nodes
-Stdout: The results of your application were copied to /home/felps/output_text/72
+Stdout: The results of your application were copied to /home/felps/output_text/98
 STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
 STDERR: 	at java.io.FileInputStream.open(Native Method)
 STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
@@ -1254,6 +1898,20 @@ STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFa
 STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
 STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
 STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
-10:47:36 Retry FTEC > Completed!
+11:05:01 Retry FTEC > Completed!
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
 WFM: Acordei
 WFM: Acordei
