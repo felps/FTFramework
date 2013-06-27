@@ -1,0 +1,1464 @@
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+ID: defaultTypes.Task@7b5321f0
+Name: getSwissProtId
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@304ed448
+Name: getGoIds
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getGoIds.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@453c8bb1
+Name: createVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/createVizSession.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@58ee9963
+Name: addTermToViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@453c8bb1, defaultTypes.Task@304ed448]
+
+
+ID: defaultTypes.Task@6ec15ff6
+Name: getSwissProtRecord
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@7b5321f0]
+
+
+ID: defaultTypes.Task@37e840fd
+Name: getDotFromViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@58ee9963, defaultTypes.Task@453c8bb1]
+
+
+ID: defaultTypes.Task@4696954c
+Name: destroyVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@453c8bb1, defaultTypes.Task@37e840fd]
+
+
+defaultTypes.Workflow@4823d4c8
+12:17:36Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+FTM > submitTask
+defaultTypes.Task@3e470524
+getGoIds
+12:17:44: Null FTEC > startThread 
+defaultTypes.Task@229eb46b
+getGoIds
+workflow1
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@3e470524
+submitted task name: getGoIds
+FTM > submitTask
+defaultTypes.Task@1bfc9484
+getSwissProtId
+Aplicativo getGoIds submetido às: 12:17:44
+Esta é a 1-ésima vez que dah um startExecution
+12:17:44: Null FTEC > startThread 
+defaultTypes.Task@3a65d76a
+getSwissProtId
+workflow1
+Aplicativo getSwissProtId submetido às: 12:17:44
+Esta é a 2-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@1bfc9484
+submitted task name: getSwissProtId
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+Initializing asctText
+FTM > submitTask
+defaultTypes.Task@425a649
+createVizSession
+Initializing asctText
+12:17:44: Null FTEC > startThread 
+defaultTypes.Task@17dde417
+createVizSession
+workflow1
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@425a649
+submitted task name: createVizSession
+Aplicativo createVizSession submetido às: 12:17:44
+Esta é a 3-ésima vez que dah um startExecution
+FTEC : Aplicativo terminou às 12:17:44 com 0
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
+Initializing asctText
+FTEC : Aplicativo terminou às 12:17:44 com 0
+FTEC : Aplicativo terminou às 12:17:44 com 0
+FTM > submitTask
+defaultTypes.Task@718f7af7
+getSwissProtRecord
+12:17:44: Null FTEC > startThread 
+defaultTypes.Task@70fc1f2c
+getSwissProtRecord
+workflow1
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@718f7af7
+submitted task name: getSwissProtRecord
+Aplicativo getSwissProtRecord submetido às: 12:17:44
+Esta é a 4-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
+FTM > submitTask
+defaultTypes.Task@4fc7a9fc
+addTermToViz
+Initializing asctText
+12:17:44: Null FTEC > startThread 
+defaultTypes.Task@4b24e48f
+addTermToViz
+workflow1
+Aplicativo addTermToViz submetido às: 12:17:44
+Esta é a 5-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@4fc7a9fc
+submitted task name: addTermToViz
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+Aplicativo getGoIds concluido as 12:17:44
+Aplicativo getSwissProtId concluido as 12:17:44
+Initializing asctText
+Aplicativo createVizSession concluido as 12:17:44
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Create /
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/6
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/7
+FTEC : Aplicativo terminou às 12:18:45 com 0
+Aplicativo getSwissProtRecord concluido as 12:18:45
+FTEC : Aplicativo terminou às 12:18:45 com 0
+FTM > submitTask
+defaultTypes.Task@5cdc6180
+getDotFromViz
+12:18:46: Null FTEC > startThread 
+defaultTypes.Task@7535942c
+getDotFromViz
+workflow1
+Aplicativo getDotFromViz submetido às: 12:18:46
+Esta é a 6-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@5cdc6180
+submitted task name: getDotFromViz
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo addTermToViz concluido as 12:18:46
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/8
+FTEC : Aplicativo terminou às 12:19:47 com 0
+FTM > submitTask
+defaultTypes.Task@722bc102
+destroyVizSession
+12:19:47: Null FTEC > startThread 
+defaultTypes.Task@4f85aa63
+destroyVizSession
+workflow1
+Aplicativo destroyVizSession submetido às: 12:19:47
+Esta é a 7-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@722bc102
+submitted task name: destroyVizSession
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo getDotFromViz concluido as 12:19:47
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/9
+FTEC : Aplicativo terminou às 12:20:48 com 0
+Aplicativo destroyVizSession concluido as 12:20:48
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+ID: defaultTypes.Task@7b5321f0
+Name: getSwissProtId
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@304ed448
+Name: getGoIds
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getGoIds.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@453c8bb1
+Name: createVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/createVizSession.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@58ee9963
+Name: addTermToViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@453c8bb1, defaultTypes.Task@304ed448]
+
+
+ID: defaultTypes.Task@6ec15ff6
+Name: getSwissProtRecord
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@7b5321f0]
+
+
+ID: defaultTypes.Task@37e840fd
+Name: getDotFromViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@58ee9963, defaultTypes.Task@453c8bb1]
+
+
+ID: defaultTypes.Task@4696954c
+Name: destroyVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@453c8bb1, defaultTypes.Task@37e840fd]
+
+
+defaultTypes.Workflow@4823d4c8
+12:22:26Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+FTM > submitTask
+defaultTypes.Task@389235c2
+createVizSession
+12:22:35: Null FTEC > startThread 
+defaultTypes.Task@2bd1c812
+createVizSession
+workflow1
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@389235c2
+submitted task name: createVizSession
+FTM > submitTask
+defaultTypes.Task@425a649
+getGoIds
+Aplicativo createVizSession submetido às: 12:22:35
+Esta é a 1-ésima vez que dah um startExecution
+12:22:35: Null FTEC > startThread 
+defaultTypes.Task@78d377df
+getGoIds
+workflow1
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@425a649
+submitted task name: getGoIds
+Aplicativo getGoIds submetido às: 12:22:35
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
+Esta é a 2-ésima vez que dah um startExecution
+FTM > submitTask
+defaultTypes.Task@12fcc268
+getSwissProtId
+Initializing asctText
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
+Initializing asctText
+12:22:35: Null FTEC > startThread 
+defaultTypes.Task@6adc0b2f
+getSwissProtId
+workflow1
+FTEC > reqFtecThread
+Aplicativo getSwissProtId submetido às: 12:22:35
+Esta é a 3-ésima vez que dah um startExecution
+submitted task id:   defaultTypes.Task@12fcc268
+submitted task name: getSwissProtId
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+Initializing asctText
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Create /
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+Create /
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+apparg 60
+outpu 0
+numOfTask 1
+input 0
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/10
+Exec Finished!!!
+Requesting results from 1 nodes
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/11
+Requesting results from 1 nodes
+The results of your application were copied to null/12
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+./temp: linha 2: null: comando não encontrado
+FTEC : Aplicativo terminou às 12:23:36 com 0
+Aplicativo createVizSession concluido as 12:23:36
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+./temp: linha 2: null: comando não encontrado
+FTEC : Aplicativo terminou às 12:23:36 com 0
+FTM > submitTask
+defaultTypes.Task@1367dca
+addTermToViz
+12:23:36: Null FTEC > startThread 
+defaultTypes.Task@1b490621
+addTermToViz
+workflow1
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+FTEC > reqFtecThreadAplicativo 
+submitted task id:   defaultTypes.Task@1367dca
+submitted task name: addTermToViz
+addTermToViz submetido às: 12:23:36
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 12:23:36 com 0
+Esta é a 4-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+Initializing asctText
+FTM > submitTask
+defaultTypes.Task@61bb121f
+getSwissProtRecord
+12:23:37: Null FTEC > startThread 
+defaultTypes.Task@22eff179
+getSwissProtRecord
+workflow1
+Aplicativo getSwissProtRecord submetido às: 12:23:37FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@61bb121f
+
+submitted task name: getSwissProtRecord
+Esta é a 5-ésima vez que dah um startExecution
+Aplicativo getGoIds concluido as 12:23:37
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo getSwissProtId concluido as 12:23:37
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Create /
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/13
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/14
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 12:24:38 com 0
+Aplicativo getSwissProtRecord concluido as 12:24:38
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+./temp: linha 2: null: comando não encontrado
+FTEC : Aplicativo terminou às 12:24:38 com 0
+FTM > submitTask
+defaultTypes.Task@77383942
+getDotFromViz
+12:24:38: Null FTEC > startThread 
+defaultTypes.Task@193bf6c8
+getDotFromViz
+workflow1
+Aplicativo getDotFromViz submetido às: 12:24:38
+Esta é a 6-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@77383942
+submitted task name: getDotFromViz
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo addTermToViz concluido as 12:24:38
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/15
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 12:25:39 com 0
+FTM > submitTask
+defaultTypes.Task@4eff1d61
+destroyVizSession
+12:25:39: Null FTEC > startThread 
+defaultTypes.Task@45a5049a
+destroyVizSession
+workflow1
+Aplicativo destroyVizSession submetido às: FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@4eff1d61
+submitted task name: destroyVizSession12:25:39
+Esta é a 7-ésima vez que dah um startExecution
+
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo getDotFromViz concluido as 12:25:39
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B51A0000001C5374616E64617264496D706C4E616D652F00174C053E1A4A0002104C000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600BAEF0000001C5374616E64617264496D706C4E616D652F00174C053E1E0A47021125000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400341009000000307833316461356130
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/16
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 12:26:40 com 0
+Aplicativo destroyVizSession concluido as 12:26:40
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei

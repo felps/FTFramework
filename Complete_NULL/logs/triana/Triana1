@@ -1,0 +1,1716 @@
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+ID: defaultTypes.Task@74e551a4
+Name: 0
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/wave.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@5790d004
+Name: 1
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/gaussian.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@74e551a4]
+
+
+ID: defaultTypes.Task@768f334b
+Name: 2
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/fft1.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@5790d004]
+
+
+ID: defaultTypes.Task@58ee9963
+Name: 3
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/oneside1.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@768f334b]
+
+
+ID: defaultTypes.Task@64b23147
+Name: 4
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/wave1.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@b6a6597
+Name: 5
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/SqMag1.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@58ee9963]
+
+
+ID: defaultTypes.Task@73f35106
+Name: 6
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/SampleRate.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@64b23147]
+
+
+ID: defaultTypes.Task@201d04d6
+Name: 7
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/WindowFnc.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@768f334b, defaultTypes.Task@64b23147]
+
+
+ID: defaultTypes.Task@11bd1bf7
+Name: 8
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/SumOfSquares.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@201d04d6]
+
+
+ID: defaultTypes.Task@1fa53fac
+Name: 9
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/multiplier.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@11bd1bf7, defaultTypes.Task@73f35106]
+
+
+ID: defaultTypes.Task@5901d85a
+Name: 10
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/divider.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@b6a6597, defaultTypes.Task@1fa53fac]
+
+
+defaultTypes.Workflow@8232a5d
+17:52:49Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+FTM > submitTask
+defaultTypes.Task@12329bcb
+0
+17:52:50: Null FTEC > startThread 
+defaultTypes.Task@5675d86b
+0
+workflow1
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@12329bcb
+submitted task name: 0
+FTM > submitTask
+defaultTypes.Task@283a3001
+4
+Aplicativo 0 submetido às: 17:52:50
+Esta é a 1-ésima vez que dah um startExecution
+17:52:50: Null FTEC > startThread 
+defaultTypes.Task@bfa8f74
+4
+workflow1
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@283a3001
+submitted task name: 4
+Aplicativo 4 submetido às: 17:52:50
+Esta é a 2-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/wave1.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/wave.asct -b Linux_x86_64
+Initializing asctText
+Initializing asctText
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+Create /
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/91
+Requesting results from 1 nodes
+The results of your application were copied to null/92
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+./temp: linha 2: -i: comando não encontrado
+FTEC : Aplicativo terminou às 17:53:51 com 0
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+./temp: linha 2: -i: comando não encontrado
+FTEC : Aplicativo terminou às 17:53:51 com 0
+FTM > submitTask
+defaultTypes.Task@21faa3c5
+1
+17:53:51: Null FTEC > startThread 
+defaultTypes.Task@113ee167
+1
+workflow1
+Aplicativo 1FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@21faa3c5
+submitted task name: 1
+ submetido às: 17:53:51
+Esta é a 3-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/gaussian.asct -b Linux_x86_64
+Initializing asctText
+FTM > submitTask
+defaultTypes.Task@1367dca
+6
+17:53:51: Null FTEC > startThread 
+defaultTypes.Task@2fa21acf
+6
+workflow1
+Aplicativo 6 submetido às: 17:53:51
+Esta é a 4-ésima vez que dah um startExecutionFTEC > reqFtecThread
+
+submitted task id:   defaultTypes.Task@1367dca
+submitted task name: 6
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/SampleRate.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo 0 concluido as 17:53:51
+Aplicativo 4 concluido as 17:53:51
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+Create /
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/93
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/94
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+./temp: linha 2: l: comando não encontrado
+FTEC : Aplicativo terminou às 17:54:52 com 0
+FTM > submitTask
+defaultTypes.Task@7254d7ac
+2
+17:54:52: Null FTEC > startThread 
+defaultTypes.Task@b920c51
+2
+workflow1
+Aplicativo 2 submetido às: 17:54:52FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@7254d7ac
+
+Esta é a 5-ésima vez que dah um startExecutionsubmitted task name: 2
+
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/fft1.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo 1 concluido as 17:54:52
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:54:52 com 0
+Aplicativo 6 concluido as 17:54:52
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: false
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/95
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:55:53 com 0
+FTM > submitTask
+defaultTypes.Task@272c6f83
+3
+17:55:53: Null FTEC > startThread 
+defaultTypes.Task@7d582674
+3
+workflow1
+Aplicativo 3 submetido às: 17:55:53
+Esta é a 6-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@272c6f83
+submitted task name: 3
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/oneside1.asct -b Linux_x86_64
+Initializing asctText
+FTM > submitTask
+defaultTypes.Task@20c85c1f
+7
+17:55:53: Null FTEC > startThread 
+defaultTypes.Task@1795f1cc
+7
+workflow1
+FTEC > reqFtecThreadAplicativo 
+submitted task id:   defaultTypes.Task@20c85c1f
+submitted task name: 77
+ submetido às: 17:55:53
+Esta é a 7-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/WindowFnc.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo 2 concluido as 17:55:53
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: false
+Tarefa:    2
+   Status: true
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/96
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/97
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:56:54 com 0
+FTM > submitTask
+defaultTypes.Task@1db4543c
+5
+17:56:54: Null FTEC > startThread 
+defaultTypes.Task@5fa34e31
+5
+workflow1
+Aplicativo 5 submetido às: 17:56:54
+Esta é a 8-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@1db4543c
+submitted task name: 5
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/SqMag1.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo 3 concluido as 17:56:54
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:56:54 com 0
+FTM > submitTask
+defaultTypes.Task@c996f0e
+8
+17:56:54: Null FTEC > startThread 
+defaultTypes.Task@3969454d
+8
+workflow1
+FTEC > reqFtecThreadAplicativo 
+submitted task id:   defaultTypes.Task@c996f0e
+submitted task name: 8
+8 submetido às: 17:56:54
+Esta é a 9-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/SumOfSquares.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo 7 concluido as 17:56:54
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: false
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/98
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/99
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:57:55 com 0
+Aplicativo 5 concluido as 17:57:55
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:57:56 com 0
+FTM > submitTask
+defaultTypes.Task@1b7fc253
+9
+17:57:56: Null FTEC > startThread 
+defaultTypes.Task@27223041
+9
+workflow1
+FTEC > reqFtecThreadAplicativo 
+submitted task id:   defaultTypes.Task@1b7fc253
+submitted task name: 9
+9 submetido às: 17:57:56
+Esta é a 10-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/multiplier.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo 8 concluido as 17:57:56
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/100
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:58:57 com 0
+FTM > submitTask
+defaultTypes.Task@6c99ea5d
+10
+17:58:57: Null FTEC > startThread 
+defaultTypes.Task@1cb81be4
+10
+workflow1
+Aplicativo 10 submetido às: 17:58:57
+Esta é a 11-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@6c99ea5d
+submitted task name: 10
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/divider.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo 9 concluido as 17:58:57
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000038000100000000000E3139322E3136382E312E31353600B62A0000001C5374616E64617264496D706C4E616D652F00174C070F170037021F14000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000038000100000000000E3139322E3136382E312E31353600880B0000001C5374616E64617264496D706C4E616D652F00174C070F181003012304000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+bin ID Linux_x86_64
+=====>>>
+app name sleep
+base path /
+apparg 60
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d002420ffff09000000307833373661666530
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    8
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    4
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    10
+   Status: false
+Tarefa:    3
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    2
+   Status: true
+-----------------------------------
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/101
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:59:58 com 0
+Aplicativo 10 concluido as 17:59:58
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
