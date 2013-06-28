@@ -1,0 +1,2398 @@
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+{name=0, duration=10, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/wave.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@349319f9
+Name: 0
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/wave.asct
+ Output: null
+ Dependencies: []
+
+
+{name=1, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/gaussian.asct, outputfile=null, dependencies=[0]}
+ID: defaultTypes.Task@234b74fd
+Name: 1
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/gaussian.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@349319f9]
+
+
+{name=2, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/fft1.asct, outputfile=null, dependencies=[1]}
+ID: defaultTypes.Task@5b025dc7
+Name: 2
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/fft1.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@234b74fd]
+
+
+{name=3, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/oneside1.asct, outputfile=null, dependencies=[2]}
+ID: defaultTypes.Task@94eefbf
+Name: 3
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/oneside1.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@5b025dc7]
+
+
+{name=4, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/wave1.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@5fae6db3
+Name: 4
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/wave1.asct
+ Output: null
+ Dependencies: []
+
+
+{name=5, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/SqMag1.asct, outputfile=null, dependencies=[3]}
+ID: defaultTypes.Task@32417348
+Name: 5
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/SqMag1.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@94eefbf]
+
+
+{name=6, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/SampleRate.asct, outputfile=null, dependencies=[4]}
+ID: defaultTypes.Task@5b630a31
+Name: 6
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/SampleRate.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@5fae6db3]
+
+
+{name=7, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/WindowFnc.asct, outputfile=null, dependencies=[4, 2]}
+ID: defaultTypes.Task@4c4db602
+Name: 7
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/WindowFnc.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@5fae6db3, defaultTypes.Task@5b025dc7]
+
+
+{name=8, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/SumOfSquares.asct, outputfile=null, dependencies=[7]}
+ID: defaultTypes.Task@20d23941
+Name: 8
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/SumOfSquares.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@4c4db602]
+
+
+{name=9, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/multiplier.asct, outputfile=null, dependencies=[6, 8]}
+ID: defaultTypes.Task@320a80db
+Name: 9
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/multiplier.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@20d23941, defaultTypes.Task@5b630a31]
+
+
+{name=10, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/divider.asct, outputfile=null, dependencies=[5, 9]}
+ID: defaultTypes.Task@3d79839e
+Name: 10
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/divider.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@320a80db, defaultTypes.Task@32417348]
+
+
+Workflow submitted at 15:23:00: defaultTypes.Workflow@74b01999
+Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: false
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@72295fd4
+0
+15:23:08: Retry FTEC > startThread
+defaultTypes.Task@7c067f03
+0
+workflow1
+Esta é a 1-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@72295fd4
+0
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/wave.asct -b Linux_x86_64
+LoadManyDocuments
+Stdout: Initializing asctText
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@144eaefe
+4
+15:23:09: Retry FTEC > startThread
+defaultTypes.Task@39c07f3a
+4
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@144eaefe
+4
+Esta é a 2-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/wave1.asct -b Linux_x86_64
+Stdout: Initializing asctText
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: false
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: false
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: false
+-----------------------------------
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/227
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/228
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:24:10 Retry FTEC > Completed!
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:24:10 Retry FTEC > Completed!
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@53d334a8
+1
+15:24:10: Retry FTEC > startThread
+defaultTypes.Task@48272c17
+1
+workflow1
+Esta é a 3-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@53d334a8
+1
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/gaussian.asct -b Linux_x86_64
+Stdout: Initializing asctText
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@2ea5891
+6
+15:24:10: Retry FTEC > startThread
+defaultTypes.Task@11f54254
+6
+workflow1
+Esta é a 4-ésima vez que dah um startExecutionFTEC > reqFtecThread
+
+defaultTypes.Task@2ea5891
+6
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/SampleRate.asct -b Linux_x86_64
+Stdout: Initializing asctText
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: false
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: false
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/229
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/230
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+STDERR: ./temp: linha 2: 4: comando não encontrado
+15:25:11 Retry FTEC > Completed!
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@d8c42e0
+2
+15:25:11: Retry FTEC > startThread
+defaultTypes.Task@a614146
+2
+workflow1
+Esta é a 5-ésima vez que dah um startExecutionFTEC > reqFtecThread
+defaultTypes.Task@d8c42e0
+2
+
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/fft1.asct -b Linux_x86_64
+Stdout: Initializing asctText
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:25:11 Retry FTEC > Completed!
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: false
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/231
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:26:12 Retry FTEC > Completed!
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@5b0a485c
+7
+15:26:12: Retry FTEC > startThread
+defaultTypes.Task@39f7e964
+7
+workflow1
+Esta é a 6-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/WindowFnc.asct -b Linux_x86_64
+FTEC > reqFtecThread
+defaultTypes.Task@5b0a485c
+7
+Stdout: Initializing asctText
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@2e3d787c
+3
+15:26:12: Retry FTEC > startThread
+defaultTypes.Task@79082407
+3
+workflow1
+Esta é a 7-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@2e3d787c
+3
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/oneside1.asct -b Linux_x86_64
+Stdout: Initializing asctText
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: false
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: false
+Tarefa:    4
+   Status: true
+-----------------------------------
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/232
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/233
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:27:14 Retry FTEC > Completed!
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:27:14 Retry FTEC > Completed!
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@55816088
+8
+15:27:14: Retry FTEC > startThread
+defaultTypes.Task@1663108
+8
+workflow1
+Esta é a 8-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@55816088
+8
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/SumOfSquares.asct -b Linux_x86_64
+Stdout: Initializing asctText
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@466db468
+5
+15:27:14: Retry FTEC > startThread
+defaultTypes.Task@72cd456f
+5
+workflow1
+Esta é a 9-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@466db468
+5
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/SqMag1.asct -b Linux_x86_64
+Stdout: Initializing asctText
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: false
+Tarefa:    5
+   Status: false
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/234
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/235
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:28:15 Retry FTEC > Completed!
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:28:15 Retry FTEC > Completed!
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@5d54e317
+9
+15:28:15: Retry FTEC > startThread
+defaultTypes.Task@65642eab
+9
+workflow1
+Esta é a 10-ésima vez que dah um startExecution
+FTEC > reqFtecThread/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/multiplier.asct -b Linux_x86_64
+
+defaultTypes.Task@5d54e317
+9
+Stdout: Initializing asctText
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: false
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/236
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:29:17 Retry FTEC > Completed!
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Retry, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Retry, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Retry
+[1.1.2] nodeID = 5, question/answer = Retry
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Retry
+[1.2.2] nodeID = 6, question/answer = Retry
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Retry
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@64ecea5e
+10
+15:29:17: Retry FTEC > startThread
+defaultTypes.Task@48f92929
+10
+workflow1
+Esta é a 11-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/divider.asct -b Linux_x86_64
+FTEC > reqFtecThread
+defaultTypes.Task@64ecea5e
+10Stdout: Initializing asctText
+
+Stdout: [OrbHolder] initStubs ok:
+Stdout: [OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E3135360096AD0000001B5374616E64617264496D706C4E616D652F00174C0D0B3C4B1B484600000000010000001800000000000000010000000000000008000000004A414300
+Stdout: [OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600C6F80000001B5374616E64617264496D706C4E616D652F00174C0D0B3E0C224A0A00000000010000001800000000000000010000000000000008000000004A414300
+Stdout: Create /
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: [Warning] Problem creating directory. Probably it already exists. Continuing...
+Stdout: Upload Linux_x86_64 rbp / platform Linux_x86_64 apn sleep
+Stdout: bin ID Linux_x86_64
+Stdout: =====>>>
+Stdout: app name sleep
+Stdout: base path /
+Stdout: apparg 60
+Stdout: input 0
+Stdout: outpu 0
+Stdout: numOfTask 1
+Stdout: numOfparamCopies 0
+Stdout: forceDiff false
+Stdout: appCons 
+Stdout: appPref 
+Stdout: <<<=======
+Stdout: Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900081109000000307832333061336330
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    10
+   Status: false
+Tarefa:    8
+   Status: true
+Tarefa:    5
+   Status: true
+Tarefa:    9
+   Status: true
+Tarefa:    7
+   Status: true
+Tarefa:    6
+   Status: true
+Tarefa:    0
+   Status: true
+Tarefa:    1
+   Status: true
+Tarefa:    2
+   Status: true
+Tarefa:    3
+   Status: true
+Tarefa:    4
+   Status: true
+-----------------------------------
+Stdout: Exec Finished!!!
+Stdout: Requesting results from 1 nodes
+Stdout: Requesting results from 1 nodes
+Stdout: The results of your application were copied to /home/felps/output_text/237
+STDERR: java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+STDERR: 	at java.io.FileInputStream.open(Native Method)
+STDERR: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+STDERR: 	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+STDERR: 	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+STDERR: 	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+STDERR: 	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+STDERR: 	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+15:30:18 Retry FTEC > Completed!
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
