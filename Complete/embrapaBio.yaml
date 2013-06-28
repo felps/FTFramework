@@ -1,0 +1,184 @@
+---
+name : printTime
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/date.asct
+outputfile:
+dependencies:
+---
+name : divider
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/divider.asct
+outputfile:
+dependencies: 
+ - printTime
+---
+name : processChunk1
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast1.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk2
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast2.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk3
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast3.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk4
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast4.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk5
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast5.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk6
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast6.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk7
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast7.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk8
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast8.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk9
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast9.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk10
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast10.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk11
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast11.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk12
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast12.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk13
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast13.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk14
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast14.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk15
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast15.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk16
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast16.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : processChunk17
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast17.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : unifier
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/cat.asct
+outputfile:
+dependencies: 
+ - processChunk1
+ - processChunk2
+ - processChunk3
+ - processChunk4
+ - processChunk5
+ - processChunk6
+ - processChunk7
+ - processChunk8
+ - processChunk9
+ - processChunk10
+ - processChunk11
+ - processChunk12
+ - processChunk13
+ - processChunk14
+ - processChunk15
+ - processChunk16
+ - processChunk17
+---
+name : endDate
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/date.asct
+outputfile:
+dependencies: 
+ - unifier
+

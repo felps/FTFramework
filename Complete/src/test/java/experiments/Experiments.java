@@ -28,7 +28,7 @@ public class Experiments {
 	
 	@Test
 	public void tavernaBio() throws FileNotFoundException, RemoteException, MalformedURLException, NotBoundException {
-		String[] args = {"", "./tavernaBio.yaml"};
+		String[] args = {"", "./trianaParcial.yaml"};
 		Wsct.main(args);
 
 	}
