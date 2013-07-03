@@ -1,0 +1,498 @@
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+ID: defaultTypes.Task@74e551a4
+Name: printTime
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/date.asct
+ Output: null
+ Dependencies: []
+
+
+ID: defaultTypes.Task@5790d004
+Name: divider
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/divider.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@74e551a4]
+
+
+ID: defaultTypes.Task@768f334b
+Name: processChunks
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/blast32.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@5790d004]
+
+
+ID: defaultTypes.Task@58ee9963
+Name: unifier
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/cat.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@768f334b]
+
+
+ID: defaultTypes.Task@6ec15ff6
+Name: endDate
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/date.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@58ee9963]
+
+
+defaultTypes.Workflow@59834848
+17:58:06Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: false
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: false
+-----------------------------------
+FTM > submitTask
+defaultTypes.Task@329e2e50
+printTime
+17:58:08: Null FTEC > startThread 
+defaultTypes.Task@5b065904
+printTime
+workflow1
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@329e2e50
+submitted task name: printTime
+Aplicativo printTime submetido às: 17:58:09
+Esta é a 1-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/date.asct -b Linux_x86_64
+Initializing asctText
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E31353600E9BF0000001B5374616E64617264496D706C4E616D652F00174C290B03103C040F00000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600CB420000001B5374616E64617264496D706C4E616D652F00174C290B042033354200000000010000001800000000000000010000000000000008000000004A414300
+Create //
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp // platform Linux_x86_64 apn date
+bin ID Linux_x86_64
+=====>>>
+app name date
+base path //
+apparg +%R
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323800b41609000000307832383962373330
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/209
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:58:10 com 0
+FTM > submitTask
+defaultTypes.Task@385144d5
+divider
+17:58:10: Null FTEC > startThread 
+defaultTypes.Task@7495435a
+divider
+workflow1
+Aplicativo divider submetido às: 17:58:10FTEC > reqFtecThread
+
+submitted task id:   defaultTypes.Task@385144d5
+submitted task name: dividerEsta é a 2-ésima vez que dah um startExecution
+
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/divider.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo printTime concluido as 17:58:10
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E31353600E9BF0000001B5374616E64617264496D706C4E616D652F00174C290B03103C040F00000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600CB420000001B5374616E64617264496D706C4E616D652F00174C290B042033354200000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn csplit
+bin ID Linux_x86_64
+=====>>>
+app name csplit
+base path /
+apparg yeast.nt '/>/' {*}
+input 1
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323800b41609000000307832383962373330
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/210
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:58:12 com 0
+FTM > submitTask
+defaultTypes.Task@4eaabc2d
+processChunks
+17:58:12: Null FTEC > startThread 
+defaultTypes.Task@289f6ae
+processChunks
+workflow1
+Aplicativo FTEC > reqFtecThreadprocessChunks submetido às: 17:58:12
+submitted task id:   defaultTypes.Task@4eaabc2d
+
+submitted task name: processChunksEsta é a 3-ésima vez que dah um startExecution
+
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/blast32.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo divider concluido as 17:58:12
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E31353600E9BF0000001B5374616E64617264496D706C4E616D652F00174C290B03103C040F00000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600CB420000001B5374616E64617264496D706C4E616D652F00174C290B042033354200000000010000001800000000000000010000000000000008000000004A414300
+Create //
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp // platform Linux_x86_64 apn blast
+bin ID Linux_x86_64
+=====>>>
+app name blast
+base path //
+apparg -p blastn -i xx05 -j yeast.nt -W 9
+input 2
+outpu 2
+numOfTask 32
+numOfparamCopies 0
+forceDiff true
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 1 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff0400000067726d005a26ffff09000000307831643333393430
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323800b41609000000307832383962373330
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+Our request represented by main id: 0 and NODE id: 2 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d313900391509000000307831626636393130
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+Our request represented by main id: 0 and NODE id: 3 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d333300642509000000307833333136646130
+Our request represented by main id: 0 and NODE id: 6 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff050000006c726d3900ff192609000000307831643865363430
+Our request represented by main id: 0 and NODE id: 4 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d3236004a0e09000000307832346265346630
+Our request represented by main id: 0 and NODE id: 5 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d313800f61b09000000307832376639333430
+Our request represented by main id: 0 and NODE id: 11 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323900181709000000307832333337663530
+Our request represented by main id: 0 and NODE id: 7 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d333100eb1609000000307833316161636430
+Our request represented by main id: 0 and NODE id: 12 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323300610f09000000307832363561613330
+Our request represented by main id: 0 and NODE id: 9 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d313000b22309000000307831626130393130
+Our request represented by main id: 0 and NODE id: 8 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d333000452109000000307831633539336630
+Our request represented by main id: 0 and NODE id: 13 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff050000006c726d3700ff881209000000307832623765613930
+Our request represented by main id: 0 and NODE id: 14 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff050000006c726d3600ff1c1509000000307833333265666330
+Our request represented by main id: 0 and NODE id: 15 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d3134007d1509000000307831633661303230
+Our request represented by main id: 0 and NODE id: 10 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff050000006c726d3200ff2f1609000000307833373431326130
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+Our request represented by main id: 0 and NODE id: 16 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff050000006c726d3500fff81b09000000307831396462643930
+Our request represented by main id: 0 and NODE id: 18 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d333200252209000000307831383062316530
+Our request represented by main id: 0 and NODE id: 17 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323500ac1f09000000307832626130643030
+Our request represented by main id: 0 and NODE id: 19 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d3231005e1a09000000307832313064666430
+Our request represented by main id: 0 and NODE id: 20 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d3230005b1e09000000307832633430303030
+Our request represented by main id: 0 and NODE id: 22 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d313700761e09000000307832353139353430
+Our request represented by main id: 0 and NODE id: 21 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d3237004e0c09000000307831386331303030
+Our request represented by main id: 0 and NODE id: 23 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323400991b09000000307832656466323630
+Our request represented by main id: 0 and NODE id: 24 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d313600d31109000000307832323363303530
+Our request represented by main id: 0 and NODE id: 25 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff050000006c726d3100ff021209000000307832616463393330
+Our request represented by main id: 0 and NODE id: 26 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323200e01f09000000307831376162333130
+Our request represented by main id: 0 and NODE id: 27 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d313100120e09000000307831373930323230
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+Our request represented by main id: 0 and NODE id: 29 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d313300422509000000307831623237653930
+Our request represented by main id: 0 and NODE id: 30 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff050000006c726d3800ffc22609000000307833323132326530
+Our request represented by main id: 0 and NODE id: 31 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d313500d51b09000000307831383539643230
+Our request represented by main id: 0 and NODE id: 28 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff050000006c726d3300ff7f1209000000307832346563613030
+Exec Finished!!!
+Requesting results from 32 nodes
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Exec Finished!!!
+Requesting results from 32 nodes
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: false
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+The results of your application were copied to null/211
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:59:36 com 0
+FTM > submitTask
+defaultTypes.Task@4c19cc84
+unifier
+17:59:36: Null FTEC > startThread 
+defaultTypes.Task@4b24e48f
+unifier
+workflow1
+Aplicativo unifier submetido às: 17:59:36
+Esta é a 4-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@4c19cc84
+submitted task name: unifier
+Aplicativo processChunks concluido as 17:59:36
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/cat.asct -b Linux_x86_64
+Initializing asctText
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E31353600E9BF0000001B5374616E64617264496D706C4E616D652F00174C290B03103C040F00000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600CB420000001B5374616E64617264496D706C4E616D652F00174C290B042033354200000000010000001800000000000000010000000000000008000000004A414300
+Create /
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp / platform Linux_x86_64 apn cat
+bin ID Linux_x86_64
+=====>>>
+app name cat
+base path /
+apparg stdout*
+input 50
+outpu 1
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: true
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    printTime
+   Status: true
+Tarefa:    processChunks
+   Status: true
+Tarefa:    unifier
+   Status: false
+Tarefa:    endDate
+   Status: false
+Tarefa:    divider
+   Status: true
+-----------------------------------
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323800b41609000000307832383962373330
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/212
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:59:52 com 0
+FTM > submitTask
+defaultTypes.Task@2e559e7f
+endDate
+17:59:52: Null FTEC > startThread 
+defaultTypes.Task@51f3336e
+endDate
+workflow1
+Aplicativo endDate submetido às: 17:59:52
+Esta é a 5-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+submitted task id:   defaultTypes.Task@2e559e7f
+submitted task name: endDate
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/date.asct -b Linux_x86_64
+Initializing asctText
+Aplicativo unifier concluido as 17:59:52
+[OrbHolder] initStubs ok:
+[OrbHolder] grmIor: IOR:000000000000001E49444C3A636C75737465724D616E6167656D656E742F47726D3A312E30000000000000020000000000000037000100000000000E3139322E3136382E312E31353600E9BF0000001B5374616E64617264496D706C4E616D652F00174C290B03103C040F00000000010000001800000000000000010000000000000008000000004A414300
+[OrbHolder] appReposIor:IOR:000000000000003049444C3A636C75737465724D616E6167656D656E742F4170706C69636174696F6E5265706F7369746F72793A312E3000000000020000000000000037000100000000000E3139322E3136382E312E31353600CB420000001B5374616E64617264496D706C4E616D652F00174C290B042033354200000000010000001800000000000000010000000000000008000000004A414300
+Create //
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+[Warning] Problem creating directory. Probably it already exists. Continuing...
+Upload Linux_x86_64 rbp // platform Linux_x86_64 apn date
+bin ID Linux_x86_64
+=====>>>
+app name date
+base path //
+apparg +%R
+input 0
+outpu 0
+numOfTask 1
+numOfparamCopies 0
+forceDiff false
+appCons 
+appPref 
+<<<=======
+Our request represented by main id: 0 and NODE id: 0 was ACCEPTED by LRM: IOR:01ffffff1e00000049444c3a7265736f7572636550726f7669646572732f4c726d3a312e3000ffff01000000000000001d000000010100ff060000006c726d323800b41609000000307832383962373330
+Exec Finished!!!
+Requesting results from 1 nodes
+Requesting results from 1 nodes
+The results of your application were copied to null/213
+java.io.FileNotFoundException: Linux_x86_64 (Arquivo ou diretório não encontrado)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at asct.core.repository.ApplicationRepositoryManager.uploadBinary(ApplicationRepositoryManager.java:127)
+	at asct.core.ApplicationControlFacade.uploadBinary(ApplicationControlFacade.java:206)
+	at asct.ui.ASCTController.uploadBinary(ASCTController.java:260)
+	at asct.ui.AsctTextMode.run(AsctTextMode.java:135)
+	at asct.ui.AsctTextMode.main(AsctTextMode.java:368)
+FTEC : Aplicativo terminou às 17:59:54 com 0
+Aplicativo endDate concluido as 17:59:54
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei

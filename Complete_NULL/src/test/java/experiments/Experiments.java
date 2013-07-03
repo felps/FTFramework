@@ -28,15 +28,24 @@ public class Experiments {
 	// }
 	// }
 
+//	@Test
+//	public void tavernaBio() throws FileNotFoundException, RemoteException,
+//			MalformedURLException, NotBoundException, InterruptedException {
+//			String[] args = { "", "./tavernaBio.yaml" };
+//			Wsct.main(args);
+//	}
+
+//	@Test
+//	public void trianaParcial() throws FileNotFoundException, RemoteException,
+//			MalformedURLException, NotBoundException, InterruptedException {
+//			String[] args = { "", "./trianaParcial.yaml" };
+//			Wsct.main(args);
+//	}
+	
 	@Test
-	public void tavernaBio() throws FileNotFoundException, RemoteException,
+	public void embrapaBio() throws FileNotFoundException, RemoteException,
 			MalformedURLException, NotBoundException, InterruptedException {
-//		for (int i = 0; i < 10; i++) {
-			String[] args = { "", "./trianaParcial.yaml" };
+			String[] args = { "", "./embrapaBio.yaml" };
 			Wsct.main(args);
-//			Thread.sleep(9 * 60 * 1000);
-//			for(int j=0;j<20; j++)
-//				System.out.println("\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");
-//		}
 	}
 }
