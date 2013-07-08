@@ -1,0 +1,16 @@
+<!--
+
+    Portlet Services XML Descriptor
+
+    Edit this file to add/modify Portlet Services
+
+    $Id: PortletServices.xml,v 1.3 2005/11/09 17:32:30 novotny Exp $
+-->
+<portlet-services>
+	<name>Asct Provider Service</name>
+	<description>Provides the Application Control Facade to the user</description>
+	<interface>org.integrade.services.AsctProvider</interface>
+	<implementation>org.integrade.services.AsctProviderImpl</implementation>
+	<load-on-startup>true</load-on-startup>
+</portlet-services>
+

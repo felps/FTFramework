@@ -1,0 +1,13 @@
+package ftec;
+
+public class RetryFTEC extends Ftec implements Runnable {
+
+	public RetryFTEC(String name, String FTECLocation,
+			String appBinaryLocation, String inputFileLocation,
+			String configFileLocation) {
+		super(name, FTECLocation, appBinaryLocation, inputFileLocation,
+				configFileLocation);
+		// TODO Auto-generated constructor stub
+	}
+
+}

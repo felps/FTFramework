@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+	</section>
+	<section name="ResourceNavigator">
+		<item value="Aggregate for window 1260547994555" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
+		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
+	</section>
+	<section name="DialogMarkerPropertiesDialogSettings">
+		<item value="830" key="DIALOG_WIDTH"/>
+		<item value="167" key="DIALOG_Y_ORIGIN"/>
+		<item value="228" key="DIALOG_X_ORIGIN"/>
+		<item value="314" key="DIALOG_HEIGHT"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.wst.xml.ui.XMLExampleProjectCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Examples/org.eclipse.jwt.examples"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.wst.xml.examples"/>
+		</list>
+	</section>
+</section>

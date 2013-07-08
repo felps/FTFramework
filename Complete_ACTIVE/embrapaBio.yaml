@@ -1,0 +1,40 @@
+---
+name : printTime
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/date.asct
+outputfile:
+dependencies:
+---
+name : divider
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/divider.asct
+outputfile:
+dependencies: 
+ - printTime
+---
+name : processChunks
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/blast32.asct
+outputfile:
+dependencies: 
+ - divider
+---
+name : unifier
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/cat.asct
+outputfile:
+dependencies: 
+ - processChunks
+---
+name : endDate
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/date.asct
+outputfile:
+dependencies: 
+ - unifier
+

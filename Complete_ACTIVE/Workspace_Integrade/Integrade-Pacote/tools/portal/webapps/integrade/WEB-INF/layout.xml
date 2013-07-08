@@ -1,0 +1,35 @@
+<portlet-tabbed-pane>
+    <portlet-tab>
+        <title lang="en">The Grid</title>
+        <portlet-tabbed-pane style="sub-menu">
+            <portlet-tab label="applicationrepositoryportlet">
+                <title lang="en">Repository</title>
+                <table-layout>
+                    <row-layout>
+                        <column-layout width="50%">
+                            <portlet-frame>
+                                <portlet-class>integrade#RepositoryBrowserPortlet</portlet-class>
+                            </portlet-frame>
+                        </column-layout>
+                    </row-layout>
+                </table-layout>
+            </portlet-tab>
+    		<portlet-tab label="jobsubmissionportlet">
+    			<title lang="en">Job Submission</title>
+    			<table-layout>
+    				<row-layout>
+    					<column-layout>
+    						<portlet-frame>
+    							<portlet-class>integrade#JobSubmissionPortlet</portlet-class>
+    						</portlet-frame>
+    					</column-layout>
+    				</row-layout>
+    			</table-layout>
+    		</portlet-tab>
+    		<portlet-tab label="gridmonitoring">
+    			<title lang="en">Grid Monitoring</title>
+    				<portlet-content include="http://www.integrade.org.br"/>
+    		</portlet-tab>
+    	</portlet-tabbed-pane>
+    </portlet-tab>
+</portlet-tabbed-pane>

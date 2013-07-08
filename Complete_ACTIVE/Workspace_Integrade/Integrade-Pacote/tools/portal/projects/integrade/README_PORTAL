@@ -1,0 +1,11 @@
+O diretorio relativo ao portal neste pacote consiste apenas nos arquivo relativos ao proprio integrade.
+Para instalar o portal, e necessario baixar o framework gridsphere (www.gridsphere.org) e fazer duas modificacoes:
+No portal original, apenas usuarios registrados no portal podem logar (mesmo que sejam capazes de serem autenticados). Uma modificacao no codigo do proprio framework e necessaria para que um usuario seja criado, caso a autenticacao seja bem sucedida.
+A autenticacao do portal e completamente modular. A padrao nao e a usada pelo integrade, isso e ajustavel por uma configuracao feita pelo usuario administrador do portal logo na primeira pagina. O callback dessa autenticacao, com o usuario e a senha, devem ser guardados em um sistema de persistencia hibernate, nativo do proprio framework, para que sejam passados no construtor do Facade.
+Essas duas modificacoes do portal estao implementadas na versao do portal que se encontra no meu home do LCPD, e as partes do codigo devidamente comentadas e com 'Lundberg' escrito. Basta procurar pelo meu nome, portanto, para saber as partes modificadas e aplicar em uma versao mais nova do Gridsphere.
+O construtor do Facade, por sua vez, deve poder receber o callback no construtor.
+
+Sobre o deploy:
+Dentro do pacote do framework gridsphere, ha um diretorio 'projects'. Coloque o diretorio relativo ao portal nesse diretorio e siga as instrucoes do proprio framework, que sao bem documentadas.
+No deploy do integrade em si, e necessario chamar 'ant create-database' para que a database do integrade (utilizada para armazenar os callbacks temporariamente) seja inicializada.
+

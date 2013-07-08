@@ -1,0 +1,19 @@
+package clusterManagement;
+
+/**
+ *	Generated from IDL interface "ExecutionManager"
+ *	@author JacORB IDL compiler V 2.2.3, 10-Dec-2005
+ */
+
+
+public interface ExecutionManagerOperations
+{
+	/* constants */
+	/* operations  */
+	void setProcessExecutionStarted(java.lang.String lrmIor, java.lang.String executionId, int restartId, dataTypes.ExecutionRequestId executionRequestId);
+	int setProcessExecutionFinished(int restartId, dataTypes.ExecutionRequestId executionRequestId, java.lang.String[] outputFileNames, int executionState, int executionCode);
+	void setExecutionScheduled(dataTypes.ApplicationExecutionInformation applicationExecutionInformation, dataTypes.ProcessExecutionInformation[] processExecutionInformationSequence);
+	void setExecutionRefused(dataTypes.ApplicationExecutionInformation applicationExecutionInformation, dataTypes.ProcessExecutionInformation[] processExecutionInformationSequence);
+	dataTypes.BspProcessZeroInformation registerBspProcess(dataTypes.ExecutionRequestId executionRequestId, java.lang.String bspProxyIor);
+	dataTypes.MpiConnectInformation[] registerMpiProcess(dataTypes.ExecutionRequestId executionRequestId, java.lang.String kvs, int rank);
+}

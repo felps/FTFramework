@@ -1,0 +1,69 @@
+package ftm;
+
+import ftec.*;
+import java.util.*;
+
+import defaultTypes.*;
+
+/*
+ * TODO: Criar um método para atualização do status 
+ */
+public class Ftm {
+	private static List<Ftec> runningFtecs;
+	private static List<Task> scheduledTasks;
+	private static Map<String, Long> FtecRelation;
+	
+	public Ftm() {
+		runningFtecs = new ArrayList<Ftec>();
+		scheduledTasks = new ArrayList<Task>();
+		FtecRelation = new HashMap<String, Long>();
+	}
+	
+	public static void newTask(Task task) throws InterruptedException {
+		// If the task is already scheduled, then do nothing
+		for (int i = 0; i < scheduledTasks.size(); i++) {
+			if(task == scheduledTasks.get(i)) {
+				return;
+			}
+		}
+		
+		
+		scheduledTasks.add(task);
+		
+		//Define FTEC to be used with FTSM
+		//TODO: Implement FTSM
+		// When implemented call will be:
+		// Ftec ftec = ftsm(task);
+		
+		//STUB for ftsm;
+		Ftec ftec = new RetryFTEC("retry", "/home/felps/Dropbox/Desenvolvimento/Workspace_Integrade/FTEC-Ensaio/src/ftec/retryFtec.java", task.getBinaryLocation(), task.getInputFile(), "");
+		
+		//Create a thread to FTEC
+		Thread ftecExecution = new Thread(ftec);
+		
+		//Store its id
+		Long id = new Long(ftecExecution.getId());
+		FtecRelation.put(task.getName(), id);
+		
+		//Start the thread
+		ftecExecution.start();
+		
+		Thread.sleep(0);
+
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		while (true) {
+			// While there are still readyTasks to be scheduled, do it!
+			for (int i = 0; i < scheduledTasks.size(); i++) {
+				newTask(scheduledTasks.get(1));
+				scheduledTasks.remove(1);
+			}
+			
+			for (int i = 0; i < runningFtecs.size(); i++) {
+				//Check the FTEC status.
+			}
+		}
+	}
+	
+}

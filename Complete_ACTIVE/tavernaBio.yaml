@@ -1,0 +1,56 @@
+---
+name : getSwissProtId
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
+outputfile:
+dependencies:
+---
+name : getGoIds
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/getGoIds.asct
+outputfile:
+dependencies:
+---
+name : createVizSession
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/createVizSession.asct
+outputfile:
+dependencies:
+---
+name : addTermToViz
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
+outputfile:
+dependencies:
+ - getGoIds
+ - createVizSession
+---
+name : getSwissProtRecord
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
+outputfile:
+dependencies:
+ - getSwissProtId
+---
+name : getDotFromViz
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
+outputfile: 
+dependencies:
+ - createVizSession
+ - addTermToViz
+---
+name : destroyVizSession
+duration : 60
+binary: Linux_x86_64
+inputfile: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
+outputfile:
+dependencies:
+ - createVizSession
+ - getDotFromViz

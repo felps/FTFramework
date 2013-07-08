@@ -1,0 +1,103 @@
+package defaultTypes;
+
+import java.util.Iterator;
+import java.util.Set;
+import java.util.HashSet;
+
+public class Task {
+	
+	//VARIABLES
+	private String name;
+	private String workflow;
+	private String binaryLocation;
+	private String inputFile;
+	private String outputFile;
+	public String getInputFile() {
+		return inputFile;
+	}
+
+	public void setInputFile(String inputFile) {
+		this.inputFile = inputFile;
+	}
+
+	public String getOutputFile() {
+		return outputFile;
+	}
+
+	public void setOutputFile(String outputFile) {
+		this.outputFile = outputFile;
+	}
+
+	private	Set<Task> dependsOn;
+	private boolean complete;
+
+	//CONSTRUCTOR
+	public Task(){
+		this.dependsOn = new HashSet<Task>() ;
+		this.name = "undefined";
+		this.binaryLocation = "undefined";
+		this.complete = false;
+	}
+
+	//GETTERS AND SETTERS
+	public boolean isComplete() {
+		return complete;
+	}
+
+	public void setComplete() {
+		this.complete = true;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean getDependsOn(Task task) {
+		if(this.dependsOn.contains(task))
+			return true;
+		else
+			return false;
+	}
+
+	public Set<Task> getDependsOn() {
+		return this.dependsOn;
+	}
+
+	public void setDependsOn(Task task) {
+		this.dependsOn.add(task);
+	}
+
+	public String getBinaryLocation() {
+		return binaryLocation;
+	}
+
+	public void setBinaryLocation(String binaryLocation) {
+		this.binaryLocation = binaryLocation;
+	}
+	
+	public boolean isReady(){
+		Task task;
+		boolean ready;
+		
+		if ( this.isComplete() )
+			ready = false;
+		else
+			ready = true;
+		
+		Iterator<Task> iter = this.dependsOn.iterator();
+		
+		for (; iter.hasNext();){
+			task = iter.next();
+			if (!task.isComplete()){
+				ready = false;
+			}
+		}
+		return ready;
+	}
+	
+	
+}

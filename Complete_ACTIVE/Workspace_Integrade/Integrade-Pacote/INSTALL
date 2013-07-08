@@ -1,0 +1,482 @@
+InteGrade: Object-Oriented Grid Middleware v0.5
+
+Installation Manual
+
+Last updated: June 23rd 2009.
+
+-----------------------------------------------------------------------------
+INTRODUCTION
+
+InteGrade is  a middleware  platform for opportunistic  grid computing
+being  developed as part  of a  multi-university initiative.  The main
+goal  of InteGrade  is to  allow organizations  to use  their existing
+computing  infrastructure  to   perform  useful  computation,  without
+requiring   the  purchase  of   additional  hardware.   The  InteGrade
+infrastructure preservers  the quality  of service perceived  by users
+who share the idle portion of their resources with the grid. InteGrade
+provides    support   for   highly-coupled    parallel   applications,
+checkpointing, security, and an integrated development environment.
+
+This  document  describes  the  procedures for  the  installation  and
+configuration  of  InteGrade.   It  is   intended  to  be  used  as  a
+step-by-step  guide for  users not  familiar with  InteGrade,  nor the
+technologies it  leverages. This document does not,  though, cover the
+construction of applications based on InteGrade. For information about
+this  subject  or any  problems,  questions,  musings, or  suggestions
+regarding  InteGrade, please  contact  the InteGrade  support team  at
+integrade-support@googlegroups.com  or  consult the  InteGrade  portal
+(http://ccsl.ime.usp.br/integrade).
+
+
+-----------------------------------------------------------------------------
+REQUIRED PACKAGES
+
+In  order   to  compile  and  run  InteGrade,   several  packages  are
+required. All of  these packages are based on  open standards and most
+are free software. The current  version of InteGrade only works on the
+GNU/Linux  platform,  but versions  that  run  on BSD-based  operating
+systems (such as FreeBSD and Mac OS X) and Windows are currently being
+developed. InteGrade requires the following packages:
+
+ - GCC  4.0  or greater  -  The GNU  C  Compiler.   Debian and  Fedora
+   packages: gcc-4.0,  gcc-4.0-base
+
+ - G++  4.0 or  greater -  The GNU  C++ Compiler.
+   Debian  and Fedora package: g++-4.0
+
+ - GNU Make  - The popular  UNIX-based build tool.
+   Debian and Fedora package: make
+
+ - JDK 1.5  or greater  - The Java  Development Kit  v1.5.0, including
+   both the  compiler and runtime  environment for the  Java Language.
+   Available  at  http://java.sun.com/javase/downloads/index_jdk5.jsp
+
+ - Ant 1.5 or greater  - A Java-based platform-independent build tool.
+   Available at http://ant.apache.org/bindownload.cgi
+
+ - JacORB  2.2.3 -  A Java-based  open-source CORBA  ORB that  runs on
+   cluster manager machines.
+   Available  at http://ccsl.ime.usp.br/integrade/en/software
+   and http://www.jacorb.org
+
+ - OiLPack (incl.  Lua-5.0-Plus, Compat-Lua-5.1-r5, LuaSocket-2.0, and
+   OiL 0.3.1) - A software bundle containing the compiler  and runtime
+   for the Lua scripting language,  a library  for  building Lua-based
+   socket applications, and the  OiL lightweight CORBA ORB, which runs
+   on resource  provider nodes.
+   Available  at http://ccsl.ime.usp.br/integrade/en/software
+
+ - The  MPICH2  library,  an  implementation of  the  Message  Passing
+   Interface built by the Argonne National Laboratory, USA. This
+   module is necessary to run MPI applications over InteGrade.
+   Available at http://www-unix.mcs.anl.gov/mpi/mpich2/
+
+ - Common  error  description  library.
+   Debian package: comerr-dev
+
+ - Readline Library.
+   Debian package: libreadline5-dev
+
+If a  secure application repository is necessary  (this is recommended
+for jobs running on shared  machines), the following packages are also
+required:
+
+ - General  purpose  cryptographic  C++  library.
+   Debian  package: libcrypto++-dev
+
+ - Kerberos with  all libraries and header files.
+   Debian   packages:   libkrb5-dev,   krb5-user,   krb5-admin-server,
+   krb5-kdc
+
+All of these  packages must be installed before  attempting to compile
+InteGrade. The packages  are listed in the order  in which they should
+be installed.  The  first four packages are often  included in default
+installations of  GNU/Linux. If this  is not the  case, it is  easy to
+obtain and  install them if you  have an Internet  connection and root
+access. Linux distributions  based on Debian (such as  Ubuntu) and Red
+Hat  (such as  Fedora)  include specific  utilities for  automatically
+downloading and installing applications. Also, all the packages can be
+easily  obtained in  the Web.  See  the appendix  for instructions  on
+obtaining the packages, if they are not available in your system.
+
+
+-----------------------------------------------------------------------------
+OBTAINING AND COMPILING INTEGRADE
+
+The latest  version of  InteGrade can be  obtained from  the InteGrade
+portal,                 at                 the                 address
+http://ccsl.ime.usp.br/integrade/en/software.   As  of  June 2009, the
+current   version   of   InteGrade  is   0.5. After   downloading  the 
+distribution  (package integrade-0.3-rc1.tar.gz), you  must unpack it:
+
+  $ tar -zxvf ig-0.5RC1.tar.gz
+
+This command  will unpack InteGrade in a  directory named `ig-0.5RC1'.
+From now on this will be InteGrade root directory.
+
+In  the rest  of this  section,  we describe  the steps  to setup  and
+compile  InteGrade.  Initially, we  do not  take security  issues into
+account. Later in the document,  we describe how to build InteGrade so
+that it uses a secure Kerberos-based Application Repository. We do not
+recommend  the use  of  InteGrade in  real-life  projects without  the
+secure Application Repository activated.
+
+The  setup.sh script  will help  you on  configuring  InteGrade.  This
+script is  located in InteGrade's root directory. To setup
+InteGrade,  go  to the  InteGrade  directory  and  choose one  of  two
+options:
+
+ (a)  Run setup.sh  without any  arguments and  answer  some questions
+     about the locations of  the required packages.  Additionally, the
+     script will  ask you if the  current machine will be  acting as a
+     server. Answer  'y' if you intend  to run the GRM  on the current
+     node. The information you provide will be saved on the setup.conf
+     file to be used by the build procedure.
+
+ (b) You can  directly edit the setup.conf file and  tailor it to your
+     environment.  If a secure application repository is not required,
+     leave  properties  kerberosDomain  and kerberosConfigPath  blank.
+     After  assigning  the appropriate  values  to  the properties  in
+     setup.conf, execute the following command:
+
+  $ ./setup.sh --file setup.conf
+
+More information can be found by running
+
+  $ ./setup.sh --help.
+
+To compile all the InteGrade modules, setup the environment and execute
+make in InteGrade root directory:
+
+   $ source ./startservices.sh env
+   $ make all
+
+After this, InteGrade is ready to be executed.
+
+-----------------------------------------------------------------------------
+LAUNCHING INTEGRADE
+
+To execute InteGrade,  you need to start at  least one Global Resource
+Manager (GRM, runs on the nodes responsible for managing the grid) and
+one  or  more Local  Resource  Managers  (LRMs,  run on  the  resource
+provider  nodes). Several  LRMs can  be  started using  a single  GRM.
+Additionally, in order to submit jobs  to the grid, it is necessary to
+initialize the ASCT (Application Submission and Control Tool).  Before
+launching the  InteGrade modules, make  sure that all  the environment
+variables that InteGrade  requires are set.  You can  do this by going
+to the  InteGrade root directory  and  loading the  settings   in  the
+startservices.sh file:
+
+  $ source ./startservices.sh env
+
+It is  recommended  to write the source  command (with  full path)  in
+~/.bashrc,  so next time  you login  you won't  need to run it  again.
+After this, you can start InteGrade services with the startservices.sh
+script. To start  up a global resource manager in  one of the machines
+(where  you   will  start  all  servers),   type:
+
+  $ ./startservices.sh servers
+
+As previously mentioned, several machines can act as LRMs based on the
+same GRM.  The  easiest way to do  this is to simply log  onto each of
+these  machines  using SSH  and  activating the  LRM  in  each one  of
+them. To start the LRM, on the InteGrade directory, type:
+
+  $ ./startservices.sh client
+
+In each  machine that  will be used  for submitting  applications that
+will execute on the grid, type:
+
+  $ ./startservices.sh asctGui
+
+This command will  present the ASCT GUI, which  allows users to submit
+jobs to the grid, set  input arguments, access the output produced the
+the execution  of the jobs, and  define the type of  application to be
+executed.   InteGrade  currently  supports  four  different  types  of
+applications:  (i) Regular (single-threaded),  used only  for testing;
+(ii) parametric  (or bag-of-tasks), for parallel  applications that do
+not  require communication amongst  processes; (iii)  Bulk Synchronous
+Parallel  (BSP),  for highly  coupled  applications  that need  strong
+synchronization; and (iv) Message Passing Interface (MPI), for general
+highly  coupled applications.  In  the following  two sections,  we'll
+learn  how  to  execute   regular  and  BSP  applications.  The  other
+app. types work in a similar vein.
+
+You    can   stop   InteGrade  in  a  similar way,  using  the  script 
+stopservices.sh, for instance:
+
+  $ ./stopservices.sh all
+
+-----------------------------------------------------------------------------
+EXECUTING A NON-PARALLEL APPLICATION
+
+We will test the execution  of regular applications on InteGrade using
+a very  simple example based on  the UNIX 'ls' command.   In the ASCT,
+right-click the  root character ('/') that  appears under "Application
+Repository"  and left-click the  option "Register  Application".  Then
+enter a name for the application you're registering (e.g.  "LS", "ls",
+"List", you get the picture).  Right-click the name of the application
+you  just entered  (let's assume  it's "List")  and choose  the option
+"Upload Binary".  A  text field will then appear  and you should enter
+"/bin/ls"  (the  path  for  the   "ls"  UNIX  command)  and  click  on
+``Upload''.
+
+To  run the  test,  Right-click  the second  item  below "List"  (e.g.
+"Linux_i686", depending on the machine and OS where you're running the
+application)   and   left-click   "Execute".    A  new   window   will
+appear. Choose  ``Regular'' as the application type.  Also, type "-la"
+on  the "Arguments"  text field  and  mark the  "stderr" and  "stdout"
+checkboxes that appear under  ``Output Files''. Then click on "Submit"
+and a  new item  labeled "List"  will appear in  the main  ASCT window
+under "Requested  Executions".  Wait for  the label to turn  green and
+then right-click it and left-click  "View Results".  A new window will
+pop-up. On the left-hand pane, there's only one item: "Node1". This is
+expected,  since   the  application  you  just   executed  is  regular
+(non-parallel) and  only uses one node. Double-click  "Node1" and then
+click  on "stdout".  The  pane on  the right-hand  side will  show the
+results of the "ls" command.
+
+
+-----------------------------------------------------------------------------
+EXECUTING A PARALLEL APPLICATION
+
+To execute a parallel application,  one should follow the same overall
+steps as a  regular application. To illustrate this,  we will show how
+to execute  the matrix multiplication application that  is included in
+the   InteGrade    distribution,   under   examples/bsp/matrix.   This 
+application  randomly  generates  two   square  n  x  n  matrices  and
+multiplies them a certain number of times. To execute it on InteGrade,
+it  is necessary  to  first compile  the  sources that  come with  the
+InteGrade distribution.  Since this  application uses the BSP model of
+parallel programming, we  need to compile it using  a special compiler
+targeting this  communication model. This compiler is  included in the
+InteGrade distribution, under libs/bspLib/.
+
+Go       to       the       matrix      multiplication       directory
+(examples/bsp/matrix)  and  compile  the  example  with  the following
+command in InteGrade root directory:
+
+  $ ./libs/bspLib/bspcc.sh matrix.c -o matrix
+
+Now, if  you haven't done  it yet, execute  the GRM, the LRM,  and the
+ASCT. Since this is a  parallel application, you might want to execute
+it using  two or  more machines.  Remember  that, to run  an InteGrade
+application on  multiple nodes,  you simply start  the LRM in  all the
+nodes you  want to use  as service providers.   The easiest way  to do
+this is to ssh these machines and, using the same code base from which
+you started  the GRM, start the LRM  in each one of  them. Notice that
+this also  applies to the ASCT.   It is straightforward  to execute it
+from  a  machine  where neither  the  GRM  nor  LRMs are  runnning  by
+following the same steps.
+
+To  execute the  matrix multiplication,  on the  ASCT, register  a new
+application named "Matrix", upload the binary you just generated whose
+full  path  is  $IG_HOME/examples/bsp/matrix/matrix, and  execute  the
+application. For  the Application  Type, choose "BSP".   You'll notice
+that a new text field labeled "Number of Tasks" appears.  Enter "4" in
+this field.  In the "Arguments" field,  enter "4 100 10", where '4' is
+the number of concurrent (or parallel,  in case you create two or more
+LRMs running  on different machines)  processes that will  execute the
+application, '100' means  that the matrices will be  100x100, and '10'
+is the number of times they are multiplied. Mark the stderr and stdout
+checkboxes in  order to be able  to visualize the  results and submit
+the application.
+
+You can view the resulsts just  like you did for the "ls" application.
+Four different tasks  (labeled Node1-4) are listed on  the window that
+shows  the execution  results for  the matrix  multiplication example.
+Notice  that, even  though these  tasks  are labeled  NodeX, they  are
+actually just process  that might not have been  executed in different
+machines, depending on  the number of LRMs you  initiated. If you look
+at the "stdout" part of the output, you'll notice that it mentions the
+name of  the machine where each  task was run. This  is useful because
+InteGrade's users  cannot control how  InteGrade's scheduler allocates
+tasks to nodes, assuming that more than one node is available.
+
+
+-----------------------------------------------------------------------------
+EXECUTING AN APPLICATION IN TEXT-MODE
+
+You  can  also  start  jobs  without  the  graphical  interface.  After
+following the  compilation steps  detailed in  the previous section, go
+to the InteGrade's directory and type:
+
+  $./startservices.sh asctText -b $IG_HOME/examples/bsp/matrix/matrix
+-i $IG_HOME/examples/bsp/matrix/matrix.conf
+
+The -b value  is the path  of the binary  you want  to execute, and the
+-i is the path  to the execution  descriptor file, which can be created
+by clicking in the Save button in AsctGui.
+
+
+-----------------------------------------------------------------------------
+RUNNING INTEGRADE WITH A SECURE APPLICATION REPOSITORY
+
+InteGrade provides users with a persistent Application Repository that
+saves the state of the applications that each user registers.  In this
+manner, a  user does not  have to re-register applications  he/she has
+previously executed  on InteGrade.  Since the  users of a  grid may be
+unwilling  to make  the state  of their  applications public  to other
+users, InteGrade's Application Repository  can be executed in a secure
+mode, using the Kerberos authentication  protocol. In the rest of this
+section,  we briefly  explain how  to run  InteGrade using  the secure
+Application Repository.  If you need further explanations, contact the
+InteGrade team at integrade-support@googlegroups.com.
+
+First and foremost:  If you choose to enable  security support for the
+Application Repository, you have  to install and configure Kerberos (a
+3rd.   party  software)  before  attempting  to  configure  InteGrade.
+Kerberos  is developed  by a  MIT group  and all  required information
+about it can be found at http://web.mit.edu/kerberos.
+
+To enable the secure Application  Repository, you will have to setup a
+kerberos  realm in  your network  and create  at least  one  user with
+administration priveilegies.  After that, execute setup.sh and respond
+``y''  to the  question  about  security.  The  script  will ask  some
+questions about  how you  have set up  your Kerberos  environment, and
+will create all  the necessary groups under your  realm.  Now you need
+to create the users (using kadmin) that will have access to InteGrade.
+The users  must belong to  the group ARSC,  and so they have  the form
+``username/ARSC@Realm``.  After  that you can  recompile InteGrade. To
+run InteGrade  using a secure Application Repository,  it is necessary
+to first have the Kerberos realm working.
+
+
+-----------------------------------------------------------------------------
+APPENDIX - OBTAINING THE REQUIRED PACKAGES
+
+To install  GCC, G++, and  Make in a Debian-based  Linux distribution,
+make  sure  that you  have  root  privileges  and type  the  following
+commands in the terminal:
+
+  $ apt-get install gcc-4.0
+  $ apt-get install g++
+  $ ant-get install make
+
+For Red Hat and Fedora, use the yum utility instead:
+
+  $ yum install gcc-4.0
+  $ yum install g++
+  $ yum install make
+
+Other Linux  distributions provide  different means for  obtaining and
+installing     these      packages.      Contact     the     InteGrade
+(integrade-support@googlegroups.com) team for more information.
+
+To install the JDK 1.5.0, we suggest you download it directly from the
+Sun website.  Choose the self-extracting package  (.bin extension), as
+it does not  depend on Linux distribution-specific tools  and does not
+require    root   privileges.    After    you   download    the   file
+jdk-1_5_0_<version>-linux-i586.bin  (replace   `<version>'  by  the
+version number), assuming  it was saved in the  current directory, set
+the file permissions in order for  it to be executable and execute it.
+For  example,  if  you  downloaded  JDK  1.5.0  Update  11,  type  the
+following:
+
+  $ chmod u+x jdk-1_5_0_11-linux-i586.bin
+  $ ./jdk-1_5_0_11-linux-i586.bin
+
+Simply type `yes' when the program  asks if you agree with the license
+agreement  and  JDK  will  be  installed in  your  system.   For  more
+information      on      installing      the      JDK,      go      to
+http://java.sun.com/j2se/1.5.0/install-linux.html#self-extracting.
+After installation,  you need  to modify your  system settings.  Use a
+text editor such  as pico, vim, or emacs to edit  the .bashrc file. We
+will, from now on, assume that you are unpacking all the packages in a
+directory named /home/user. In case you don't know the directory where
+you are, type
+
+  $ pwd
+
+and the  shell will  display the name  of the current  directory.  Use
+that name  instead of /home/user  wherever we use  the latter in
+the  rest of the  text.  After  installing the  JDK, modify  your user
+settings in order for Java to  be accessible from any directory in the
+system.  To  do this, edit the  .bashrc file  (assuming that you
+are using the bash shell) by typing:
+
+  $ pico ~/.bashrc
+
+When the text  editor screen appears, go to the  line that starts with
+`export PATH' and add
+
+  :/home/user/jdk-1.5.0_11/bin
+
+at the end of that line.  Moreover, add the following two lines at the
+end of the file:
+
+  export CLASSPATH=$CLASSPATH:/home/user/jdk1.5.0_01/jre/lib/rt.jar
+  export JAVA_HOME=/home/user/jdk1.5.0_11/
+
+After  applying these modifications,  save them  and exit  the editor.
+Then type
+
+  $ source ~/.bashrc
+
+for them to take effect.
+
+To install Ant,  download the current version from  the website. Using
+the 1.7.0 version as example, download the file
+apache-ant-1.7.0-bin.tar.gz and unpack it as follows:
+
+  $ tar -xzvf apache-ant-1.7.0-bin.tar.gz
+
+Assuming Ant was unpacked in  the /home/user/ directory, edit the file
+.bashrc and include
+
+  :/home/user/apache-ant-1.7.0/bin
+
+at the  end of the `export PATH'  line, similarly to what  you did for
+the JDK. Moreover, add the following line at the end of the file:
+
+  export ANT_HOME=/home/user/apache-ant-1.7.0/
+
+Again, after editing the .bashrc file, type
+
+  $ source ~/.bashrc
+
+for the changes to take effect.
+
+Installing  JacORB  is then  a  simple  process.   First download  its
+distribution.  Then, assuming it was download in directory /home/user,
+type the following:
+
+  $ tar -zxvf JacORB-2.2.3-source.tar.gz
+  $ cd JacORB-2.2.3
+  $ ant
+  $ cd  ..
+
+InteGrade  also  requires  the  OiLPack,  a package  that  includes  a
+compiler and a runtime for  the Lua programming language, the OiL ORB,
+a lightweight ORB that runs on the grid's resource provider nodes, and
+LuaSocket, a library providing  support for socket programming in Lua.
+Download the current version of OiLPack and unpack it as follows:
+
+  $ tar -zxvf oilpack.tar.gz
+
+The version  of OiL's distribution available in  the InteGrade website
+includes a  script, install.sh, that  automatically installs all
+the components of  OiLPack. Simply execute the script  and provide the
+full path where the contents of the package will be installed:
+
+  $ cd oilpack
+  $ install.sh
+  This script will configure compile and install lua-5.0.2 with:
+     -> compat-5.1r5
+     -> luasocket-2.0-beta3
+     -> oil-0.3.1-alpha
+
+  Enter the full path where you want to install lua-5.0.2:
+
+When the last sentence above  appears, enter the name of the directory
+where Lua will be installed, for example, /home/user/lua-5.0.2.
+
+Finally, for instructions on how to install the MPICH2 library, take a
+look at the  MPICH2 Installer's Manual. This document  is available at
+the following URL:
+
+http://www-unix.mcs.anl.gov/mpi/mpich2/downloads/mpich2-doc-install.pdf
+
+-----------------------------------------------------------------------------
+
+

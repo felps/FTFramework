@@ -1,0 +1,177 @@
+#!/usr/bin/env bash
+#startservices.sh - starts the various InteGrade modules
+#Author: Jose de Ribamar Braga Pinheiro Junior
+#Modified by: Andrei Goldchleger, Ricardo Luiz de Andrade Abrantes
+#
+
+#set -x
+wait=5
+in=false
+secureAppRepos=false
+LRM_PRIORITY=-19
+# Environment Variables
+export IG_HOME=
+export ANT_HOME=
+export JACORB_HOME=
+export JAVA_HOME=
+export LUA_HOME=
+export CATALINA_HOME=
+export JFREECHART_HOME=
+# { IMPI
+export LD_LIBRARY_PATH="$IG_HOME/libs/mpiLib/lib:$LUA_HOME/lib:$LD_LIBRARY_PATH"
+# } IMPI
+export PATH="$PATH:$JACORB_HOME/bin:$JAVA_HOME/bin:$ANT_HOME/bin:$JACORB_HOME"
+export NS_PORT=47039
+
+# Classpath verification
+# Classpath does not ends with comma or is not empty.
+# This may cause integrade fail to start
+if [ ! -z $CLASSPATH ]
+then
+    lastChar=${CLASSPATH#${CLASSPATH%?}}
+    if [ $lastChar != ':' ]
+    then
+        export CLASSPATH="${CLASSPATH}:"
+    fi
+fi
+export CLASSPATH="$JACORB_HOME/lib/idl.jar:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/antlr-2.7.2.jar:$JACORB_HOME/lib/avalon-framework-4.1.5.jar:$JACORB_HOME/lib/backport-util-concurrent.jar:$JACORB_HOME/lib/logkit-1.2.jar:$JACORB_HOME/lib/picocontainer-1.2.jar:$JACORB_HOME/lib/wrapper-3.1.0.jar:$IG_HOME/libs/h2/h2.jar:$IG_HOME/libs/h2/:$CLASSPATH"
+
+#For each command line parameter, executes the associated module
+while [ "$1" !=  "" -o "$in" == "false" ]
+do
+   in=true
+   case "$1" in
+    "env")
+    echo Done!
+    shift
+    ;;
+    "servers")
+      echo Initializing servers
+      cd $JACORB_HOME/bin
+      ./ns -DOAPort=$NS_PORT & 
+      cd $IG_HOME/clusterManagement/grm/launchTrader/
+      ./settr &
+      sleep $wait
+      cd $IG_HOME/clusterManagement/grm/classes/
+      ./runit > ${IG_HOME}/grm.log 2>&1 &
+      sleep $wait
+      if [ ${secureAppRepos} = "true" ]
+      then
+	  cd $IG_HOME/clusterManagement/arsm/classes/
+	  ./runit > ${IG_HOME}/arsm.log 2>&1 &
+	  sleep $wait
+      fi
+      cd $IG_HOME/clusterManagement/applicationRepository/classes/
+      ./runit > ${IG_HOME}/applicationRepository.log 2>&1 &
+      #sleep $wait
+      cd $IG_HOME/clusterManagement/cdrm/classes/
+      ./runit > ${IG_HOME}/cdrm.log 2>&1 &
+      shift
+    ;;
+    "client")
+      echo Initializing lrm
+      cd $IG_HOME/resourceProviders/lrm
+      nice "${LRM_PRIORITY}" ./LrmLauncher > ${IG_HOME}/lrm.log 2>&1 &
+      shift
+      echo Initializing adr
+      cd $IG_HOME/resourceProviders/adr
+      nice "${LRM_PRIORITY}" ./AdrLauncher > ${IG_HOME}/adr.log 2>&1 &
+      shift
+    ;;
+    "lrm")
+      echo Initializing lrm
+      sleep $wait
+      cd $IG_HOME/resourceProviders/lrm
+      nice "${LRM_PRIORITY}" ./LrmLauncher > ${IG_HOME}/lrm.log 2>&1 &
+      shift
+    ;;
+    "adr")
+      echo Initializing adr
+      sleep $wait
+      cd $IG_HOME/resourceProviders/adr
+      nice "${LRM_PRIORITY}" ./AdrLauncher > ${IG_HOME}/adr.log 2>&1 &
+      shift
+    ;;
+    "asctGui")
+      echo Initializing asctGui
+      cd $IG_HOME/tools/asct/classes
+      ./runit &
+      sleep $wait
+      shift
+    ;;
+    "asctText")
+      echo Initializing asctText
+      params=''
+      shift
+      while [ "$#" -gt 0 ] 
+      do
+         if [ $1 = "-b" ]; then
+            params="${params} $1 $2"
+            shift 
+            shift
+         elif [ $1 = "-o" ]; then
+            params="${params} $1 $2"
+            shift
+            shift
+         elif [ $1 = "-i" ]; then
+            params="${params} $1 $2"
+            shift
+            shift
+         else
+            break
+         fi
+      done
+
+      cd $IG_HOME/tools/asct/classes
+      cat runitText > temp
+      echo "$params" >> temp
+      chmod +x temp
+      ./temp 
+      rm temp -f
+   ;;
+   "portal")
+      echo Initializing portal
+      cd $CATALINA_HOME
+      ./bin/catalina.sh start
+	  shift
+   ;;
+	 "var")
+		shift
+        echo export IG_HOME=
+        echo export ANT_HOME=
+        echo export JACORB_HOME=
+        echo export JAVA_HOME=
+        echo export LUA_HOME=
+        echo export CATALINA_HOME=
+        echo export JFREECHART_HOME=
+        echo export LD_LIBRARY_PATH='"$IG_HOME/libs/mpiLib/lib:$LUA_HOME/lib:$LD_LIBRARY_PATH"'
+        echo export PATH='"$PATH:$JACORB_HOME/bin:$JAVA_HOME/bin:$ANT_HOME/bin:$JACORB_HOME"'
+        echo export NS_PORT=47039
+        echo export CLASSPATH='"$JACORB_HOME/lib/idl.jar:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/antlr-2.7.2.jar:$JACORB_HOME/lib/avalon-framework-4.1.5.jar:$JACORB_HOME/lib/backport-util-concurrent.jar:$JACORB_HOME/lib/logkit-1.2.jar:$JACORB_HOME/lib/picocontainer-1.2.jar:$JACORB_HOME/lib/wrapper-3.1.0.jar:$IG_HOME/libs/h2/h2.jar:$IG_HOME/libs/h2/:$CLASSPATH"'
+   ;;
+
+    "all")
+      shift
+      echo Initializing all
+      . $0 env
+      $0 servers
+      $0 lrm
+      $0 adr
+      $0 asctGui
+    ;;
+    *)
+      echo " "
+      echo "Usage: $0 <lrm> <asct> <asctGui> <servers> <clusterview> <env> <all>"
+      echo
+      echo "env         -> Sets environment variables. Execute with a leading 'dot' (e.g.) . $0"
+      echo "servers     -> Initializes server side modules (GRM and Application Repository)"
+      echo "client      -> Initializes the resource provider modules (LRM and ADR)"
+      echo "lrm         -> Initializes the Local Resorce Manager"
+      echo "asctGui     -> Initializes the Graphical Application submittion and Control tool"
+      echo "portal      -> Initializes the portal"
+      echo "all         -> Initializes all modules"
+      echo "var	        -> Displays needed exports for variables"
+      echo
+      shift
+   esac
+done

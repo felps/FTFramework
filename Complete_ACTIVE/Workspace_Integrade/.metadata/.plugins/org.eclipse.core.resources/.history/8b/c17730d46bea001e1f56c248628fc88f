@@ -1,0 +1,59 @@
+package dataTypes;
+
+/**
+ *	Generated from IDL definition of alias "MpiConnectInformationSequence"
+ *	@author JacORB IDL compiler 
+ */
+
+public final class MpiConnectInformationSequenceHelper
+{
+	private static org.omg.CORBA.TypeCode _type = null;
+
+	public static void insert (org.omg.CORBA.Any any, dataTypes.MpiConnectInformation[] s)
+	{
+		any.type (type ());
+		write (any.create_output_stream (), s);
+	}
+
+	public static dataTypes.MpiConnectInformation[] extract (final org.omg.CORBA.Any any)
+	{
+		return read (any.create_input_stream ());
+	}
+
+	public static org.omg.CORBA.TypeCode type ()
+	{
+		if (_type == null)
+		{
+			_type = org.omg.CORBA.ORB.init().create_alias_tc(dataTypes.MpiConnectInformationSequenceHelper.id(), "MpiConnectInformationSequence",org.omg.CORBA.ORB.init().create_sequence_tc(0, dataTypes.MpiConnectInformationHelper.type()));
+		}
+		return _type;
+	}
+
+	public static String id()
+	{
+		return "IDL:dataTypes/MpiConnectInformationSequence:1.0";
+	}
+	public static dataTypes.MpiConnectInformation[] read (final org.omg.CORBA.portable.InputStream _in)
+	{
+		dataTypes.MpiConnectInformation[] _result;
+		int _l_result8 = _in.read_long();
+		_result = new dataTypes.MpiConnectInformation[_l_result8];
+		for (int i=0;i<_result.length;i++)
+		{
+			_result[i]=dataTypes.MpiConnectInformationHelper.read(_in);
+		}
+
+		return _result;
+	}
+
+	public static void write (final org.omg.CORBA.portable.OutputStream _out, dataTypes.MpiConnectInformation[] _s)
+	{
+		
+		_out.write_long(_s.length);
+		for (int i=0; i<_s.length;i++)
+		{
+			dataTypes.MpiConnectInformationHelper.write(_out,_s[i]);
+		}
+
+	}
+}

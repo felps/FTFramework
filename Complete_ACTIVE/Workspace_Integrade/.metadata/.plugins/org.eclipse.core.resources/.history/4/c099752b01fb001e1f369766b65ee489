@@ -1,0 +1,17 @@
+package ftec;
+
+import junit.framework.TestCase;
+
+public class FTMTest extends TestCase {
+
+	public void testFtec() {
+		Ftec ftec = new RetryFTEC("Teste", "/usr/integrade/retryFtec", "ls", "/", "");
+		assertEquals("Teste", ftec.getName());
+	}
+
+	public void testGetBinaryLocation() {
+		Ftec ftec = new RetryFTEC("Teste", "/usr/integrade/retryFtec", "ls", "/", "");
+		assertEquals("ls", ftec.getChosenFTECbinaryLocation());
+	}
+
+}

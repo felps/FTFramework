@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Complete
+Bundle-SymbolicName: Complete
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: Complete.jar,
+ felps/Dropbox/Desenvolvimento/lib/snakeyaml-1.5.jar
+Export-Package: defaultTypes,
+ ftec,
+ ftm,
+ ftsm,
+ wfm,
+ wsct
+Require-Bundle: org.junit
