@@ -1,0 +1,2367 @@
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+{name=getSwissProtId, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtId.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@387aec07
+Name: getSwissProtId
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
+ Output: null
+ Dependencies: []
+
+
+{name=getGoIds, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getGoIds.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@42b8cabe
+Name: getGoIds
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getGoIds.asct
+ Output: null
+ Dependencies: []
+
+
+{name=createVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/createVizSession.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@7f0a0a9a
+Name: createVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/createVizSession.asct
+ Output: null
+ Dependencies: []
+
+
+{name=addTermToViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/addTermToViz.asct, outputfile=null, dependencies=[getGoIds, createVizSession]}
+ID: defaultTypes.Task@1d2e91f5
+Name: addTermToViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@42b8cabe, defaultTypes.Task@7f0a0a9a]
+
+
+{name=getSwissProtRecord, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct, outputfile=null, dependencies=[getSwissProtId]}
+ID: defaultTypes.Task@4cc155dd
+Name: getSwissProtRecord
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@387aec07]
+
+
+{name=getDotFromViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getDotFromViz.asct, outputfile=null, dependencies=[createVizSession, addTermToViz]}
+ID: defaultTypes.Task@14b28d06
+Name: getDotFromViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@1d2e91f5, defaultTypes.Task@7f0a0a9a]
+
+
+{name=destroyVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/destroyVizSession.asct, outputfile=null, dependencies=[createVizSession, getDotFromViz]}
+ID: defaultTypes.Task@24960b61
+Name: destroyVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@14b28d06, defaultTypes.Task@7f0a0a9a]
+
+
+Workflow submitted at 18:01:38: defaultTypes.Workflow@76c5200a
+Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@70e98812
+getSwissProtId
+18:01:48 Active FTEC > startThread
+defaultTypes.Task@52d38525
+getSwissProtId
+workflow1
+18:01:48Active FTEC: Starting instance for getSwissProtId...
+Esta é a 1-ésima vez que dah um startExecution
+18:01:48Active FTEC: Starting instance for getSwissProtId...
+Esta é a 2-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@70e98812
+getSwissProtId
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@107c1f2f
+getGoIds
+18:01:48 Active FTEC > startThread
+defaultTypes.Task@a41f08
+getGoIds
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@107c1f2f
+getGoIds
+18:01:48Active FTEC: Starting instance for getGoIds...
+Esta é a 3-ésima vez que dah um startExecution
+18:01:48Active FTEC: Starting instance for getGoIds...
+Esta é a 4-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
+Initializing asctText
+LoadManyDocuments
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
+Initializing asctText
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@4e993077
+createVizSession
+18:01:48 Active FTEC > startThread
+defaultTypes.Task@1c3518c9
+createVizSession
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@4e993077
+createVizSession
+18:01:48Active FTEC: Starting instance for createVizSession...
+Esta é a 5-ésima vez que dah um startExecution
+18:01:48Active FTEC: Starting instance for createVizSession...
+Esta é a 6-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
+Initializing asctText
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
+Initializing asctText
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@1dcd8d1f
+getSwissProtRecord
+18:01:49 Active FTEC > startThread
+FTEC > reqFtecThread
+defaultTypes.Task@1dcd8d1f
+defaultTypes.Task@1afd07df
+getSwissProtRecord
+workflow1
+18:01:49Active FTEC: Starting instance for getSwissProtRecord...
+Esta é a 7-ésima vez que dah um startExecutiongetSwissProtRecord
+
+18:01:49Active FTEC: Starting instance for getSwissProtRecord...
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
+Esta é a 8-ésima vez que dah um startExecution
+18:01:49Active FTEC: Instance for getSwissProtId ended...
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
+18:01:49Active FTEC: Instance for getSwissProtRecord ended...
+18:01:49Active FTEC: Instance for getSwissProtRecord ended...
+18:01:49Active FTEC: Instance for getGoIds ended...
+18:01:49Active FTEC: Instance for getSwissProtId ended...
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@74a456bb
+addTermToViz
+18:01:49 Active FTEC > startThread
+defaultTypes.Task@56be1a11
+addTermToViz
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@74a456bb
+18:01:49Active FTEC: Starting instance for addTermToViz...
+addTermToViz
+Esta é a 9-ésima vez que dah um startExecution
+18:01:49Active FTEC: Starting instance for addTermToViz...
+Esta é a 10-ésima vez que dah um startExecution
+18:01:49Active FTEC: Instance for createVizSession ended...
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+18:01:49Active FTEC: Instance for createVizSession ended...
+18:01:49Active FTEC: Instance for getGoIds ended...
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@277018cf
+getDotFromViz
+18:01:50 Active FTEC > startThread
+defaultTypes.Task@18b8c068FTEC > reqFtecThread
+defaultTypes.Task@277018cf
+getDotFromViz
+
+getDotFromViz
+workflow1
+18:01:50Active FTEC: Starting instance for getDotFromViz...
+Esta é a 11-ésima vez que dah um startExecution
+18:01:50Active FTEC: Instance for addTermToViz ended...
+18:01:50Active FTEC: Starting instance for getDotFromViz...
+Esta é a 12-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
+18:01:50Active FTEC: Instance for addTermToViz ended...
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@4cd67e21
+destroyVizSession
+18:01:50 Active FTEC > startThread
+defaultTypes.Task@5224d289
+destroyVizSession
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@4cd67e21
+destroyVizSession
+18:01:50Active FTEC: Starting instance for destroyVizSession...
+Esta é a 13-ésima vez que dah um startExecution
+18:01:50Active FTEC: Starting instance for destroyVizSession...
+Esta é a 14-ésima vez que dah um startExecution
+18:01:50Active FTEC: Instance for getDotFromViz ended...
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
+18:01:50Active FTEC: Instance for getDotFromViz ended...
+18:01:50Active FTEC: Instance for destroyVizSession ended...
+18:01:50Active FTEC: Instance for destroyVizSession ended...
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+WFM: Acordei
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+{name=getSwissProtId, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtId.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@387aec07
+Name: getSwissProtId
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
+ Output: null
+ Dependencies: []
+
+
+{name=getGoIds, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getGoIds.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@7206a22a
+Name: getGoIds
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getGoIds.asct
+ Output: null
+ Dependencies: []
+
+
+{name=createVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/createVizSession.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@6c3e459e
+Name: createVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/createVizSession.asct
+ Output: null
+ Dependencies: []
+
+
+{name=addTermToViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/addTermToViz.asct, outputfile=null, dependencies=[getGoIds, createVizSession]}
+ID: defaultTypes.Task@5c707aca
+Name: addTermToViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@6c3e459e, defaultTypes.Task@7206a22a]
+
+
+{name=getSwissProtRecord, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct, outputfile=null, dependencies=[getSwissProtId]}
+ID: defaultTypes.Task@28ec4789
+Name: getSwissProtRecord
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@387aec07]
+
+
+{name=getDotFromViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getDotFromViz.asct, outputfile=null, dependencies=[createVizSession, addTermToViz]}
+ID: defaultTypes.Task@56488f87
+Name: getDotFromViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@6c3e459e, defaultTypes.Task@5c707aca]
+
+
+{name=destroyVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/destroyVizSession.asct, outputfile=null, dependencies=[createVizSession, getDotFromViz]}
+ID: defaultTypes.Task@76c5200a
+Name: destroyVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@56488f87, defaultTypes.Task@6c3e459e]
+
+
+Workflow submitted at 18:04:04: defaultTypes.Workflow@7baad71
+Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    getSwissProtId
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@2887e18f
+getSwissProtId
+18:04:12 Active FTEC > startThread
+defaultTypes.Task@31f16027
+getSwissProtId
+workflow1
+18:04:12Active FTEC: Starting instance for getSwissProtId...
+Esta é a 1-ésima vez que dah um startExecution
+18:04:12Active FTEC: Starting instance for getSwissProtId...
+Esta é a 2-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@2887e18f
+getSwissProtId
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@5402fe28
+getGoIds
+18:04:12 Active FTEC > startThread
+defaultTypes.Task@3665ea4b
+getGoIds
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@5402fe28
+getGoIds
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}18:04:12Active FTEC: Starting instance for getGoIds...
+Esta é a 3-ésima vez que dah um startExecution
+
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
+Initializing asctText
+18:04:12Active FTEC: Starting instance for getGoIds...
+Esta é a 4-ésima vez que dah um startExecution
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
+
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@56911387
+createVizSession
+18:04:12 Active FTEC > startThread
+defaultTypes.Task@3aec71f8
+createVizSession
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@56911387
+createVizSession
+18:04:12Active FTEC: Starting instance for createVizSession...
+Esta é a 5-ésima vez que dah um startExecution
+18:04:12Active FTEC: Starting instance for createVizSession...
+Esta é a 6-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
+Initializing asctText
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@6229abca
+getSwissProtRecord
+18:04:14 Active FTEC > startThread
+FTEC > reqFtecThread
+defaultTypes.Task@6229abca
+getSwissProtRecorddefaultTypes.Task@5f50ac7e
+getSwissProtRecord
+workflow1
+18:04:14Active FTEC: Starting instance for getSwissProtRecord...
+Esta é a 7-ésima vez que dah um startExecution
+
+18:04:14Active FTEC: Starting instance for getSwissProtRecord...
+Esta é a 8-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
+18:04:14Active FTEC: Instance for getSwissProtId ended...
+18:04:14Active FTEC: Instance for getGoIds ended...
+18:04:14Active FTEC: Instance for getSwissProtId ended...
+18:04:14Active FTEC: Instance for getGoIds ended...
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@4162ca06
+addTermToViz
+18:04:14 Active FTEC > startThread
+defaultTypes.Task@921e761
+addTermToViz
+workflow1
+18:04:14Active FTEC: Starting instance for addTermToViz...
+Esta é a 9-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@4162ca06
+addTermToViz
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+Initializing asctText
+18:04:14Active FTEC: Starting instance for addTermToViz...
+Esta é a 10-ésima vez que dah um startExecution
+18:04:14Active FTEC: Instance for createVizSession ended...
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+18:04:14Active FTEC: Instance for createVizSession ended...
+18:04:15Active FTEC: Instance for getSwissProtRecord ended...
+18:04:15Active FTEC: Instance for getSwissProtRecord ended...
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@794a70bf
+getDotFromViz
+18:04:15 Active FTEC > startThread
+defaultTypes.Task@206fcd32
+getDotFromViz
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@794a70bf
+getDotFromViz
+18:04:15Active FTEC: Starting instance for getDotFromViz...
+18:04:15Active FTEC: Instance for addTermToViz ended...
+18:04:15Active FTEC: Starting instance for getDotFromViz...
+Esta é a 12-ésima vez que dah um startExecution
+Esta é a 11-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
+18:04:15Active FTEC: Instance for addTermToViz ended...
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@d029f4
+destroyVizSession
+18:04:16 Active FTEC > startThread
+FTEC > reqFtecThread
+defaultTypes.Task@d029f4
+destroyVizSession
+defaultTypes.Task@7caaff99
+destroyVizSession
+workflow1
+18:04:16Active FTEC: Instance for getDotFromViz ended...
+18:04:16Active FTEC: Starting instance for destroyVizSession...
+18:04:16Active FTEC: Starting instance for destroyVizSession...
+Esta é a 14-ésima vez que dah um startExecution
+Esta é a 13-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
+18:04:16Active FTEC: Instance for getDotFromViz ended...
+18:04:17Active FTEC: Instance for destroyVizSession ended...
+18:04:17Active FTEC: Instance for destroyVizSession ended...
+Registry not created. Perhaps previously created.
+Registry not created. Perhaps previously created.
+WFM: Acordei
+{name=getSwissProtId, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtId.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@387aec07
+Name: getSwissProtId
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtId.asct
+ Output: null
+ Dependencies: []
+
+
+{name=getGoIds, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getGoIds.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@42b8cabe
+Name: getGoIds
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getGoIds.asct
+ Output: null
+ Dependencies: []
+
+
+{name=createVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/createVizSession.asct, outputfile=null, dependencies=null}
+ID: defaultTypes.Task@7f0a0a9a
+Name: createVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/createVizSession.asct
+ Output: null
+ Dependencies: []
+
+
+{name=addTermToViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/addTermToViz.asct, outputfile=null, dependencies=[getGoIds, createVizSession]}
+ID: defaultTypes.Task@1d2e91f5
+Name: addTermToViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/addTermToViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@42b8cabe, defaultTypes.Task@7f0a0a9a]
+
+
+{name=getSwissProtRecord, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct, outputfile=null, dependencies=[getSwissProtId]}
+ID: defaultTypes.Task@4cc155dd
+Name: getSwissProtRecord
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@387aec07]
+
+
+{name=getDotFromViz, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/getDotFromViz.asct, outputfile=null, dependencies=[createVizSession, addTermToViz]}
+ID: defaultTypes.Task@14b28d06
+Name: getDotFromViz
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/getDotFromViz.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@1d2e91f5, defaultTypes.Task@7f0a0a9a]
+
+
+{name=destroyVizSession, duration=60, binary=Linux_x86_64, inputfile=/home/felps/integrade/integrade/configFiles/destroyVizSession.asct, outputfile=null, dependencies=[createVizSession, getDotFromViz]}
+ID: defaultTypes.Task@24960b61
+Name: destroyVizSession
+ Binary: Linux_x86_64
+ Input: /home/felps/integrade/integrade/configFiles/destroyVizSession.asct
+ Output: null
+ Dependencies: [defaultTypes.Task@14b28d06, defaultTypes.Task@7f0a0a9a]
+
+
+Workflow submitted at 18:06:19: defaultTypes.Workflow@76c5200a
+Workflow submetido com sucesso!
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: false
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: false
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@70e98812
+createVizSession
+18:06:28 Active FTEC > startThread
+defaultTypes.Task@7dbe444b
+createVizSession
+workflow1
+18:06:28Active FTEC: Starting instance for createVizSession...
+18:06:28Active FTEC: Starting instance for createVizSession...
+Esta é a 1-ésima vez que dah um startExecution
+Esta é a 2-ésima vez que dah um startExecution
+FTEC > reqFtecThread
+defaultTypes.Task@70e98812
+createVizSession
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
+LoadManyDocuments
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/createVizSession.asct -b Linux_x86_64
+Initializing asctText
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@107c1f2f
+getGoIds
+18:06:28 Active FTEC > startThread
+defaultTypes.Task@5ee05754
+getGoIds
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@107c1f2f
+getGoIds
+18:06:28Active FTEC: Starting instance for getGoIds...
+Esta é a 3-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
+18:06:28Active FTEC: Starting instance for getGoIds...
+Esta é a 4-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getGoIds.asct -b Linux_x86_64
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@31024864
+getSwissProtId
+18:06:28 Active FTEC > startThread
+defaultTypes.Task@5779a727
+getSwissProtId
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@31024864
+getSwissProtId
+18:06:28Active FTEC: Starting instance for getSwissProtId...
+Esta é a 5-ésima vez que dah um startExecution
+18:06:28Active FTEC: Instance for createVizSession ended...
+18:06:28Active FTEC: Starting instance for getSwissProtId...
+Esta é a 6-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtId.asct -b Linux_x86_64
+Initializing asctText
+18:06:28Active FTEC: Instance for createVizSession ended...
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@21ebfd82
+getSwissProtRecord
+18:06:28 Active FTEC > startThread
+defaultTypes.Task@11bccede
+getSwissProtRecord
+workflow1
+FTEC > reqFtecThread
+defaultTypes.Task@21ebfd82
+getSwissProtRecord
+18:06:28Active FTEC: Starting instance for getSwissProtRecord...
+Esta é a 7-ésima vez que dah um startExecution
+18:06:28Active FTEC: Instance for getSwissProtId ended...
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
+18:06:28Active FTEC: Starting instance for getSwissProtRecord...
+Esta é a 8-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getSwissProtRecord.asct -b Linux_x86_64
+18:06:28Active FTEC: Instance for getSwissProtId ended...
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: false
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: false
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@27f24908
+addTermToViz
+18:07:30 Active FTEC > startThread
+FTEC > reqFtecThread
+defaultTypes.Task@27f24908
+addTermToViz
+defaultTypes.Task@167a1116
+addTermToViz
+workflow1
+18:07:30Active FTEC: Starting instance for addTermToViz...
+Esta é a 9-ésima vez que dah um startExecution
+18:07:30Active FTEC: Starting instance for addTermToViz...
+Esta é a 10-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+18:07:30Active FTEC: Instance for getGoIds ended...
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/addTermToViz.asct -b Linux_x86_64
+Initializing asctText
+18:07:30Active FTEC: Instance for getSwissProtRecord ended...
+18:07:30Active FTEC: Instance for getSwissProtRecord ended...
+18:07:30Active FTEC: Instance for getGoIds ended...
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: false
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@673ba11c
+getDotFromViz
+18:08:31 Active FTEC > startThread
+FTEC > reqFtecThread
+defaultTypes.Task@673ba11c
+getDotFromVizdefaultTypes.Task@512f0124
+getDotFromViz
+workflow1
+
+18:08:31Active FTEC: Starting instance for getDotFromViz...
+18:08:31Active FTEC: Starting instance for getDotFromViz...
+Esta é a 12-ésima vez que dah um startExecution
+Esta é a 11-ésima vez que dah um startExecution
+18:08:31Active FTEC: Instance for addTermToViz ended...
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/getDotFromViz.asct -b Linux_x86_64
+18:08:31Active FTEC: Instance for addTermToViz ended...
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: false
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+LoadManyDocuments
+{nodeId=1, parentNode=null, parentNodeAnswered=null, nodeQuantity=6, nodeVariable=processorMhz, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 1, parentNode: null, parentNodeAnswered: null, nodeQuantity: 6, nodeVariable: processorMhz,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+1 null processorMhz more 1000
+Created root node 1
+{nodeId=2, parentNode=1, parentNodeAnswered=true, nodeQuantity=6, nodeVariable=totalRam, nodeValue=1000, nodeComparison=more, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 2, parentNode: 1, parentNodeAnswered: true, nodeQuantity: 6, nodeVariable: totalRam,
+  nodeValue: 1000, nodeComparison: more, FtecChoice: null, FtecConfigFile: null}
+
+2 true totalRam more 1000
+Added node 2 onto "yes" branch of node 1
+{nodeId=3, parentNode=1, parentNodeAnswered=false, nodeQuantity=3, nodeVariable=processorName, nodeValue=i686, nodeComparison=is, FtecChoice=null, FtecConfigFile=null}
+{nodeId: 3, parentNode: 1, parentNodeAnswered: false, nodeQuantity: 3, nodeVariable: processorName,
+  nodeValue: i686, nodeComparison: is, FtecChoice: null, FtecConfigFile: null}
+
+3 false processorName is i686
+Added node 3 onto "no" branch of node 1
+{nodeId=4, parentNode=2, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=1times}
+{nodeId: 4, parentNode: 2, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 1times}
+
+4 true null null null
+Added node 4 onto "yes" branch of node 2
+{nodeId=5, parentNode=2, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=2times}
+{nodeId: 5, parentNode: 2, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 2times}
+
+5 false null null null
+Added node 5 onto "no" branch of node 2
+{nodeId=6, parentNode=3, parentNodeAnswered=false, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=3times}
+{nodeId: 6, parentNode: 3, parentNodeAnswered: false, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 3times}
+
+6 false null null null
+Added node 6 onto "no" branch of node 3
+{nodeId=7, parentNode=3, parentNodeAnswered=true, nodeQuantity=1, nodeVariable=null, nodeValue=null, nodeComparison=null, FtecChoice=Active, FtecConfigFile=4times}
+{nodeId: 7, parentNode: 3, parentNodeAnswered: true, nodeQuantity: 1, nodeVariable: null,
+  nodeValue: null, nodeComparison: null, FtecChoice: Active, FtecConfigFile: 4times}
+
+7 true null null null
+Added node 7 onto "yes" branch of node 3
+
+OUTPUT DECISION TREE
+====================
+[1] nodeID = 1, question/answer = null
+[1.1] nodeID = 2, question/answer = null
+[1.1.1] nodeID = 4, question/answer = Active
+[1.1.2] nodeID = 5, question/answer = Active
+[1.2] nodeID = 3, question/answer = null
+[1.2.1] nodeID = 7, question/answer = Active
+[1.2.2] nodeID = 6, question/answer = Active
+
+QUERY DECISION TREE
+===================
+null
+Yes, there are!
+null
+Yes, there are!
+FTEC Escolhido: Active
+ConfigFile: 1times
+FTM > submitTask
+defaultTypes.Task@48179cc2
+destroyVizSession
+18:09:33 Active FTEC > startThread
+FTEC > reqFtecThread
+defaultTypes.Task@48179cc2
+destroyVizSession
+defaultTypes.Task@2985158
+destroyVizSession
+workflow1
+18:09:33Active FTEC: Starting instance for destroyVizSession...
+Esta é a 13-ésima vez que dah um startExecution
+18:09:33Active FTEC: Starting instance for destroyVizSession...
+18:09:33Active FTEC: Instance for getDotFromViz ended...
+Esta é a 14-ésima vez que dah um startExecution
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
+/home/felps/integrade/integrade/startservices.sh asctText -i /home/felps/integrade/integrade/configFiles/destroyVizSession.asct -b Linux_x86_64
+18:09:33Active FTEC: Instance for getDotFromViz ended...
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+WFM: Acordei
+workflow1
+Tarefa:    addTermToViz
+   Status: true
+Tarefa:    getSwissProtRecord
+   Status: true
+Tarefa:    destroyVizSession
+   Status: false
+Tarefa:    createVizSession
+   Status: true
+Tarefa:    getDotFromViz
+   Status: true
+Tarefa:    getGoIds
+   Status: true
+Tarefa:    getSwissProtId
+   Status: true
+-----------------------------------
+18:10:34Active FTEC: Instance for destroyVizSession ended...
+18:10:34Active FTEC: Instance for destroyVizSession ended...
+WFM: Acordei
+WFM: Acordei
